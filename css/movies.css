@@ -114,7 +114,7 @@
     color: #6b7280;
 }
 
-/* Movie tabs — static visual only */
+/* Movie tabs */
 .movie-tabs {
     display: flex;
     border-bottom: 2px solid #e5e7eb;
@@ -139,6 +139,14 @@
 .movie-tab.active {
     color: #0a1628;
     border-bottom-color: #f59e0b;
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
 }
 
 /* TV show cards — slightly different from movie cards */
