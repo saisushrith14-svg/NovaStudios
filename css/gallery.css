@@ -89,9 +89,14 @@
     justify-content: center;
 }
 
-/* ISSUE (Intermediate): gallery-grid doesn't adapt columns on smaller screens properly */
-@media (max-width: 800px) {
+@media (max-width: 768px) {
     .gallery-grid {
         column-count: 2;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        column-count: 1;
     }
 }

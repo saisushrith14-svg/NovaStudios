@@ -22,9 +22,8 @@
 
 .timeline-item {
     position: relative;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
     display: flex;
-    /* ISSUE (Beginner): awkward whitespace — margin-bottom 40px too large for dense timeline */
     align-items: flex-start;
 }
 

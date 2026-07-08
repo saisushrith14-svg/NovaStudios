@@ -3,17 +3,16 @@
    ============================================ */
 
 .site-footer {
+    margin-top: 50px;
     background-color: #0a1628;
     color: #d1d5db;
     padding: 60px 0 0;
-    /* ISSUE (Advanced): font-size override conflicts with global.css body font-size */
-    font-size: 15px;
+    font-size: 0.95rem;
 }
 
 .footer-grid {
     display: grid;
-    /* ISSUE (Beginner): footer columns don't align — 4 columns but content uneven */
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     gap: 40px;
     max-width: 1200px;
     margin: 0 auto;
@@ -105,7 +104,7 @@
     margin-bottom: 10px;
 }
 
-/* ISSUE (Intermediate): Newsletter input has no associated <label> — accessibility issue */
+
 .footer-newsletter .newsletter-form {
     display: flex;
     gap: 0;
@@ -168,8 +167,13 @@
     color: #f59e0b;
 }
 
-/* ISSUE (Intermediate): Footer wraps incorrectly around 900px — 
-   the grid doesn't switch to 2-column until 768px */
+@media (max-width: 900px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
 @media (max-width: 768px) {
     .footer-grid {
         grid-template-columns: 1fr;

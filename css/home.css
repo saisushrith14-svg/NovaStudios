@@ -96,6 +96,8 @@
     gap: 24px;
     overflow-x: auto;
     padding-bottom: 16px;
+    width: 100%;
+    max-width: 100%;
 }
 
 .releases-row .movie-card {
@@ -177,6 +179,3 @@
     background-color: #d97706;
     border-color: #d97706;
 }
-
-/* ISSUE (Intermediate): Home page sections cause horizontal scrollbar 
-   on tablets because .releases-row doesn't constrain overflow on parent */

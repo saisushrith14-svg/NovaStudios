@@ -14,6 +14,13 @@
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/responsive.css">
     <link rel="stylesheet" href="../css/utilities.css">
+    <style>
+        .tv-card-link { text-decoration: none; color: inherit; display: block; cursor: pointer; }
+        .tv-lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 9999; align-items: center; justify-content: center; padding: 24px; }
+        .tv-lightbox:target { display: flex; }
+        .tv-lightbox img { max-width: 90%; max-height: 90vh; object-fit: contain; border-radius: 8px; }
+        .tv-lightbox-close { position: absolute; top: 16px; right: 24px; color: #fff; font-size: 2rem; text-decoration: none; line-height: 1; }
+    </style>
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
@@ -21,8 +28,48 @@
         <div class="container">
             <a href="../index.html" class="navbar-brand"><span class="logo-text">NOVA<span class="logo-accent">STUDIOS</span></span></a>
             <ul class="nav-links">
-                <li><a href="../about.html">About</a></li>
-                <li><a href="../movies.html">Entertainment</a></li>
+                <li>
+                    <a href="../about.html">About</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-grid">
+                            <div>
+                                <div class="mega-menu-header">Company</div>
+                                <a href="../about.html">About Us</a>
+                                <a href="../company/history.html">Our History</a>
+                                <a href="../company/leadership.html">Leadership</a>
+                                <a href="../company/careers.html">Careers</a>
+                            </div>
+                            <div>
+                                <div class="mega-menu-header">Info</div>
+                                <a href="../company/departments.html">Departments</a>
+                                <a href="../company/investors.html">Investors</a>
+                                <a href="../company/sustainability.html">Sustainability</a>
+                                <a href="../company/partnerships.html">Partnerships</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="../movies.html" class="active">Entertainment</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-grid">
+                            <div>
+                                <div class="mega-menu-header">Watch</div>
+                                <a href="../movies.html">Movies</a>
+                                <a href="../entertainment/tv-shows.html">TV Shows</a>
+                                <a href="../entertainment/animation.html">Animation</a>
+                                <a href="../entertainment/streaming.html">Nova+</a>
+                            </div>
+                            <div>
+                                <div class="mega-menu-header">Experience</div>
+                                <a href="../entertainment/theme-parks.html">Theme Parks</a>
+                                <a href="../entertainment/merchandise.html">Merchandise</a>
+                                <a href="../entertainment/events.html">Events</a>
+                                <a href="../media/gallery.html">Gallery</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 <li><a href="../news.html">News</a></li>
                 <li><a href="../blog.html">Blog</a></li>
                 <li><a href="../awards.html">Awards</a></li>
@@ -53,7 +100,7 @@
                         <a href="streaming.html" class="btn btn-primary">Watch on Nova+</a>
                     </div>
                     <div class="featured-image">
-                        <div class="placeholder-img dark" style="height: 300px; border-radius: 12px;">Chronicles of Ashenmoor — S4 Key Art</div>
+                        <a href="#poster-ashenmoor"><img src="../Asset/chronicals of ashenmoor.png" alt="Chronicles of Ashenmoor — Season 4 key art" style="width: 100%; height: 300px; object-fit: cover; border-radius: 12px;"></a>
                     </div>
                 </div>
             </div>
@@ -76,57 +123,76 @@
                 </div>
 
                 <div class="card-grid">
-                    <div class="tv-card">
-                        <div class="placeholder-img dark card-img" style="height: 200px;">Chronicles of Ashenmoor</div>
-                        <div class="card-body">
-                            <h3 class="card-title">Chronicles of Ashenmoor</h3>
-                            <div class="show-meta">4 Seasons • Fantasy • TV-MA</div>
-                            <p class="card-text">An epic fantasy series set in a world where magic is fading and kingdoms collide in a war for survival.</p>
+                    <a href="#poster-ashenmoor" class="tv-card-link">
+                        <div class="tv-card">
+                            <img src="../Asset/chronicals of ashenmoor.png" alt="Chronicles of Ashenmoor poster" class="card-img">
+                            <div class="card-body">
+                                <h3 class="card-title">Chronicles of Ashenmoor</h3>
+                                <div class="show-meta">4 Seasons • Fantasy • TV-MA</div>
+                                <p class="card-text">An epic fantasy series set in a world where magic is fading and kingdoms collide in a war for survival.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="tv-card">
-                        <div class="placeholder-img blue card-img" style="height: 200px;">Signal Lost</div>
-                        <div class="card-body">
-                            <h3 class="card-title">Signal Lost</h3>
-                            <div class="show-meta">2 Seasons • Sci-Fi • TV-14</div>
-                            <p class="card-text">A mysterious signal from deep space triggers a chain of events that threatens civilization as we know it.</p>
+                    </a>
+                    <a href="#poster-signal-lost" class="tv-card-link">
+                        <div class="tv-card">
+                            <img src="../Asset/signal lost.png" alt="Signal Lost poster" class="card-img">
+                            <div class="card-body">
+                                <h3 class="card-title">Signal Lost</h3>
+                                <div class="show-meta">2 Seasons • Sci-Fi • TV-14</div>
+                                <p class="card-text">A mysterious signal from deep space triggers a chain of events that threatens civilization as we know it.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="tv-card">
-                        <div class="placeholder-img accent card-img" style="height: 200px;">The Golden Hour</div>
-                        <div class="card-body">
-                            <h3 class="card-title">The Golden Hour</h3>
-                            <div class="show-meta">3 Seasons • Drama • TV-MA</div>
-                            <p class="card-text">Inside a prestigious trauma center, a team of surgeons face impossible choices under extreme pressure.</p>
+                    </a>
+                    <a href="#poster-golden-hour" class="tv-card-link">
+                        <div class="tv-card">
+                            <img src="../Asset/the golden hour.png" alt="The Golden Hour poster" class="card-img">
+                            <div class="card-body">
+                                <h3 class="card-title">The Golden Hour</h3>
+                                <div class="show-meta">3 Seasons • Drama • TV-MA</div>
+                                <p class="card-text">Inside a prestigious trauma center, a team of surgeons face impossible choices under extreme pressure.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="tv-card">
-                        <div class="placeholder-img green card-img" style="height: 200px;">Wild Planet</div>
-                        <div class="card-body">
-                            <h3 class="card-title">Wild Planet</h3>
-                            <div class="show-meta">5 Seasons • Documentary • TV-G</div>
-                            <p class="card-text">A landmark documentary series exploring the most remote and extraordinary ecosystems on Earth.</p>
+                    </a>
+                    <a href="#poster-wild-planet" class="tv-card-link">
+                        <div class="tv-card">
+                            <img src="../Asset/wild planet.png" alt="Wild Planet poster" class="card-img">
+                            <div class="card-body">
+                                <h3 class="card-title">Wild Planet</h3>
+                                <div class="show-meta">5 Seasons • Documentary • TV-G</div>
+                                <p class="card-text">A landmark documentary series exploring the most remote and extraordinary ecosystems on Earth.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="tv-card">
-                        <div class="placeholder-img purple card-img" style="height: 200px;">The Playwright</div>
-                        <div class="card-body">
-                            <h3 class="card-title">The Playwright</h3>
-                            <div class="show-meta">1 Season • Drama • TV-MA</div>
-                            <p class="card-text">A struggling writer in 1920s New York discovers that her plays have the power to reshape reality.</p>
+                    </a>
+                    <a href="#poster-playwright" class="tv-card-link">
+                        <div class="tv-card">
+                            <img src="../Asset/the playwright.jpeg" alt="The Playwright poster" class="card-img">
+                            <div class="card-body">
+                                <h3 class="card-title">The Playwright</h3>
+                                <div class="show-meta">1 Season • Drama • TV-MA</div>
+                                <p class="card-text">A struggling writer in 1920s New York discovers that her plays have the power to reshape reality.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="tv-card">
-                        <div class="placeholder-img red card-img" style="height: 200px;">Laugh Track</div>
-                        <div class="card-body">
-                            <h3 class="card-title">Laugh Track</h3>
-                            <div class="show-meta">2 Seasons • Comedy • TV-14</div>
-                            <p class="card-text">A behind-the-scenes comedy about the chaotic production of a late-night talk show.</p>
+                    </a>
+                    <a href="#poster-laugh-track" class="tv-card-link">
+                        <div class="tv-card">
+                            <img src="../Asset/the laugh track.jpeg" alt="Laugh Track poster" class="card-img">
+                            <div class="card-body">
+                                <h3 class="card-title">Laugh Track</h3>
+                                <div class="show-meta">2 Seasons • Comedy • TV-14</div>
+                                <p class="card-text">A behind-the-scenes comedy about the chaotic production of a late-night talk show.</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>
+
+        <div id="poster-ashenmoor" class="tv-lightbox"><a href="#" class="tv-lightbox-close" aria-label="Close">&times;</a><img src="../Asset/chronicals of ashenmoor.png" alt="Chronicles of Ashenmoor poster enlarged"></div>
+        <div id="poster-signal-lost" class="tv-lightbox"><a href="#" class="tv-lightbox-close" aria-label="Close">&times;</a><img src="../Asset/signal lost.png" alt="Signal Lost poster enlarged"></div>
+        <div id="poster-golden-hour" class="tv-lightbox"><a href="#" class="tv-lightbox-close" aria-label="Close">&times;</a><img src="../Asset/the golden hour.png" alt="The Golden Hour poster enlarged"></div>
+        <div id="poster-wild-planet" class="tv-lightbox"><a href="#" class="tv-lightbox-close" aria-label="Close">&times;</a><img src="../Asset/wild planet.png" alt="Wild Planet poster enlarged"></div>
+        <div id="poster-playwright" class="tv-lightbox"><a href="#" class="tv-lightbox-close" aria-label="Close">&times;</a><img src="../Asset/the playwright.jpeg" alt="The Playwright poster enlarged"></div>
+        <div id="poster-laugh-track" class="tv-lightbox"><a href="#" class="tv-lightbox-close" aria-label="Close">&times;</a><img src="../Asset/the laugh track.jpeg" alt="Laugh Track poster enlarged"></div>
     </main>
 
     <footer class="site-footer">
@@ -134,7 +200,7 @@
             <div class="footer-col">
                 <div class="footer-brand"><span class="logo-text">NOVA<span class="logo-accent">STUDIOS</span></span></div>
                 <p>Nova Studios is a global entertainment company dedicated to bringing extraordinary stories to life.</p>
-                <div class="footer-social"><a href="#">FB</a><a href="#">TW</a><a href="#">IG</a><a href="#">YT</a><a href="#">LI</a></div>
+                <div class="footer-social"><a href="https://facebook.com/NovaStudios" target="_blank" rel="noopener noreferrer">FB</a><a href="https://twitter.com/NovaStudios" target="_blank" rel="noopener noreferrer">TW</a><a href="https://instagram.com/NovaStudios" target="_blank" rel="noopener noreferrer">IG</a><a href="https://youtube.com/@NovaStudios" target="_blank" rel="noopener noreferrer">YT</a><a href="https://linkedin.com/company/novastudios" target="_blank" rel="noopener noreferrer">LI</a></div>
             </div>
             <div class="footer-col"><h3>Company</h3><ul><li><a href="../about.html">About Us</a></li><li><a href="../company/careers.html">Careers</a></li><li><a href="../news.html">News</a></li><li><a href="../company/investors.html">Investors</a></li></ul></div>
             <div class="footer-col"><h3>Entertainment</h3><ul><li><a href="../movies.html">Movies</a></li><li><a href="tv-shows.html">TV Shows</a></li><li><a href="streaming.html">Nova+</a></li><li><a href="theme-parks.html">Theme Parks</a></li></ul></div>

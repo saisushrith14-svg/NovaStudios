@@ -45,8 +45,9 @@
 }
 
 .movie-poster .placeholder-img {
-    /* ISSUE (Beginner): fixed height causes stretched look on different screen sizes */
-    height: 450px;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
 }
 
 .movie-info h1 {
@@ -114,7 +115,7 @@
     color: #6b7280;
 }
 
-/* Movie tabs — static visual only */
+/* Movie tabs */
 .movie-tabs {
     display: flex;
     border-bottom: 2px solid #e5e7eb;
@@ -141,8 +142,15 @@
     border-bottom-color: #f59e0b;
 }
 
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
 /* TV show cards — slightly different from movie cards */
-/* ISSUE (Advanced): Duplicates .movie-card styles with minor differences */
 .tv-card {
     background-color: #ffffff;
     border-radius: 12px;

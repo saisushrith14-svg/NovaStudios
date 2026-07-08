@@ -21,12 +21,52 @@
         <div class="container">
             <a href="index.html" class="navbar-brand"><span class="logo-text">NOVA<span class="logo-accent">STUDIOS</span></span></a>
             <ul class="nav-links">
-                <li><a href="about.html">About</a></li>
-                <li><a href="movies.html">Entertainment</a></li>
+                <li>
+                    <a href="about.html">About</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-grid">
+                            <div>
+                                <div class="mega-menu-header">Company</div>
+                                <a href="about.html">About Us</a>
+                                <a href="company/history.html">Our History</a>
+                                <a href="company/leadership.html">Leadership</a>
+                                <a href="company/careers.html">Careers</a>
+                            </div>
+                            <div>
+                                <div class="mega-menu-header">Info</div>
+                                <a href="company/departments.html">Departments</a>
+                                <a href="company/investors.html">Investors</a>
+                                <a href="company/sustainability.html">Sustainability</a>
+                                <a href="company/partnerships.html">Partnerships</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="movies.html">Entertainment</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-grid">
+                            <div>
+                                <div class="mega-menu-header">Watch</div>
+                                <a href="movies.html">Movies</a>
+                                <a href="entertainment/tv-shows.html">TV Shows</a>
+                                <a href="entertainment/animation.html">Animation</a>
+                                <a href="entertainment/streaming.html">Nova+</a>
+                            </div>
+                            <div>
+                                <div class="mega-menu-header">Experience</div>
+                                <a href="entertainment/theme-parks.html">Theme Parks</a>
+                                <a href="entertainment/merchandise.html">Merchandise</a>
+                                <a href="entertainment/events.html">Events</a>
+                                <a href="media/gallery.html">Gallery</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 <li><a href="news.html">News</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="awards.html">Awards</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
             </ul>
             <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
         </div>
@@ -49,25 +89,24 @@
                         <h2>Send Us a Message</h2>
                         <p class="text-muted mb-3">Fill out the form below and our team will get back to you within 2 business days.</p>
 
-                        <!-- ISSUE (Intermediate): Some form inputs missing <label> elements — accessibility -->
-                        <form action="#" method="post">
+                        <form id="contact-form" method="post">
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="first-name">First Name</label>
-                                    <input type="text" id="first-name" class="form-control" placeholder="John">
+                                    <input type="text" id="first-name" name="first-name" class="form-control" placeholder="John" autocomplete="given-name" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="last-name">Last Name</label>
-                                    <input type="text" id="last-name" class="form-control" placeholder="Doe">
+                                    <input type="text" id="last-name" name="last-name" class="form-control" placeholder="Doe" autocomplete="family-name" required>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <!-- ISSUE (Intermediate): No label for email input — accessibility -->
-                                <input type="email" class="form-control" placeholder="Email Address">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" class="form-control" placeholder="Email Address" autocomplete="email" required>
                             </div>
                             <div class="form-group">
                                 <label for="subject">Subject</label>
-                                <select id="subject" class="form-control">
+                                <select id="subject" name="subject" class="form-control" required>
                                     <option value="">Select a topic...</option>
                                     <option value="press">Press Inquiry</option>
                                     <option value="partnership">Partnership</option>
@@ -79,16 +118,18 @@
                             </div>
                             <div class="form-group">
                                 <label for="message">Message</label>
-                                <textarea id="message" class="form-control" placeholder="Tell us how we can help..."></textarea>
+                                <textarea id="message" name="message" class="form-control" placeholder="Tell us how we can help..." required></textarea>
                             </div>
                             <div class="form-group">
-                                <!-- ISSUE (Intermediate): Checkbox input without proper label association -->
                                 <div class="form-check">
-                                    <input type="checkbox" id="consent">
-                                    <label>I agree to the Privacy Policy and Terms of Service</label>
+                                    <input type="checkbox" id="consent" name="consent" required>
+                                    <label for="consent">I agree to the Privacy Policy and Terms of Service</label>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Send Message</button>
+                            <p id="contact-form-status" class="form-success" role="status" aria-live="polite" hidden>
+                                Thank you. Your message has been received and the form has been cleared.
+                            </p>
                         </form>
                     </div>
 
@@ -127,7 +168,7 @@
             <div class="footer-col">
                 <div class="footer-brand"><span class="logo-text">NOVA<span class="logo-accent">STUDIOS</span></span></div>
                 <p>Nova Studios is a global entertainment company dedicated to bringing extraordinary stories to life.</p>
-                <div class="footer-social"><a href="#">FB</a><a href="#">TW</a><a href="#">IG</a><a href="#">YT</a><a href="#">LI</a></div>
+                <div class="footer-social"><a href="https://facebook.com/NovaStudios" target="_blank" rel="noopener noreferrer">FB</a><a href="https://twitter.com/NovaStudios" target="_blank" rel="noopener noreferrer">TW</a><a href="https://instagram.com/NovaStudios" target="_blank" rel="noopener noreferrer">IG</a><a href="https://youtube.com/@NovaStudios" target="_blank" rel="noopener noreferrer">YT</a><a href="https://linkedin.com/company/novastudios" target="_blank" rel="noopener noreferrer">LI</a></div>
             </div>
             <div class="footer-col"><h3>Company</h3><ul><li><a href="about.html">About Us</a></li><li><a href="company/careers.html">Careers</a></li><li><a href="news.html">News</a></li><li><a href="company/investors.html">Investors</a></li></ul></div>
             <div class="footer-col"><h3>Entertainment</h3><ul><li><a href="movies.html">Movies</a></li><li><a href="entertainment/tv-shows.html">TV Shows</a></li><li><a href="entertainment/streaming.html">Nova+</a></li><li><a href="entertainment/theme-parks.html">Theme Parks</a></li></ul></div>
@@ -136,5 +177,27 @@
         <div class="footer-bottom"><p>&copy; 2026 Nova Studios. All rights reserved.</p><div class="footer-bottom-links"><a href="legal/privacy.html">Privacy</a><a href="legal/terms.html">Terms</a><a href="legal/accessibility-page.html">Accessibility</a></div></div>
     </footer>
 <script src="js/nav.js"></script></body>
+    <script>
+        const contactForm = document.getElementById('contact-form');
+        const contactFormStatus = document.getElementById('contact-form-status');
+
+        contactForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
+                contactFormStatus.hidden = true;
+                return;
+            }
+
+            contactForm.reset();
+            contactFormStatus.hidden = false;
+        });
+
+        contactForm.addEventListener('input', () => {
+            contactFormStatus.hidden = true;
+        });
+    </script>
+</body>
 </html>
 

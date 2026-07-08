@@ -1,8 +1,6 @@
 /* ============================================
    Nova Studios — Responsive
-   ISSUE (Advanced): Breakpoints conflict with other files.
-   navbar.css uses 768px, this file uses 800px in some places,
-   gallery.css uses 800px, home.css has no breakpoints.
+   Breakpoints are unified across files to 768px.
    ============================================ */
 
 /* Large screens */
@@ -21,8 +19,7 @@
     }
 }
 
-/* ISSUE (Intermediate): Layout breaks around 850px — 
-   a gap where neither desktop nor tablet styles apply cleanly */
+
 @media (max-width: 1024px) {
     h1 {
         font-size: 2rem;
@@ -78,8 +75,7 @@
 }
 
 /* Tablet */
-/* ISSUE (Advanced): Uses 800px here instead of 768px like navbar.css */
-@media (max-width: 800px) {
+@media (max-width: 768px) {
     .card-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -265,7 +261,7 @@
     }
 }
 
-/* ISSUE (Advanced): Print styles minimal — content doesn't print well */
+/* Print styles */
 @media print {
     .navbar, .site-footer, .promo-banner {
         display: none;

@@ -54,9 +54,8 @@
 }
 
 .benefit-item .benefit-icon {
-    /* ISSUE (Beginner): uses 40px here but about.css uses 56px — inconsistent icon sizes */
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     border-radius: 8px;
     background-color: #dbeafe;
     margin: 0 auto 12px;

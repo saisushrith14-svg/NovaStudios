@@ -113,8 +113,7 @@ select.form-control {
     background-color: #1d4ed8;
 }
 
-/* ISSUE (Intermediate): Search form input and button heights don't match 
-   because input uses content-box equivalent with different border widths */
+
 
 /* Form error state */
 .form-control.error {
@@ -127,7 +126,16 @@ select.form-control {
     margin-top: 4px;
 }
 
-/* ISSUE (Intermediate): Form has no fieldset or legend grouping — accessibility */
+.form-success {
+    margin-top: 14px;
+    padding: 12px 14px;
+    border: 1px solid #bbf7d0;
+    border-radius: 6px;
+    color: #166534;
+    background-color: #f0fdf4;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
 
 /* Inline form */
 .form-inline {

@@ -16,8 +16,6 @@
 .text-white { color: #ffffff; }
 .text-muted { color: #6b7280; }
 .text-accent { color: #f59e0b; }
-/* ISSUE (Advanced): .text-primary defined here AND in global.css (as link color) — cascade confusion */
-.text-primary { color: #2563eb; }
 .text-dark { color: #0a1628; }
 .text-success { color: #22c55e; }
 .text-danger { color: #ef4444; }
@@ -37,7 +35,6 @@
 .mb-4 { margin-bottom: 32px; }
 .mb-5 { margin-bottom: 48px; }
 
-/* ISSUE (Advanced): duplicate margin utility — .mr-1 defined again at bottom of this file */
 .mr-1 { margin-right: 8px; }
 .ml-1 { margin-left: 8px; }
 
@@ -88,17 +85,6 @@
 .bg-light { background-color: #f8f9fa; }
 .bg-dark { background-color: #0a1628; }
 
-/* ISSUE (Advanced): Dead CSS — .visually-hidden duplicates .sr-only from global.css */
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-}
 
 /* Separator */
 .separator {
@@ -139,8 +125,6 @@
     white-space: nowrap;
 }
 
-/* ISSUE (Advanced): Duplicate definition of .mr-1 */
-.mr-1 { margin-right: 8px; }
 
 /* Aspect ratio utilities */
 .aspect-16-9 {
@@ -154,8 +138,3 @@
 .aspect-1-1 {
     aspect-ratio: 1 / 1;
 }
-
-/* ISSUE (Advanced): Naming convention inconsistency — 
-   camelCase: heroSection (used in HTML), 
-   kebab-case: hero-section (used in hero.css),
-   snake_case: hero_section (some inline) */

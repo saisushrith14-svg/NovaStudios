@@ -2,7 +2,7 @@
    Nova Studios — Buttons
    ============================================ */
 
-/* ISSUE (Beginner): Button padding inconsistent across variants */
+
 .btn {
     display: inline-block;
     padding: 12px 28px;
@@ -18,7 +18,7 @@
 }
 
 .btn-primary {
-    /* ISSUE (Beginner): primary button color is #2563eb here but #1a73e8 used inline on some pages */
+
     background-color: #2563eb;
     color: #ffffff;
     border-color: #2563eb;
@@ -73,7 +73,15 @@
     text-decoration: none;
 }
 
-/* Size variants — ISSUE (Beginner): btn-sm uses different padding ratio than btn-lg */
+.btn-disabled {
+    background-color: #e5e7eb;
+    color: #6b7280;
+    border-color: #d1d5db;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Size variants */
 .btn-sm {
     padding: 6px 14px;
     font-size: 0.85rem;
@@ -84,7 +92,10 @@
     font-size: 1.15rem;
 }
 
-/* ISSUE (Beginner): No focus styles on buttons — keyboard accessibility problem */
+.btn:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
 
 /* Ghost button */
 .btn-ghost {
@@ -108,7 +119,7 @@
     flex-wrap: wrap;
 }
 
-/* ISSUE (Advanced): Duplicate definition — .btn-primary repeated with slightly different values */
+/* Dark section button overrides */
 .section-dark .btn-primary {
     background-color: #f59e0b;
     color: #0a1628;

@@ -8,8 +8,7 @@
     position: sticky;
     top: 0;
     z-index: 1000;
-    /* ISSUE (Advanced): using fixed pixel height instead of auto */
-    height: 70px;
+    min-height: 70px;
     display: flex;
     align-items: center;
 }
@@ -44,8 +43,7 @@
 .nav-links {
     display: flex;
     list-style: none;
-    /* ISSUE (Beginner): nav items gap inconsistent — some items closer than others */
-    gap: 4px;
+    gap: 8px;
     align-items: center;
     margin: 0;
     padding: 0;
@@ -65,11 +63,12 @@
     white-space: nowrap;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
     color: #f59e0b;
 }
 
-/* ISSUE (Beginner): No .nav-links a.active style — missing active navigation state */
+
 
 /* Mega Menu */
 .nav-links li:hover .mega-menu {
@@ -137,8 +136,6 @@
     transition: 0.3s;
 }
 
-/* ISSUE (Intermediate): Navbar responsive breakpoint uses 768px here 
-   but responsive.css uses 800px — conflicting breakpoints */
 @media (max-width: 768px) {
     .nav-links {
         display: none;
@@ -169,7 +166,6 @@
     }
 }
 
-/* ISSUE (Intermediate): Gap between 768px and 1024px — navbar links overflow */
 @media (max-width: 1024px) and (min-width: 769px) {
     .nav-links a {
         padding: 8px 6px;

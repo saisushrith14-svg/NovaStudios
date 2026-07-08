@@ -26,9 +26,7 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <a href="index.html" class="navbar-brand">
-                <span class="logo-text">NOVA<span class="logo-accent">STUDIOS</span></span>
-            </a>
+            <a href="index.html" class="navbar-brand"><span class="logo-text">NOVA<span class="logo-accent">STUDIOS</span></span></a>
             <ul class="nav-links">
                 <li>
                     <a href="about.html">About</a>
@@ -77,11 +75,7 @@
                 <li><a href="awards.html">Awards</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <button class="nav-toggle" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
         </div>
     </nav>
 
@@ -327,7 +321,7 @@
                 <!-- ISSUE (Intermediate): No label element for newsletter input — accessibility -->
                 <div class="newsletter-form-large">
                     <input type="email" placeholder="Enter your email address">
-                    <button type="button">Subscribe</button>
+                    <button type="button" onclick="this.previousElementSibling.value=''">Subscribe</button>
                 </div>
             </div>
         </section>
@@ -342,11 +336,11 @@
                 </div>
                 <p>Nova Studios is a global entertainment company dedicated to bringing extraordinary stories to life through film, television, animation, theme parks, and streaming.</p>
                 <div class="footer-social">
-                    <a href="#">FB</a>
-                    <a href="#">TW</a>
-                    <a href="#">IG</a>
-                    <a href="#">YT</a>
-                    <a href="#">LI</a>
+                    <a href="https://facebook.com/NovaStudios" target="_blank" rel="noopener noreferrer">FB</a>
+                    <a href="https://twitter.com/NovaStudios" target="_blank" rel="noopener noreferrer">TW</a>
+                    <a href="https://instagram.com/NovaStudios" target="_blank" rel="noopener noreferrer">IG</a>
+                    <a href="https://youtube.com/@NovaStudios" target="_blank" rel="noopener noreferrer">YT</a>
+                    <a href="https://linkedin.com/company/novastudios" target="_blank" rel="noopener noreferrer">LI</a>
                 </div>
             </div>
             <div class="footer-col">
@@ -382,7 +376,7 @@
                     <p>Get updates:</p>
                     <div class="newsletter-form">
                         <input type="email" placeholder="Your email">
-                        <button>Go</button>
+                        <button onclick="this.previousElementSibling.value=''">Go</button>
                     </div>
                 </div>
             </div>
