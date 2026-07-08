@@ -95,6 +95,9 @@
                             </div>
                         </div>
 
+                        <!-- Empty state -->
+                        <p class="no-posts-message" style="display: none; text-align: center; padding: 40px 0; color: #6b7280;">No posts found in this category.</p>
+
                         <!-- Pagination -->
                         <div class="pagination">
                             <span class="disabled">&laquo;</span>
@@ -110,12 +113,13 @@
                         <div class="sidebar-widget">
                             <h3>Categories</h3>
                             <ul>
-                                <li><a href="#">Film Production (12)</a></li>
-                                <li><a href="#">Animation (8)</a></li>
-                                <li><a href="#">Technology (6)</a></li>
-                                <li><a href="#">Theme Parks (5)</a></li>
-                                <li><a href="#">Streaming (4)</a></li>
-                                <li><a href="#">Documentary (3)</a></li>
+                                <li><a href="#" data-category="all" class="active">All</a></li>
+                                <li><a href="#" data-category="film production">Film Production (12)</a></li>
+                                <li><a href="#" data-category="animation">Animation (8)</a></li>
+                                <li><a href="#" data-category="technology">Technology (6)</a></li>
+                                <li><a href="#" data-category="theme parks">Theme Parks (5)</a></li>
+                                <li><a href="#" data-category="streaming">Streaming (4)</a></li>
+                                <li><a href="#" data-category="documentary">Documentary (3)</a></li>
                             </ul>
                         </div>
                         <div class="sidebar-widget">
@@ -144,6 +148,62 @@
             </div>
         </section>
     </main>
+
+    <script>
+    (function() {
+        var categories = document.querySelectorAll('.sidebar-widget ul li a[data-category]');
+        var cards = document.querySelectorAll('.blog-main .blog-card');
+        var emptyMsg = document.querySelector('.no-posts-message');
+
+        function updateCounts() {
+            var counts = {};
+            cards.forEach(function(card) {
+                var cat = card.querySelector('.card-category');
+                if (cat) {
+                    var name = cat.textContent.trim().toLowerCase();
+                    counts[name] = (counts[name] || 0) + 1;
+                }
+            });
+
+            categories.forEach(function(link) {
+                var cat = link.getAttribute('data-category');
+                if (cat === 'all') {
+                    link.textContent = 'All (' + cards.length + ')';
+                } else {
+                    var count = counts[cat] || 0;
+                    var name = cat.replace(/\b\w/g, function(c) { return c.toUpperCase(); });
+                    link.textContent = name + ' (' + count + ')';
+                }
+            });
+        }
+
+        function filter(category) {
+            categories.forEach(function(link) {
+                link.classList.toggle('active', link.getAttribute('data-category') === category);
+            });
+
+            var visibleCount = 0;
+            cards.forEach(function(card) {
+                var cardCat = card.querySelector('.card-category');
+                var match = category === 'all' || (cardCat && cardCat.textContent.trim().toLowerCase() === category);
+                card.style.display = match ? '' : 'none';
+                if (match) visibleCount++;
+            });
+
+            emptyMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
+        categories.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                filter(this.getAttribute('data-category'));
+            });
+        });
+
+        updateCounts();
+        filter('all');
+    })();
+    </script>
 
     <footer class="site-footer">
         <div class="footer-grid">

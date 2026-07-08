@@ -55,8 +55,13 @@
     font-size: 0.9rem;
 }
 
-.sidebar-widget ul li a:hover {
+.sidebar-widget ul li a:hover,
+.sidebar-widget ul li a.active {
     color: #3b82f6;
+}
+
+.sidebar-widget ul li a.active {
+    font-weight: 600;
 }
 
 /* Tags cloud */
