@@ -96,7 +96,7 @@
                                 <span>📁 Film &amp; Television</span>
                             </div>
                         </div>
-                        <a href="#" class="btn btn-sm btn-secondary">Read More</a>
+                        <a href="#" class="btn btn-sm btn-secondary" onclick="openModal(this); return false;">Read More</a>
                     </div>
                     <div class="job-listing">
                         <div class="job-info">
@@ -106,7 +106,7 @@
                                 <span>📁 Corporate</span>
                             </div>
                         </div>
-                        <a href="#" class="btn btn-sm btn-secondary">Read More</a>
+                        <a href="#" class="btn btn-sm btn-secondary" onclick="openModal(this); return false;">Read More</a>
                     </div>
                     <div class="job-listing">
                         <div class="job-info">
@@ -116,7 +116,7 @@
                                 <span>📁 Streaming</span>
                             </div>
                         </div>
-                        <a href="#" class="btn btn-sm btn-secondary">Read More</a>
+                        <a href="#" class="btn btn-sm btn-secondary" onclick="openModal(this); return false;">Read More</a>
                     </div>
                     <div class="job-listing">
                         <div class="job-info">
@@ -126,7 +126,7 @@
                                 <span>📁 Technology</span>
                             </div>
                         </div>
-                        <a href="#" class="btn btn-sm btn-secondary">Read More</a>
+                        <a href="#" class="btn btn-sm btn-secondary" onclick="openModal(this); return false;">Read More</a>
                     </div>
                     <div class="job-listing">
                         <div class="job-info">
@@ -136,7 +136,7 @@
                                 <span>📁 Theme Parks</span>
                             </div>
                         </div>
-                        <a href="#" class="btn btn-sm btn-secondary">Read More</a>
+                        <a href="#" class="btn btn-sm btn-secondary" onclick="openModal(this); return false;">Read More</a>
                     </div>
                 </div>
             </div>
@@ -179,6 +179,150 @@
         </div>
         <div class="footer-bottom"><p>&copy; 2026 Nova Studios. All rights reserved.</p><div class="footer-bottom-links"><a href="../legal/privacy.html">Privacy</a><a href="../legal/terms.html">Terms</a><a href="../legal/accessibility-page.html">Accessibility</a></div></div>
     </footer>
-<script src="../js/nav.js"></script></body>
+
+    <!-- File Preview Modal -->
+    <style>
+    .modal-overlay {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .modal-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    .modal-card {
+        background: #ffffff;
+        border-radius: 12px;
+        width: 90%;
+        max-width: 500px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1), 6px 6px 0px rgba(15, 23, 42, 1);
+        border: 2px solid #0f172a;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        transform: translateY(20px);
+        transition: transform 0.3s ease;
+    }
+    .modal-overlay.active .modal-card {
+        transform: translateY(0);
+    }
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 20px;
+        border-bottom: 2px solid #0f172a;
+    }
+    .modal-header h3 {
+        margin: 0;
+        font-size: 1.1rem;
+        color: #0f172a;
+        font-weight: 700;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-right: 16px;
+    }
+    .modal-close {
+        background: none;
+        border: 2px solid #0f172a;
+        border-radius: 8px;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        font-size: 1.2rem;
+        color: #0f172a;
+        transition: background 0.2s, color 0.2s;
+        padding: 0;
+        line-height: 1;
+    }
+    .modal-close:hover {
+        background: #0f172a;
+        color: #ffffff;
+    }
+    .modal-body {
+        padding: 40px 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+    .modal-icon {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 8px;
+    }
+    .modal-body h4 {
+        margin: 0;
+        font-size: 1.1rem;
+        color: #334155;
+        font-weight: 600;
+    }
+    .modal-size {
+        font-size: 0.9rem;
+        color: #64748b;
+        margin: 0;
+    }
+    .modal-message {
+        font-size: 0.85rem;
+        color: #64748b;
+        margin-top: 16px;
+    }
+    </style>
+
+    <div class="modal-overlay" id="filePreviewModal" onclick="closeModal(event)">
+        <div class="modal-card" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3 id="modalTitle">File.pdf</h3>
+                <button class="modal-close" onclick="closeModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <svg class="modal-icon" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                <h4 id="modalBodyTitle">File.pdf</h4>
+                <p class="modal-size">2.3 MB</p>
+                <p class="modal-message">File preview simulation — actual content not available in demo mode.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    function openModal(element) {
+        const jobInfo = element.previousElementSibling;
+        let title = 'Press Release';
+        if (jobInfo && jobInfo.querySelector('h3')) {
+            title = jobInfo.querySelector('h3').innerText;
+        }
+        const modalTitle = title + '.pdf';
+        document.getElementById('modalTitle').innerText = modalTitle;
+        document.getElementById('modalBodyTitle').innerText = modalTitle;
+        document.getElementById('filePreviewModal').classList.add('active');
+    }
+    function closeModal(event) {
+        if (event && event.target !== document.getElementById('filePreviewModal')) {
+            return;
+        }
+        document.getElementById('filePreviewModal').classList.remove('active');
+    }
+    </script>
+    <script src="../js/nav.js"></script>
+</body>
 </html>
 
