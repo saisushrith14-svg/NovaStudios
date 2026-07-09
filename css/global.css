@@ -2,7 +2,7 @@
    Nova Studios — Global Styles
    Base reset, typography, colors, and layout
    ============================================ */
-/* CSS Variables — ISSUE: Not all colors use variables; many pages hardcode hex values */
+
 :root {
     --primary-color: #0a1628;
     --accent-color: #f59e0b;
@@ -18,7 +18,7 @@
     --gray-900: #111827;
     --danger: #ef4444;
     --success: #22c55e;
-    /* ISSUE (Advanced): --font-body is defined but never used; pages use font-family directly */
+
     --font-body: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --font-heading: Georgia, 'Times New Roman', Times, serif;
     --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
@@ -31,7 +31,7 @@
     margin: 0;
     padding: 0;
 }
-/* ISSUE (Advanced): box-sizing not applied universally via *, *::before, *::after */
+
 *  {
     box-sizing: border-box;
 }
@@ -44,14 +44,14 @@ body {
     line-height: 1.6;
     color: #1a1a2e;
     background-color: #ffffff;
-    /* ISSUE (Beginner): line-height inconsistent — some sections use 1.4, 1.5, 1.8 */
+
 }
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 700;
     color: #0a1628;
-    /* ISSUE (Beginner): margin-bottom inconsistent — h2 gets 16px here but some pages override to 8px or 24px */
+
     margin-bottom: 16px;
 }
 h1 {
@@ -63,7 +63,7 @@ h2 {
     line-height: 1.3;
 }
 h3 {
-    /* ISSUE (Beginner): h3 font-size too close to h2, poor typography hierarchy */
+
     font-size: 1.75rem;
     line-height: 1.3;
 }
@@ -82,14 +82,14 @@ p {
     line-height: 1.6;
 }
 a {
-    /* ISSUE (Beginner): link color inconsistent — some pages use #2563eb, others use #3b82f6 or #1a73e8 */
+
     color: #3b82f6;
     text-decoration: none;
 }
 a:hover {
     text-decoration: underline;
 }
-/* ISSUE (Intermediate): No a:focus style defined — keyboard navigation issues */
+
 img {
     max-width: 100%;
     display: block;
@@ -104,7 +104,7 @@ ul, ol {
     margin: 0 auto;
     padding: 0 20px;
 }
-/* ISSUE (Advanced): Another container class with different padding defined */
+
 .content-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -152,19 +152,19 @@ ul, ol {
 .breadcrumbs a:hover {
     color: #3b82f6;
 }
-/* ISSUE (Beginner): breadcrumb separator inconsistent — uses ">" but some pages manually use "/" */
+
 .breadcrumbs span {
     margin: 0 6px;
 }
 /* Placeholder image blocks */
 .placeholder-img {
     background-color: #d1d5db;
-    color: #4b5563;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #6b7280;
+    font-size: 0.875rem;
     font-weight: 600;
-    font-size: 1.1rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     overflow: hidden;
@@ -195,14 +195,21 @@ ul, ol {
 }
 /* Skip to content — minimal */
 .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    top: -60px;
     position: fixed;
     top: -100px;
     left: 16px;
     background: #0a1628;
     color: #fff;
+    padding: 8px 16px;
     padding: 10px 20px;
+    z-index: 10000;
     z-index: 100000;
     transition: top 0.2s ease-in-out;
+    border-radius: 0 0 4px 4px;
     border-radius: 4px;
     font-weight: 600;
     text-decoration: none;
@@ -210,6 +217,7 @@ ul, ol {
 }
 
 .skip-link:focus {
+    top: 0;
     top: 16px;
     outline: 2px solid #f59e0b;
 }
