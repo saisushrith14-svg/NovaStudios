@@ -224,7 +224,7 @@
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="phone">Phone Number</label>
-                                    <input id="phone" name="phone" class="form-control" type="tel" placeholder="(555) 123-4567" required>
+                                    <input id="phone" name="phone" class="form-control" type="tel" pattern="[0-9]*" inputmode="numeric" placeholder="5551234567" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="theme-park">Theme Park</label>
@@ -243,13 +243,13 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="adult-tickets">Number of Adult Tickets</label>
-                                    <input id="adult-tickets" name="adultTickets" class="form-control" type="number" min="0" value="2" required>
+                                    <input id="adult-tickets" name="adultTickets" class="form-control" type="number" min="0" step="1" value="2" required>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="child-tickets">Number of Child Tickets</label>
-                                    <input id="child-tickets" name="childTickets" class="form-control" type="number" min="0" value="1" required>
+                                    <input id="child-tickets" name="childTickets" class="form-control" type="number" min="0" step="1" value="1" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="promo-code">Promo Code (Optional)</label>
@@ -326,8 +326,22 @@
         const visitDate = document.getElementById('visit-date');
         const adultTickets = document.getElementById('adult-tickets');
         const childTickets = document.getElementById('child-tickets');
+        const phoneInput = document.getElementById('phone');
         const formMessage = document.getElementById('form-message');
         const confirmationCard = document.getElementById('confirmation-card');
+
+        function clampTicketValue(value) {
+            const number = parseInt(value, 10);
+            return Number.isNaN(number) ? 0 : Math.max(0, number);
+        }
+
+        function normalizePhoneValue(value) {
+            return value.replace(/[^0-9]/g, '');
+        }
+
+        function formatCurrency(value) {
+            return '$' + value.toFixed(2);
+        }
 
         const summaryPark = document.getElementById('summary-park');
         const summaryDate = document.getElementById('summary-date');
@@ -351,8 +365,10 @@
 
         function updateSummary() {
             const selectedPark = themePark.value;
-            const adultCount = parseInt(adultTickets.value, 10) || 0;
-            const childCount = parseInt(childTickets.value, 10) || 0;
+            const adultCount = clampTicketValue(adultTickets.value);
+            const childCount = clampTicketValue(childTickets.value);
+            adultTickets.value = adultCount;
+            childTickets.value = childCount;
             const selectedPrice = ticketPrices[selectedPark] || ticketPrices['Stardust Kingdom'];
             const ticketPrice = (adultCount * selectedPrice.adult) + (childCount * selectedPrice.child);
             const taxes = ticketPrice * 0.10;
@@ -385,6 +401,22 @@
             element.addEventListener('change', updateSummary);
         });
 
+        adultTickets.addEventListener('input', function () {
+            if (adultTickets.value !== '') {
+                adultTickets.value = clampTicketValue(adultTickets.value);
+            }
+        });
+
+        childTickets.addEventListener('input', function () {
+            if (childTickets.value !== '') {
+                childTickets.value = clampTicketValue(childTickets.value);
+            }
+        });
+
+        phoneInput.addEventListener('input', function () {
+            phoneInput.value = normalizePhoneValue(phoneInput.value);
+        });
+
         form.addEventListener('submit', function (event) {
             event.preventDefault();
             formMessage.textContent = '';
@@ -394,8 +426,8 @@
             const phone = document.getElementById('phone').value.trim();
             const selectedPark = themePark.value;
             const selectedDate = visitDate.value;
-            const adultCount = parseInt(adultTickets.value, 10) || 0;
-            const childCount = parseInt(childTickets.value, 10) || 0;
+            const adultCount = clampTicketValue(adultTickets.value);
+            const childCount = clampTicketValue(childTickets.value);
 
             if (!fullName || !email || !phone || !selectedPark || !selectedDate || (adultCount + childCount) <= 0) {
                 formMessage.textContent = 'Please complete all required fields and choose at least one ticket.';
