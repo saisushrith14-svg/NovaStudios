@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Your Nova+ Free Trial - Nova Studios</title>
+    <meta name="description" content="Create your Nova+ account and start a 30-day free trial.">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/hero.css">
+    <link rel="stylesheet" href="../css/buttons.css">
+    <link rel="stylesheet" href="../css/forms.css">
+    <link rel="stylesheet" href="../css/cards.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/utilities.css">
+    <style>
+        .signup-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 360px;
+            gap: 32px;
+            align-items: start;
+        }
+
+        .signup-panel,
+        .trial-summary {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(10, 22, 40, 0.08);
+            padding: 28px;
+        }
+
+        .trial-summary {
+            position: sticky;
+            top: 96px;
+        }
+
+        .summary-plan {
+            color: #f59e0b;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .summary-price {
+            color: #0a1628;
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 8px 0 4px;
+        }
+
+        .summary-price span {
+            color: #6b7280;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .summary-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 18px 0 0;
+        }
+
+        .summary-list li {
+            border-top: 1px solid #f3f4f6;
+            color: #374151;
+            padding: 10px 0;
+        }
+
+        @media (max-width: 900px) {
+            .signup-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .trial-summary {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="navbar-brand"><span class="logo-text">NOVA<span class="logo-accent">STUDIOS</span></span></a>
+            <ul class="nav-links">
+                <li>
+                    <a href="../about.html">About</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-grid">
+                            <div>
+                                <div class="mega-menu-header">Company</div>
+                                <a href="../about.html">About Us</a>
+                                <a href="../company/history.html">Our History</a>
+                                <a href="../company/leadership.html">Leadership</a>
+                                <a href="../company/careers.html">Careers</a>
+                            </div>
+                            <div>
+                                <div class="mega-menu-header">Info</div>
+                                <a href="../company/departments.html">Departments</a>
+                                <a href="../company/investors.html">Investors</a>
+                                <a href="../company/sustainability.html">Sustainability</a>
+                                <a href="../company/partnerships.html">Partnerships</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="../movies.html" class="active">Entertainment</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-grid">
+                            <div>
+                                <div class="mega-menu-header">Watch</div>
+                                <a href="../movies.html">Movies</a>
+                                <a href="../entertainment/tv-shows.html">TV Shows</a>
+                                <a href="../entertainment/animation.html">Animation</a>
+                                <a href="../entertainment/streaming.html">Nova+</a>
+                            </div>
+                            <div>
+                                <div class="mega-menu-header">Experience</div>
+                                <a href="../entertainment/theme-parks.html">Theme Parks</a>
+                                <a href="../entertainment/merchandise.html">Merchandise</a>
+                                <a href="../entertainment/events.html">Events</a>
+                                <a href="../media/gallery.html">Gallery</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="../news.html">News</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../awards.html">Awards</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <section class="hero hero-compact hero-gradient-blue" id="main">
+        <div class="container">
+            <div class="breadcrumbs"><a href="../index.html">Home</a> <span>&gt;</span> Nova+ Signup</div>
+            <h1>Start Your Free Trial</h1>
+            <p>Create your Nova+ account, choose a plan, and enjoy 30 days free.</p>
+        </div>
+    </section>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="signup-layout">
+                    <div class="signup-panel">
+                        <h2>Create Your Account</h2>
+                        <p class="text-muted mb-3">No charge today. You can cancel before the trial ends.</p>
+
+                        <form id="signup-form" method="post">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="first-name">First Name</label>
+                                    <input type="text" id="first-name" name="first-name" class="form-control" placeholder="John" autocomplete="given-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="last-name">Last Name</label>
+                                    <input type="text" id="last-name" name="last-name" class="form-control" placeholder="Doe" autocomplete="family-name" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" class="form-control" placeholder="you@example.com" autocomplete="email" required>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" id="password" name="password" class="form-control" autocomplete="new-password" minlength="8" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="plan">Plan</label>
+                                    <select id="plan" name="plan" class="form-control" required>
+                                        <option value="basic">Basic - $7.99/month</option>
+                                        <option value="standard">Standard - $12.99/month</option>
+                                        <option value="premium">Premium - $19.99/month</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="payment">Payment Method</label>
+                                <select id="payment" name="payment" class="form-control" required>
+                                    <option value="">Choose a payment method...</option>
+                                    <option value="card">Credit or debit card</option>
+                                    <option value="paypal">PayPal</option>
+                                    <option value="gift">Nova Studios gift card</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input type="checkbox" id="terms" name="terms" required>
+                                    <label for="terms">I agree to the Privacy Policy and Terms of Service.</label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-accent btn-lg w-100">Start Free Trial</button>
+                            <p id="signup-status" class="form-success" role="status" aria-live="polite" hidden>
+                                Your free trial signup is ready. This demo form has been submitted successfully.
+                            </p>
+                        </form>
+                    </div>
+
+                    <aside class="trial-summary" aria-label="Trial summary">
+                        <div class="summary-plan" id="summary-plan">Standard Plan</div>
+                        <div class="summary-price" id="summary-price">$12.99<span>/month after trial</span></div>
+                        <p class="text-muted">30 days free. Cancel anytime before your trial ends.</p>
+                        <ul class="summary-list">
+                            <li>Full movie and show library</li>
+                            <li id="summary-screens">3 screens at a time</li>
+                            <li id="summary-quality">4K Ultra HD</li>
+                            <li>No commitments</li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-brand"><span class="logo-text">NOVA<span class="logo-accent">STUDIOS</span></span></div>
+                <p>Nova Studios is a global entertainment company dedicated to bringing extraordinary stories to life.</p>
+                <div class="footer-social"><a href="https://facebook.com/NovaStudios" target="_blank" rel="noopener noreferrer">FB</a><a href="https://twitter.com/NovaStudios" target="_blank" rel="noopener noreferrer">TW</a><a href="https://instagram.com/NovaStudios" target="_blank" rel="noopener noreferrer">IG</a><a href="https://youtube.com/@NovaStudios" target="_blank" rel="noopener noreferrer">YT</a><a href="https://linkedin.com/company/novastudios" target="_blank" rel="noopener noreferrer">LI</a></div>
+            </div>
+            <div class="footer-col"><h3>Company</h3><ul><li><a href="../about.html">About Us</a></li><li><a href="../company/careers.html">Careers</a></li><li><a href="../news.html">News</a></li><li><a href="../company/investors.html">Investors</a></li></ul></div>
+            <div class="footer-col"><h3>Entertainment</h3><ul><li><a href="../movies.html">Movies</a></li><li><a href="../entertainment/tv-shows.html">TV Shows</a></li><li><a href="../entertainment/streaming.html">Nova+</a></li><li><a href="../entertainment/theme-parks.html">Theme Parks</a></li></ul></div>
+            <div class="footer-col"><h3>Support</h3><ul><li><a href="../support/help.html">Help Center</a></li><li><a href="../contact.html">Contact Us</a></li><li><a href="../support/faq.html">FAQ</a></li><li><a href="../legal/privacy.html">Privacy</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 Nova Studios. All rights reserved.</p><div class="footer-bottom-links"><a href="../legal/privacy.html">Privacy</a><a href="../legal/terms.html">Terms</a><a href="../legal/accessibility-page.html">Accessibility</a></div></div>
+    </footer>
+
+    <script src="../js/nav.js"></script>
+    <script>
+        (function () {
+            var plans = {
+                basic: {
+                    label: 'Basic Plan',
+                    price: '$7.99',
+                    screens: '1 screen at a time',
+                    quality: 'HD quality'
+                },
+                standard: {
+                    label: 'Standard Plan',
+                    price: '$12.99',
+                    screens: '3 screens at a time',
+                    quality: '4K Ultra HD'
+                },
+                premium: {
+                    label: 'Premium Plan',
+                    price: '$19.99',
+                    screens: '5 screens at a time',
+                    quality: '4K Ultra HD + Dolby Atmos'
+                }
+            };
+
+            var planSelect = document.getElementById('plan');
+            var summaryPlan = document.getElementById('summary-plan');
+            var summaryPrice = document.getElementById('summary-price');
+            var summaryScreens = document.getElementById('summary-screens');
+            var summaryQuality = document.getElementById('summary-quality');
+            var form = document.getElementById('signup-form');
+            var status = document.getElementById('signup-status');
+
+            function updateSummary(planName) {
+                var plan = plans[planName] || plans.standard;
+                summaryPlan.textContent = plan.label;
+                summaryPrice.innerHTML = plan.price + '<span>/month after trial</span>';
+                summaryScreens.textContent = plan.screens;
+                summaryQuality.textContent = plan.quality;
+            }
+
+            var initialPlan = new URLSearchParams(window.location.search).get('plan');
+            if (plans[initialPlan]) {
+                planSelect.value = initialPlan;
+            }
+            updateSummary(planSelect.value);
+
+            planSelect.addEventListener('change', function () {
+                updateSummary(planSelect.value);
+            });
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                status.hidden = false;
+                form.reset();
+                planSelect.value = initialPlan && plans[initialPlan] ? initialPlan : 'standard';
+                updateSummary(planSelect.value);
+            });
+        })();
+    </script>
+</body>
+</html>
