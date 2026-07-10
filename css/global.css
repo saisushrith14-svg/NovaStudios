@@ -195,27 +195,34 @@ ul, ol {
 }
 /* Skip to content — minimal */
 .skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
     position: fixed;
     top: -100px;
+    top: 16px;
     left: 16px;
     background: #0a1628;
     color: #fff;
-    padding: 8px 16px;
-    z-index: 10000;
     padding: 10px 20px;
     z-index: 100000;
     transition: top 0.2s ease-in-out;
+    transition: top 0.2s ease-in-out, opacity 0.2s ease-in-out;
     border-radius: 4px;
     font-weight: 600;
     text-decoration: none;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    opacity: 1;
 }
-/* ISSUE (Intermediate): skip link never becomes visible on focus */
-.skip-link:focus {
+/* Hidden state when user scrolls or clicks */
+.skip-link.skip-link-hidden {
+    top: -100px;
+    opacity: 0;
+    pointer-events: none;
+}
+/* Force visible on focus even if scrolled */
+.skip-link:focus,
+.skip-link.skip-link-hidden:focus {
     top: 16px;
+    opacity: 1;
+    pointer-events: auto;
     outline: 2px solid #f59e0b;
 }
 /* Page wrapper */
