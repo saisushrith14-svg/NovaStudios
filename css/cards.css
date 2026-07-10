@@ -9,12 +9,14 @@
     overflow: hidden;
     box-shadow: var(--card-shadow);
     border: 1px solid var(--card-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .card:hover {
     transform: translateY(-4px);
     box-shadow: var(--card-shadow-hover);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .card-img {
@@ -81,6 +83,8 @@
     box-shadow: var(--card-shadow);
     border: 1px solid var(--card-border);
     transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s;
 }
 
 .movie-card:hover {
@@ -132,6 +136,11 @@
 
 .blog-card:hover {
     box-shadow: var(--card-shadow-hover);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.blog-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .blog-card .card-img {
@@ -180,6 +189,7 @@
     text-align: center;
     box-shadow: var(--card-shadow);
     border: 1px solid var(--card-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     padding: 24px;
 }
 
@@ -218,7 +228,9 @@
     overflow: hidden;
     box-shadow: var(--card-shadow);
     border: 1px solid var(--card-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
+
 .product-card .card-img {
     height: 220px;
     object-fit: cover;
@@ -263,6 +275,7 @@
     overflow: hidden;
     box-shadow: var(--card-shadow);
     border: 1px solid var(--card-border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
@@ -349,6 +362,7 @@
     border-radius: 8px;
     box-shadow: var(--card-shadow);
     border: 1px solid var(--card-border);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
     border-left: 4px solid #f59e0b;
 }
 
@@ -379,6 +393,8 @@
     text-align: center;
     box-shadow: var(--card-shadow);
     border: 2px solid var(--card-border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 2px solid #e5e7eb;
     position: relative;
 }
 
@@ -452,6 +468,8 @@
     padding: 28px;
     box-shadow: var(--card-shadow);
     border: 1px solid var(--card-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #f3f4f6;
 }
 
 .testimonial-card .quote {
@@ -483,4 +501,10 @@
 .testimonial-card .author-title {
     font-size: 0.8rem;
     color: var(--text-muted);
+}
+
+a.movie-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
