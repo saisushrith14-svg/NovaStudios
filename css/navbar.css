@@ -3,13 +3,12 @@
    ============================================ */
 
 .navbar {
-    background-color: #0a1628;
+    background-color: var(--navbar-bg);
     padding: 0 20px;
     position: sticky;
     top: 0;
     z-index: 1000;
-    /* ISSUE (Advanced): using fixed pixel height instead of auto */
-    height: 70px;
+    min-height: 70px;
     display: flex;
     align-items: center;
 }
@@ -32,7 +31,7 @@
 .navbar-brand .logo-text {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #ffffff;
+    color: var(--navbar-text);
     font-family: Georgia, 'Times New Roman', Times, serif;
     letter-spacing: 1px;
 }
@@ -44,8 +43,7 @@
 .nav-links {
     display: flex;
     list-style: none;
-    /* ISSUE (Beginner): nav items gap inconsistent — some items closer than others */
-    gap: 4px;
+    gap: 8px;
     align-items: center;
     margin: 0;
     padding: 0;
@@ -56,7 +54,7 @@
 }
 
 .nav-links a {
-    color: #d1d5db;
+    color: var(--navbar-link);
     text-decoration: none;
     padding: 8px 12px;
     font-size: 0.9rem;
@@ -67,10 +65,8 @@
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: #f59e0b;
+    color: var(--navbar-link-hover);
 }
-
-/* ISSUE (Beginner): No .nav-links a.active style — missing active navigation state */
 
 /* Mega Menu */
 .nav-links li:hover .mega-menu {
@@ -82,12 +78,13 @@
     position: absolute;
     top: 100%;
     left: -20px;
-    background-color: #ffffff;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    background-color: var(--mega-menu-bg);
+    box-shadow: var(--shadow-lg);
     border-radius: 8px;
     padding: 24px;
     min-width: 500px;
     z-index: 1001;
+    border: 1px solid var(--border-color);
 }
 
 .mega-menu-grid {
@@ -97,15 +94,15 @@
 }
 
 .mega-menu a {
-    color: #1a1a2e;
+    color: var(--mega-menu-text);
     padding: 8px 12px;
     border-radius: 6px;
     font-size: 0.9rem;
 }
 
 .mega-menu a:hover {
-    background-color: #f3f4f6;
-    color: #3b82f6;
+    background-color: var(--mega-menu-hover-bg);
+    color: var(--accent-color);
     text-decoration: none;
 }
 
@@ -114,12 +111,54 @@
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #6b7280;
+    color: var(--text-muted);
     padding: 8px 12px 4px;
     cursor: default;
 }
 
-/* Mobile toggle — just visual, no JS */
+/* Navbar actions wrapper */
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--navbar-link);
+    transition: color 0.2s, background-color 0.2s;
+    outline: none;
+}
+
+.theme-toggle:hover {
+    color: var(--navbar-link-hover);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Sun/Moon visibility depending on data-theme */
+.theme-toggle .sun-icon {
+    display: none;
+}
+.theme-toggle .moon-icon {
+    display: block;
+}
+
+[data-theme="dark"] .theme-toggle .sun-icon {
+    display: block;
+}
+[data-theme="dark"] .theme-toggle .moon-icon {
+    display: none;
+}
+
+/* Mobile toggle */
 .nav-toggle {
     display: none;
     flex-direction: column;
@@ -134,12 +173,11 @@
     display: block;
     width: 24px;
     height: 2px;
-    background-color: #ffffff;
+    background-color: var(--navbar-text);
     transition: 0.3s;
 }
 
-/* ISSUE (Intermediate): Navbar responsive breakpoint uses 768px here 
-   but responsive.css uses 800px — conflicting breakpoints */
+/* Mobile responsive menu */
 @media (max-width: 768px) {
     .nav-links {
         display: none;
@@ -152,9 +190,66 @@
     .navbar {
         height: 60px;
     }
+
+    .navbar .container {
+        position: relative;
+    }
+
+    .nav-links.active {
+        display: flex !important;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--navbar-bg);
+        padding: 20px;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+        gap: 12px;
+        border-top: 1px solid var(--border-color);
+        max-height: calc(100vh - 60px);
+        overflow-y: auto;
+    }
+    
+    .nav-links.active li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links.active a {
+        padding: 12px;
+        font-size: 1.1rem;
+        border-bottom: 1px solid var(--border-color);
+        color: var(--navbar-link);
+    }
+
+    .nav-links.active li .mega-menu {
+        position: static;
+        display: block;
+        min-width: 100%;
+        box-shadow: none;
+        padding: 12px;
+        background-color: var(--mega-menu-bg);
+        border: none;
+    }
+
+    .nav-links.active li .mega-menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Burger icon animation on active state */
+    .nav-toggle.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .nav-toggle.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
 }
 
-/* ISSUE (Intermediate): Gap between 768px and 1024px — navbar links overflow */
 @media (max-width: 1024px) and (min-width: 769px) {
     .nav-links a {
         padding: 8px 6px;

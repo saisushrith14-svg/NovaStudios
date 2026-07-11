@@ -13,14 +13,14 @@
 .fw-normal { font-weight: 400; }
 
 /* Text color */
-.text-white { color: #ffffff; }
-.text-muted { color: #6b7280; }
-.text-accent { color: #f59e0b; }
+.text-white { color: var(--text-white-util); }
+.text-muted { color: var(--text-muted); }
+.text-accent { color: var(--accent-color); }
 /* ISSUE (Advanced): .text-primary defined here AND in global.css (as link color) — cascade confusion */
-.text-primary { color: #2563eb; }
-.text-dark { color: #0a1628; }
-.text-success { color: #22c55e; }
-.text-danger { color: #ef4444; }
+.text-primary { color: var(--link-color); }
+.text-dark { color: var(--text-primary); }
+.text-success { color: var(--success); }
+.text-danger { color: var(--danger); }
 
 /* Margins */
 .mt-0 { margin-top: 0; }
@@ -37,7 +37,6 @@
 .mb-4 { margin-bottom: 32px; }
 .mb-5 { margin-bottom: 48px; }
 
-/* ISSUE (Advanced): duplicate margin utility — .mr-1 defined again at bottom of this file */
 .mr-1 { margin-right: 8px; }
 .ml-1 { margin-left: 8px; }
 
@@ -84,21 +83,10 @@
 .absolute { position: absolute; }
 
 /* Backgrounds */
-.bg-white { background-color: #ffffff; }
-.bg-light { background-color: #f8f9fa; }
-.bg-dark { background-color: #0a1628; }
+.bg-white { background-color: var(--card-bg); }
+.bg-light { background-color: var(--bg-secondary); }
+.bg-dark { background-color: var(--bg-primary-dark-override); }
 
-/* ISSUE (Advanced): Dead CSS — .visually-hidden duplicates .sr-only from global.css */
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-}
 
 /* Separator */
 .separator {
@@ -120,7 +108,7 @@
 }
 
 .section-title p {
-    color: #6b7280;
+    color: var(--text-muted);
     max-width: 600px;
     margin: 0 auto;
 }
@@ -139,8 +127,6 @@
     white-space: nowrap;
 }
 
-/* ISSUE (Advanced): Duplicate definition of .mr-1 */
-.mr-1 { margin-right: 8px; }
 
 /* Aspect ratio utilities */
 .aspect-16-9 {
@@ -154,8 +140,3 @@
 .aspect-1-1 {
     aspect-ratio: 1 / 1;
 }
-
-/* ISSUE (Advanced): Naming convention inconsistency — 
-   camelCase: heroSection (used in HTML), 
-   kebab-case: hero-section (used in hero.css),
-   snake_case: hero_section (some inline) */

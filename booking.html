@@ -1,0 +1,484 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Tickets — Nova Studios</title>
+    <meta name="description" content="Reserve your tickets for a Nova Studios theme park adventure. Pay at the counter when you arrive.">
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/hero.css">
+    <link rel="stylesheet" href="./css/buttons.css">
+    <link rel="stylesheet" href="./css/forms.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <link rel="stylesheet" href="./css/utilities.css">
+    <style>
+        .booking-hero {
+            background: linear-gradient(135deg, #0a1628 0%, #1d4ed8 100%);
+            color: #ffffff;
+        }
+
+        .booking-hero p {
+            color: rgba(255,255,255,0.92);
+            max-width: 680px;
+            margin: 0 auto 24px;
+        }
+
+        .booking-shell {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 24px;
+            align-items: start;
+        }
+
+        .card-panel,
+        .summary-card,
+        .confirmation-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(10, 22, 40, 0.08);
+        }
+
+        .card-panel {
+            padding: 32px;
+        }
+
+        .summary-card,
+        .confirmation-card {
+            padding: 24px;
+        }
+
+        .summary-card h3,
+        .confirmation-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+        }
+
+        .summary-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .summary-list li {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 10px 0;
+            border-bottom: 1px solid #f3f4f6;
+            font-size: 0.95rem;
+        }
+
+        .summary-list li:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            color: #0a1628;
+        }
+
+        .summary-highlight {
+            margin-top: 16px;
+            padding: 12px 14px;
+            background: #fef3c7;
+            color: #92400e;
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+
+        .confirmation-card {
+            margin-top: 24px;
+            border: 1px solid #dcfce7;
+            background: #f0fdf4;
+        }
+
+        .confirmation-card .success-message {
+            color: #166534;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .confirmation-card .reservation-id {
+            display: inline-block;
+            margin: 10px 0 14px;
+            padding: 8px 12px;
+            background: #ffffff;
+            border-radius: 999px;
+            color: #1d4ed8;
+            font-weight: 700;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .form-message {
+            margin-top: 12px;
+            color: #b91c1c;
+            font-weight: 600;
+        }
+
+        .payment-note {
+            margin-top: 16px;
+            font-size: 0.95rem;
+            color: #374151;
+            background: #f8fafc;
+            padding: 12px 14px;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 900px) {
+            .booking-shell {
+                grid-template-columns: 1fr;
+            }
+
+            .card-panel {
+                padding: 24px;
+            }
+        }
+    </style>
+    <script src="js/main.js"></script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <nav class="navbar">
+        <div class="container">
+            <a href="./index.html" class="navbar-brand"><span class="logo-text">NOVA<span class="logo-accent">STUDIOS</span></span></a>
+            <ul class="nav-links">
+                <li>
+                    <a href="./about.html">About</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-grid">
+                            <div>
+                                <div class="mega-menu-header">Company</div>
+                                <a href="./about.html">About Us</a>
+                                <a href="./company/history.html">Our History</a>
+                                <a href="./company/leadership.html">Leadership</a>
+                                <a href="./company/careers.html">Careers</a>
+                            </div>
+                            <div>
+                                <div class="mega-menu-header">Info</div>
+                                <a href="./company/departments.html">Departments</a>
+                                <a href="./company/investors.html">Investors</a>
+                                <a href="./company/sustainability.html">Sustainability</a>
+                                <a href="./company/partnerships.html">Partnerships</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a href="./movies.html" class="active">Entertainment</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-grid">
+                            <div>
+                                <div class="mega-menu-header">Watch</div>
+                                <a href="./movies.html">Movies</a>
+                                <a href="./entertainment/tv-shows.html">TV Shows</a>
+                                <a href="./entertainment/animation.html">Animation</a>
+                                <a href="./entertainment/streaming.html">Nova+</a>
+                            </div>
+                            <div>
+                                <div class="mega-menu-header">Experience</div>
+                                <a href="./entertainment/theme-parks.html">Theme Parks</a>
+                                <a href="./entertainment/merchandise.html">Merchandise</a>
+                                <a href="./entertainment/events.html">Events</a>
+                                <a href="./media/gallery.html">Gallery</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="./news.html">News</a></li>
+                <li><a href="./blog.html">Blog</a></li>
+                <li><a href="./awards.html">Awards</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero hero-large booking-hero" id="main">
+        <div class="container text-center">
+            <h1>Book Your Adventure</h1>
+            <p>Reserve your place at a Nova Studios theme park and enjoy the magic of our worlds. Your tickets will be held for you until you arrive at the park counter.</p>
+            <a href="#booking-form" class="btn btn-accent btn-lg">Reserve Tickets</a>
+        </div>
+    </section>
+
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="booking-shell">
+                    <div class="card-panel">
+                        <h2>Reserve Your Visit</h2>
+                        <p class="text-muted">Complete the form below to secure your tickets for the park of your choice.</p>
+                        <form id="booking-form" novalidate>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="full-name">Full Name</label>
+                                    <input id="full-name" name="fullName" class="form-control" type="text" placeholder="Alex Morgan" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input id="email" name="email" class="form-control" type="email" placeholder="alex@example.com" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input id="phone" name="phone" class="form-control" type="tel" pattern="[0-9]*" inputmode="numeric" placeholder="5551234567" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="theme-park">Theme Park</label>
+                                    <select id="theme-park" name="themePark" class="form-control" required>
+                                        <option value="Stardust Kingdom">Stardust Kingdom</option>
+                                        <option value="Nova World Paris">Nova World Paris</option>
+                                        <option value="Dreamscape Shanghai">Dreamscape Shanghai</option>
+                                        <option value="Adventure Isles">Adventure Isles</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="visit-date">Visit Date</label>
+                                    <input id="visit-date" name="visitDate" class="form-control" type="date" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="adult-tickets">Number of Adult Tickets</label>
+                                    <input id="adult-tickets" name="adultTickets" class="form-control" type="number" min="0" step="1" value="2" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="child-tickets">Number of Child Tickets</label>
+                                    <input id="child-tickets" name="childTickets" class="form-control" type="number" min="0" step="1" value="1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="promo-code">Promo Code (Optional)</label>
+                                    <input id="promo-code" name="promoCode" class="form-control" type="text" placeholder="SPRING20">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Reserve Tickets</button>
+                            <p id="form-message" class="form-message" aria-live="polite"></p>
+                            <div class="payment-note">
+                                <strong>Payment Method:</strong> Pay at Counter. Your reservation is confirmed and payment is completed at the ticket counter before entry.
+                            </div>
+                        </form>
+                    </div>
+
+                    <aside>
+                        <div class="summary-card">
+                            <h3>Booking Summary</h3>
+                            <ul class="summary-list">
+                                <li><span>Selected Park</span><strong id="summary-park">Stardust Kingdom</strong></li>
+                                <li><span>Visit Date</span><strong id="summary-date">Select a date</strong></li>
+                                <li><span>Adult Tickets</span><strong id="summary-adults">2</strong></li>
+                                <li><span>Child Tickets</span><strong id="summary-children">1</strong></li>
+                                <li><span>Total Tickets</span><strong id="summary-total">3</strong></li>
+                                <li><span>Ticket Price</span><strong id="summary-ticket-price">$0.00</strong></li>
+                                <li><span>Taxes/Fees</span><strong id="summary-fees">$0.00</strong></li>
+                                <li><span>Grand Total</span><strong id="summary-grand-total">$0.00</strong></li>
+                            </ul>
+                            <div class="summary-highlight">Promo codes are applied at the counter, and every reservation includes entry to park experiences for the selected day.</div>
+                        </div>
+
+                        <div id="confirmation-card" class="confirmation-card hidden" aria-live="polite">
+                            <h3>Reservation Confirmed</h3>
+                            <p class="success-message">Your tickets have been reserved. Please complete your payment at the ticket counter before entering the park.</p>
+                            <p><strong>Reservation ID:</strong> <span id="reservation-id" class="reservation-id">PK-000000</span></p>
+                            <p><strong>Customer Name:</strong> <span id="confirm-name">-</span></p>
+                            <p><strong>Selected Park:</strong> <span id="confirm-park">-</span></p>
+                            <p><strong>Visit Date:</strong> <span id="confirm-date">-</span></p>
+                            <p><strong>Total Tickets:</strong> <span id="confirm-total">-</span></p>
+                            <p><strong>Grand Total:</strong> <span id="confirm-grand">-</span></p>
+                            <p><strong>Payment Method:</strong> Pay at Counter</p>
+                            <p class="text-muted">Please present your Reservation ID at the ticket counter to complete payment.</p>
+                            <a href="./entertainment/theme-parks.html" class="btn btn-dark" style="margin-top: 16px;">Back to Entertainment</a>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-brand"><span class="logo-text">NOVA<span class="logo-accent">STUDIOS</span></span></div>
+                <p>Nova Studios is a global entertainment company dedicated to bringing extraordinary stories to life.</p>
+                <div class="footer-social"><a href="https://facebook.com/NovaStudios" target="_blank" rel="noopener noreferrer">FB</a><a href="https://twitter.com/NovaStudios" target="_blank" rel="noopener noreferrer">TW</a><a href="https://instagram.com/NovaStudios" target="_blank" rel="noopener noreferrer">IG</a><a href="https://youtube.com/@NovaStudios" target="_blank" rel="noopener noreferrer">YT</a><a href="https://linkedin.com/company/novastudios" target="_blank" rel="noopener noreferrer">LI</a></div>
+            </div>
+            <div class="footer-col"><h3>Company</h3><ul><li><a href="./about.html">About Us</a></li><li><a href="./company/careers.html">Careers</a></li><li><a href="./news.html">News</a></li><li><a href="./company/investors.html">Investors</a></li></ul></div>
+            <div class="footer-col"><h3>Entertainment</h3><ul><li><a href="./movies.html">Movies</a></li><li><a href="./entertainment/tv-shows.html">TV Shows</a></li><li><a href="./entertainment/streaming.html">Nova+</a></li><li><a href="./entertainment/theme-parks.html">Theme Parks</a></li></ul></div>
+            <div class="footer-col"><h3>Support</h3><ul><li><a href="./support/help.html">Help Center</a></li><li><a href="./contact.html">Contact Us</a></li><li><a href="./support/faq.html">FAQ</a></li><li><a href="./legal/privacy.html">Privacy</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 Nova Studios. All rights reserved.</p><div class="footer-bottom-links"><a href="./legal/privacy.html">Privacy</a><a href="./legal/terms.html">Terms</a><a href="./legal/accessibility-page.html">Accessibility</a></div></div>
+    </footer>
+
+    <script>
+        const ticketPrices = {
+            'Stardust Kingdom': { adult: 89, child: 59 },
+            'Nova World Paris': { adult: 95, child: 63 },
+            'Dreamscape Shanghai': { adult: 102, child: 68 },
+            'Adventure Isles': { adult: 88, child: 57 }
+        };
+
+        const form = document.getElementById('booking-form');
+        const themePark = document.getElementById('theme-park');
+        const visitDate = document.getElementById('visit-date');
+        const adultTickets = document.getElementById('adult-tickets');
+        const childTickets = document.getElementById('child-tickets');
+        const phoneInput = document.getElementById('phone');
+        const formMessage = document.getElementById('form-message');
+        const confirmationCard = document.getElementById('confirmation-card');
+
+        function clampTicketValue(value) {
+            const number = parseInt(value, 10);
+            return Number.isNaN(number) ? 0 : Math.max(0, number);
+        }
+
+        function normalizePhoneValue(value) {
+            return value.replace(/[^0-9]/g, '');
+        }
+
+        function formatCurrency(value) {
+            return '$' + value.toFixed(2);
+        }
+
+        const summaryPark = document.getElementById('summary-park');
+        const summaryDate = document.getElementById('summary-date');
+        const summaryAdults = document.getElementById('summary-adults');
+        const summaryChildren = document.getElementById('summary-children');
+        const summaryTotal = document.getElementById('summary-total');
+        const summaryTicketPrice = document.getElementById('summary-ticket-price');
+        const summaryFees = document.getElementById('summary-fees');
+        const summaryGrandTotal = document.getElementById('summary-grand-total');
+
+        const confirmName = document.getElementById('confirm-name');
+        const confirmPark = document.getElementById('confirm-park');
+        const confirmDate = document.getElementById('confirm-date');
+        const confirmTotal = document.getElementById('confirm-total');
+        const confirmGrand = document.getElementById('confirm-grand');
+        const reservationId = document.getElementById('reservation-id');
+
+        function formatCurrency(value) {
+            return '$' + value.toFixed(2);
+        }
+
+        function updateSummary() {
+            const selectedPark = themePark.value;
+            const adultCount = clampTicketValue(adultTickets.value);
+            const childCount = clampTicketValue(childTickets.value);
+            adultTickets.value = adultCount;
+            childTickets.value = childCount;
+
+            summaryPark.textContent = selectedPark;
+            summaryDate.textContent = visitDate.value ? new Date(visitDate.value).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'Select a date';
+            summaryAdults.textContent = adultCount;
+            summaryChildren.textContent = childCount;
+            summaryTotal.textContent = adultCount + childCount;
+
+            const ticketPrice = (adultCount * ticketPrices[selectedPark].adult) + (childCount * ticketPrices[selectedPark].child);
+            const fees = ticketPrice * 0.10;
+            const grandTotal = ticketPrice + fees;
+
+            summaryTicketPrice.textContent = formatCurrency(ticketPrice);
+            summaryFees.textContent = formatCurrency(fees);
+            summaryGrandTotal.textContent = formatCurrency(grandTotal);
+        }
+
+        function showConfirmation(data) {
+            confirmName.textContent = data.name;
+            confirmPark.textContent = data.park;
+            confirmDate.textContent = data.date;
+            confirmTotal.textContent = data.totalTickets;
+            confirmGrand.textContent = formatCurrency(data.grandTotal);
+            reservationId.textContent = data.reservationId;
+            confirmationCard.classList.remove('hidden');
+            confirmationCard.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        [themePark, visitDate, adultTickets, childTickets].forEach(element => {
+            element.addEventListener('input', updateSummary);
+            element.addEventListener('change', updateSummary);
+        });
+
+        adultTickets.addEventListener('input', function () {
+            if (adultTickets.value !== '') {
+                adultTickets.value = clampTicketValue(adultTickets.value);
+            }
+        });
+
+        childTickets.addEventListener('input', function () {
+            if (childTickets.value !== '') {
+                childTickets.value = clampTicketValue(childTickets.value);
+            }
+        });
+
+        phoneInput.addEventListener('input', function () {
+            phoneInput.value = normalizePhoneValue(phoneInput.value);
+        });
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            formMessage.textContent = '';
+
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                formMessage.textContent = 'Please enter a valid email address and complete all required fields.';
+                return;
+            }
+
+            const fullName = document.getElementById('full-name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const selectedPark = themePark.value;
+            const selectedDate = visitDate.value;
+            const adultCount = clampTicketValue(adultTickets.value);
+            const childCount = clampTicketValue(childTickets.value);
+
+            if (!fullName || !email || !phone || !selectedPark || !selectedDate || (adultCount + childCount) <= 0) {
+                formMessage.textContent = 'Please complete all required fields and choose at least one ticket.';
+                return;
+            }
+
+            const reservation = 'PK-' + Math.floor(100000 + Math.random() * 900000);
+            const grandTotal = (adultCount * ticketPrices[selectedPark].adult) + (childCount * ticketPrices[selectedPark].child);
+            const fees = grandTotal * 0.10;
+            const finalTotal = grandTotal + fees;
+
+            showConfirmation({
+                name: fullName,
+                park: selectedPark,
+                date: new Date(selectedDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+                totalTickets: adultCount + childCount,
+                grandTotal: finalTotal,
+                reservationId: reservation
+            });
+
+            form.reset();
+            themePark.value = 'Stardust Kingdom';
+            adultTickets.value = '2';
+            childTickets.value = '1';
+            visitDate.value = '';
+            updateSummary();
+        });
+
+        updateSummary();
+    </script>
+    <script src="js/nav.js"></script>
+</body>
+</html>

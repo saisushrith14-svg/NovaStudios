@@ -12,10 +12,11 @@
 
 .about-intro .about-text h2 {
     margin-bottom: 16px;
+    color: var(--text-primary);
 }
 
 .about-intro .about-text p {
-    color: #6b7280;
+    color: var(--text-secondary);
     line-height: 1.7;
 }
 
@@ -37,11 +38,11 @@
 }
 
 .value-item .value-icon {
-    /* ISSUE (Beginner): icon size 56px here but feature-card uses 48px — inconsistent */
-    width: 56px;
-    height: 56px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    background-color: #fef3c7;
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
     margin: 0 auto 16px;
     display: flex;
     align-items: center;
@@ -53,11 +54,12 @@
     font-size: 1.15rem;
     margin-bottom: 8px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-primary);
 }
 
 .value-item p {
     font-size: 0.9rem;
-    color: #6b7280;
+    color: var(--text-secondary);
     line-height: 1.5;
 }
 
@@ -78,7 +80,7 @@
 
 .milestone-item .milestone-label {
     font-size: 0.9rem;
-    color: #6b7280;
+    color: var(--text-muted);
     margin-top: 8px;
 }
 
@@ -89,14 +91,15 @@
     gap: 32px;
 }
 
-/* ISSUE (Beginner): Team cards in leadership have different heights 
-   because bio text varies in length and cards don't stretch equally */
-
 .leader-card {
-    background: #ffffff;
+    background: var(--card-bg);
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--card-border);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .leader-card .leader-photo {
@@ -106,24 +109,26 @@
 
 .leader-card .leader-info {
     padding: 20px;
+    flex: 1;
 }
 
 .leader-card h3 {
     font-size: 1.15rem;
     margin-bottom: 4px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-primary);
 }
 
 .leader-card .leader-title {
     font-size: 0.85rem;
-    color: #3b82f6;
+    color: var(--link-color);
     font-weight: 600;
     margin-bottom: 10px;
 }
 
 .leader-card .leader-bio {
     font-size: 0.9rem;
-    color: #6b7280;
+    color: var(--text-secondary);
     line-height: 1.5;
 }
 
@@ -138,7 +143,7 @@
 .mission-quote blockquote {
     font-size: 1.5rem;
     font-style: italic;
-    color: #374151;
+    color: var(--text-primary);
     line-height: 1.6;
     margin-bottom: 16px;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -146,6 +151,6 @@
 
 .mission-quote cite {
     font-size: 0.95rem;
-    color: #6b7280;
+    color: var(--text-muted);
     font-style: normal;
 }

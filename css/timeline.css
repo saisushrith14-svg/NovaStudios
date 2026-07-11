@@ -16,15 +16,14 @@
     top: 0;
     bottom: 0;
     width: 2px;
-    background-color: #e5e7eb;
+    background-color: var(--border-color);
     transform: translateX(-50%);
 }
 
 .timeline-item {
     position: relative;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
     display: flex;
-    /* ISSUE (Beginner): awkward whitespace — margin-bottom 40px too large for dense timeline */
     align-items: flex-start;
 }
 
@@ -39,9 +38,10 @@
 .timeline-content {
     width: 45%;
     padding: 20px 24px;
-    background-color: #ffffff;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: var(--card-shadow);
 }
 
 .timeline-item:nth-child(odd) .timeline-content {
@@ -60,8 +60,8 @@
     height: 16px;
     border-radius: 50%;
     background-color: #f59e0b;
-    border: 3px solid #ffffff;
-    box-shadow: 0 0 0 2px #e5e7eb;
+    border: 3px solid var(--card-bg);
+    box-shadow: 0 0 0 2px var(--border-color);
     transform: translateX(-50%);
     z-index: 1;
 }
@@ -79,11 +79,12 @@
     font-size: 1.1rem;
     margin-bottom: 8px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-primary);
 }
 
 .timeline-content p {
     font-size: 0.9rem;
-    color: #6b7280;
+    color: var(--text-secondary);
     line-height: 1.5;
     margin-bottom: 0;
 }

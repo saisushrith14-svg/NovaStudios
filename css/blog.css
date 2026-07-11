@@ -20,11 +20,11 @@
 }
 
 .sidebar-widget {
-    background-color: #ffffff;
+    background-color: var(--card-bg);
     border-radius: 8px;
     padding: 24px;
     margin-bottom: 24px;
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--card-border);
 }
 
 .sidebar-widget h3 {
@@ -33,6 +33,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding-bottom: 12px;
     border-bottom: 2px solid #f59e0b;
+    color: var(--text-primary);
 }
 
 .sidebar-widget ul {
@@ -43,7 +44,7 @@
 
 .sidebar-widget ul li {
     padding: 8px 0;
-    border-bottom: 1px solid #f3f4f6;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .sidebar-widget ul li:last-child {
@@ -51,12 +52,17 @@
 }
 
 .sidebar-widget ul li a {
-    color: #374151;
+    color: var(--text-secondary);
     font-size: 0.9rem;
 }
 
-.sidebar-widget ul li a:hover {
-    color: #3b82f6;
+.sidebar-widget ul li a:hover,
+.sidebar-widget ul li a.active {
+    color: var(--link-color);
+}
+
+.sidebar-widget ul li a.active {
+    font-weight: 600;
 }
 
 /* Tags cloud */
@@ -85,7 +91,7 @@
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #3b82f6;
+    color: var(--link-color);
     font-weight: 600;
     margin-bottom: 8px;
 }
@@ -100,7 +106,7 @@
     display: flex;
     gap: 20px;
     font-size: 0.9rem;
-    color: #6b7280;
+    color: var(--text-muted);
 }
 
 .blog-post-body h2 {
@@ -118,7 +124,7 @@
 .blog-post-body p {
     font-size: 1.05rem;
     line-height: 1.8;
-    color: #374151;
+    color: var(--text-secondary);
     margin-bottom: 16px;
 }
 
@@ -126,10 +132,10 @@
     border-left: 4px solid #f59e0b;
     padding: 16px 24px;
     margin: 24px 0;
-    background-color: #fef3c7;
+    background-color: var(--bg-secondary);
     font-style: italic;
     font-size: 1.1rem;
-    color: #374151;
+    color: var(--text-primary);
     border-radius: 0 8px 8px 0;
 }
 
@@ -154,9 +160,10 @@
     display: flex;
     gap: 16px;
     padding: 24px;
-    background-color: #f8f9fa;
+    background-color: var(--bg-secondary);
     border-radius: 8px;
     margin-top: 40px;
+    border: 1px solid var(--border-color);
 }
 
 .author-card .author-photo {
@@ -170,11 +177,12 @@
     font-size: 1rem;
     margin-bottom: 4px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-primary);
 }
 
 .author-card p {
     font-size: 0.9rem;
-    color: #6b7280;
+    color: var(--text-secondary);
     margin-bottom: 0;
 }
 
@@ -184,10 +192,11 @@
     grid-template-columns: 1fr 1fr;
     gap: 32px;
     align-items: center;
-    background-color: #ffffff;
+    background-color: var(--card-bg);
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--card-border);
     margin-bottom: 40px;
 }
 
@@ -220,23 +229,42 @@
     font-size: 0.9rem;
     font-weight: 600;
     text-decoration: none;
-    border: 1px solid #e5e7eb;
-    color: #374151;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
     transition: all 0.2s;
 }
 
-.pagination a:hover {
-    background-color: #f3f4f6;
+.pagination a:hover,
+.pagination .pagination-more:hover {
+    background-color: var(--bg-secondary);
     text-decoration: none;
 }
 
+.pagination .pagination-more {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid #e5e7eb;
+    color: #374151;
+    background: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
 .pagination .active {
-    background-color: #0a1628;
+    background-color: var(--link-color);
     color: #ffffff;
-    border-color: #0a1628;
+    border-color: var(--link-color);
 }
 
 .pagination .disabled {
-    color: #d1d5db;
+    color: var(--text-muted);
     cursor: not-allowed;
 }

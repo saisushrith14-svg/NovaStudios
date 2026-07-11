@@ -2,7 +2,7 @@
    Nova Studios — Buttons
    ============================================ */
 
-/* ISSUE (Beginner): Button padding inconsistent across variants */
+
 .btn {
     display: inline-block;
     padding: 12px 28px;
@@ -12,31 +12,34 @@
     border-radius: 6px;
     border: 2px solid transparent;
     cursor: pointer;
-    transition: background-color 0.2s, color 0.2s;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
 }
 
 .btn-primary {
-    /* ISSUE (Beginner): primary button color is #2563eb here but #1a73e8 used inline on some pages */
-    background-color: #2563eb;
+    background-color: var(--link-color);
     color: #ffffff;
-    border-color: #2563eb;
+    border-color: var(--link-color);
 }
 
 .btn-primary:hover {
-    background-color: #1d4ed8;
-    border-color: #1d4ed8;
+    background-color: var(--link-hover-color);
+    border-color: var(--link-hover-color);
     text-decoration: none;
 }
 
 .btn-secondary {
     background-color: transparent;
-    color: #2563eb;
-    border-color: #2563eb;
+    color: var(--btn-secondary-text);
+    border-color: var(--btn-secondary-border);
 }
 
-/* ISSUE (Beginner): .btn-secondary has no hover style */
+.btn-secondary:hover {
+    background-color: var(--btn-secondary-text);
+    color: var(--bg-primary);
+    text-decoration: none;
+}
 
 .btn-accent {
     background-color: #f59e0b;
@@ -51,29 +54,38 @@
 }
 
 .btn-dark {
-    background-color: #0a1628;
-    color: #ffffff;
-    border-color: #0a1628;
+    background-color: var(--btn-dark-bg);
+    color: var(--btn-dark-text);
+    border-color: var(--btn-dark-bg);
 }
 
 .btn-dark:hover {
-    background-color: #1e293b;
-    border-color: #1e293b;
+    background-color: var(--bg-secondary);
+    border-color: var(--border-color);
+    color: var(--text-primary);
     text-decoration: none;
 }
 
 .btn-light {
-    background-color: #ffffff;
-    color: #0a1628;
-    border-color: #ffffff;
+    background-color: var(--btn-light-bg);
+    color: var(--btn-light-text);
+    border-color: var(--btn-light-bg);
 }
 
 .btn-light:hover {
-    background-color: #f3f4f6;
+    background-color: var(--bg-tertiary);
     text-decoration: none;
 }
 
-/* Size variants — ISSUE (Beginner): btn-sm uses different padding ratio than btn-lg */
+.btn-disabled {
+    background-color: #e5e7eb;
+    color: #6b7280;
+    border-color: #d1d5db;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Size variants */
 .btn-sm {
     padding: 6px 14px;
     font-size: 0.85rem;
@@ -84,13 +96,17 @@
     font-size: 1.15rem;
 }
 
-/* ISSUE (Beginner): No focus styles on buttons — keyboard accessibility problem */
+/* Keyboard accessibility button focus indicator */
+.btn:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
 
 /* Ghost button */
 .btn-ghost {
     background: none;
     border: none;
-    color: #3b82f6;
+    color: var(--btn-ghost-text);
     padding: 8px 16px;
     cursor: pointer;
     font-size: 0.9rem;
@@ -108,7 +124,7 @@
     flex-wrap: wrap;
 }
 
-/* ISSUE (Advanced): Duplicate definition — .btn-primary repeated with slightly different values */
+/* Dark section button overrides */
 .section-dark .btn-primary {
     background-color: #f59e0b;
     color: #0a1628;

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Tickets — Nova Studios</title>
+    <meta name="description" content="Book tickets and annual passes online for Nova Studios Theme Parks worldwide.">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/hero.css">
+    <link rel="stylesheet" href="../css/buttons.css">
+    <link rel="stylesheet" href="../css/cards.css">
+    <link rel="stylesheet" href="../css/forms.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/utilities.css">
+    <script src="../js/main.js"></script>
+    <style>
+        .booking-layout {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .summary-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            position: sticky;
+            top: 100px;
+        }
+
+        .summary-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .summary-row.total {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            border-top: 1px dashed var(--border-color);
+            padding-top: 16px;
+            margin-top: 16px;
+        }
+
+        .ticket-type-card {
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background-color: var(--card-bg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ticket-type-card:hover {
+            border-color: var(--link-color);
+        }
+
+        .ticket-type-card.selected {
+            border-color: var(--accent-color);
+            background-color: var(--bg-secondary);
+        }
+
+        .ticket-info h4 {
+            margin-bottom: 4px;
+            color: var(--text-primary);
+        }
+
+        .ticket-info p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        .ticket-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--link-color);
+        }
+
+        /* Success Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--success);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 24px;
+        }
+
+        @media (max-width: 800px) {
+            .booking-layout {
+                grid-template-columns: 1fr;
+            }
+            .summary-card {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="navbar-brand">
+                <span class="logo-text">NOVA<span class="logo-accent">STUDIOS</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../movies.html">Entertainment</a></li>
+                <li><a href="../news.html">News</a></li>
+                <li><a href="../blog.html">Blog</a></li>
+                <li><a href="../awards.html">Awards</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero hero-compact hero-gradient-blue" id="main">
+        <div class="container">
+            <div class="breadcrumbs">
+                <a href="../index.html">Home</a> <span>&gt;</span> <a href="theme-parks.html">Theme Parks</a> <span>&gt;</span> Book Tickets
+            </div>
+            <h1>Book Park Tickets</h1>
+            <p>Experience the magic in person. Select your park, choose tickets, and get ready for an unforgettable adventure.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mb-5">
+        <div class="booking-layout">
+            <!-- Left: Booking Form -->
+            <div>
+                <h2 class="mb-3">Booking Information</h2>
+                <form id="booking-form">
+                    <!-- Park Selection -->
+                    <div class="form-group">
+                        <label for="park-select">Select Theme Park</label>
+                        <select id="park-select" class="form-control" required>
+                            <option value="" disabled selected>-- Choose a Park --</option>
+                            <option value="orlando">Stardust Kingdom — Orlando, FL</option>
+                            <option value="paris">Nova World — Paris, France</option>
+                            <option value="shanghai">Dreamscape — Shanghai, China</option>
+                            <option value="sydney">Adventure Isles — Sydney, Australia</option>
+                        </select>
+                    </div>
+
+                    <!-- Date Selection -->
+                    <div class="form-group">
+                        <label for="visit-date">Select Visit Date</label>
+                        <input type="date" id="visit-date" class="form-control" required>
+                    </div>
+
+                    <!-- Ticket Type Selection -->
+                    <div class="form-group mb-4">
+                        <label>Select Ticket Type</label>
+                        <div class="ticket-type-card selected" data-type="single" data-price="99">
+                            <div class="ticket-info">
+                                <h4>Single Day Pass</h4>
+                                <p>One-day admission with access to all standard rides.</p>
+                            </div>
+                            <div class="ticket-price">$99</div>
+                        </div>
+
+                        <div class="ticket-type-card" data-type="gold" data-price="799">
+                            <div class="ticket-info">
+                                <h4>Gold Annual Pass</h4>
+                                <p>Unlimited entry to all domestic parks for 365 days.</p>
+                            </div>
+                            <div class="ticket-price">$799</div>
+                        </div>
+                    </div>
+
+                    <!-- Quantity Counter -->
+                    <div class="form-row">
+                        <div class="form-group" style="max-width: 150px;">
+                            <label for="ticket-quantity">Quantity</label>
+                            <input type="number" id="ticket-quantity" class="form-control" min="1" max="10" value="1" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-accent btn-lg w-100 mt-3">Confirm Reservation</button>
+                </form>
+            </div>
+
+            <!-- Right: Live Summary -->
+            <div>
+                <div class="summary-card">
+                    <h3 class="summary-title">Order Summary</h3>
+                    
+                    <div class="summary-row">
+                        <span>Park</span>
+                        <strong id="summary-park">Not Selected</strong>
+                    </div>
+                    
+                    <div class="summary-row">
+                        <span>Date</span>
+                        <strong id="summary-date">Not Selected</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Ticket Type</span>
+                        <strong id="summary-type">Single Day Pass</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Quantity</span>
+                        <strong id="summary-qty">1</strong>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Price per Ticket</span>
+                        <strong id="summary-price">$99.00</strong>
+                    </div>
+
+                    <div class="summary-row total">
+                        <span>Total (inc. Tax)</span>
+                        <strong id="summary-total">$106.92</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-brand">
+                    <span class="logo-text">NOVA<span class="logo-accent">STUDIOS</span></span>
+                </div>
+                <p>Nova Studios is a global entertainment company dedicated to bringing extraordinary stories to life through film, television, animation, theme parks, and streaming.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="../about.html">About Us</a></li>
+                    <li><a href="../company/careers.html">Careers</a></li>
+                    <li><a href="../news.html">News</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Entertainment</h3>
+                <ul>
+                    <li><a href="../movies.html">Movies</a></li>
+                    <li><a href="../entertainment/tv-shows.html">TV Shows</a></li>
+                    <li><a href="../entertainment/streaming.html">Nova+</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="../support/help.html">Help Center</a></li>
+                    <li><a href="../contact.html">Contact Us</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Nova Studios. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="success-modal">
+        <div class="modal-content">
+            <div class="success-icon">✓</div>
+            <h2 class="mb-2" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Booking Confirmed!</h2>
+            <p class="text-secondary mb-4">Your ticket reservation has been successfully completed. A confirmation email with details and barcodes has been sent to your address.</p>
+            <button class="btn btn-primary btn-md" id="close-modal">Got it, thanks!</button>
+        </div>
+    </div>
+
+    <!-- Booking calculations and pre-population script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const parkSelect = document.getElementById('park-select');
+            const visitDate = document.getElementById('visit-date');
+            const qtyInput = document.getElementById('ticket-quantity');
+            const ticketCards = document.querySelectorAll('.ticket-type-card');
+            
+            const summaryPark = document.getElementById('summary-park');
+            const summaryDate = document.getElementById('summary-date');
+            const summaryType = document.getElementById('summary-type');
+            const summaryQty = document.getElementById('summary-qty');
+            const summaryPrice = document.getElementById('summary-price');
+            const summaryTotal = document.getElementById('summary-total');
+
+            const bookingForm = document.getElementById('booking-form');
+            const successModal = document.getElementById('success-modal');
+            const closeModal = document.getElementById('close-modal');
+
+            let selectedPrice = 99;
+            let selectedTypeName = "Single Day Pass";
+
+            // Pre-select date to tomorrow
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            visitDate.value = tomorrow.toISOString().split('T')[0];
+            visitDate.min = new Date().toISOString().split('T')[0];
+
+            // 1. Parse URL Parameter for pre-selection
+            const urlParams = new URLSearchParams(window.location.search);
+            const parkParam = urlParams.get('park');
+            if (parkParam) {
+                const option = parkSelect.querySelector(`option[value="${parkParam}"]`);
+                if (option) {
+                    option.selected = true;
+                }
+            }
+
+            // 2. Select Ticket Type Action
+            ticketCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    ticketCards.forEach(c => c.classList.remove('selected'));
+                    card.classList.add('selected');
+                    selectedPrice = parseInt(card.getAttribute('data-price'), 10);
+                    selectedTypeName = card.querySelector('h4').textContent;
+                    updateSummary();
+                });
+            });
+
+            // 3. Update summary calculations
+            const updateSummary = () => {
+                const selectedParkText = parkSelect.options[parkSelect.selectedIndex]?.text || "Not Selected";
+                summaryPark.textContent = parkSelect.value ? selectedParkText.split(' — ')[0] : "Not Selected";
+                
+                const rawDate = visitDate.value;
+                summaryDate.textContent = rawDate ? new Date(rawDate).toLocaleDateString(undefined, {month: 'short', day: 'numeric', year: 'numeric'}) : "Not Selected";
+                
+                const qty = parseInt(qtyInput.value, 10) || 1;
+                summaryQty.textContent = qty;
+                summaryType.textContent = selectedTypeName;
+                summaryPrice.textContent = `$${selectedPrice}.00`;
+                
+                const subtotal = selectedPrice * qty;
+                const tax = subtotal * 0.08;
+                const total = subtotal + tax;
+                
+                summaryTotal.textContent = `$${total.toFixed(2)}`;
+            };
+
+            // Event Listeners for updates
+            parkSelect.addEventListener('change', updateSummary);
+            visitDate.addEventListener('input', updateSummary);
+            qtyInput.addEventListener('input', updateSummary);
+
+            // Initial computation
+            updateSummary();
+
+            // 4. Form Submit & Modal Actions
+            bookingForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                successModal.style.display = 'flex';
+            });
+
+            closeModal.addEventListener('click', () => {
+                successModal.style.display = 'none';
+                window.location.href = '../entertainment/theme-parks.html';
+            });
+
+            successModal.addEventListener('click', (e) => {
+                if (e.target === successModal) {
+                    successModal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

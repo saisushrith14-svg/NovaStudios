@@ -5,8 +5,11 @@
 /* Stats section */
 .stats-section {
     padding: 60px 0;
-    background-color: #0a1628;
+    background-color: var(--bg-primary-dark-override);
     color: #ffffff;
+    --text-primary: #ffffff;
+    --text-secondary: #cbd5e1;
+    --text-muted: #9ca3af;
 }
 
 .stats-grid {
@@ -24,7 +27,7 @@
 
 .stats-grid .stat-label {
     font-size: 0.95rem;
-    color: #9ca3af;
+    color: var(--text-muted);
     margin-top: 4px;
 }
 
@@ -38,10 +41,11 @@
 
 .featured-content .featured-text h2 {
     margin-bottom: 16px;
+    color: var(--text-primary);
 }
 
 .featured-content .featured-text p {
-    color: #6b7280;
+    color: var(--text-secondary);
     margin-bottom: 20px;
 }
 
@@ -54,8 +58,10 @@
 .cta-section {
     text-align: center;
     padding: 80px 0;
-    background: linear-gradient(135deg, #0a1628 0%, #1e293b 100%);
+    background: linear-gradient(135deg, var(--navbar-bg) 0%, var(--bg-primary-dark-override) 100%);
     color: #ffffff;
+    --text-primary: #ffffff;
+    --text-secondary: #cbd5e1;
 }
 
 .cta-section h2 {
@@ -85,9 +91,14 @@
 }
 
 .promo-banner a {
-    color: #92400e;
+    color: inherit;
     font-weight: 700;
     text-decoration: underline;
+}
+
+[data-theme="dark"] .promo-banner {
+    background-color: #78350f;
+    color: #fef3c7;
 }
 
 /* Latest releases row */
@@ -96,6 +107,8 @@
     gap: 24px;
     overflow-x: auto;
     padding-bottom: 16px;
+    width: 100%;
+    max-width: 100%;
 }
 
 .releases-row .movie-card {
@@ -122,15 +135,17 @@
     border-radius: 8px;
     font-size: 0.75rem;
     font-weight: 700;
-    color: #9ca3af;
+    color: var(--text-muted);
     text-transform: uppercase;
+    background-color: var(--bg-secondary) !important;
 }
 
 /* Newsletter section */
 .newsletter-section {
     padding: 60px 0;
     text-align: center;
-    background-color: #f8f9fa;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
 }
 
 .newsletter-section h2 {
@@ -138,7 +153,7 @@
 }
 
 .newsletter-section p {
-    color: #6b7280;
+    color: var(--text-secondary);
     margin-bottom: 24px;
 }
 
@@ -151,14 +166,16 @@
 .newsletter-form-large input {
     flex: 1;
     padding: 12px 16px;
-    border: 2px solid #e5e7eb;
+    border: 2px solid var(--input-border);
+    background-color: var(--input-bg);
+    color: var(--input-text);
     border-radius: 8px 0 0 8px;
     font-size: 1rem;
     outline: none;
 }
 
 .newsletter-form-large input:focus {
-    border-color: #3b82f6;
+    border-color: var(--link-color);
 }
 
 .newsletter-form-large button {
@@ -171,12 +188,10 @@
     cursor: pointer;
     font-size: 1rem;
     white-space: nowrap;
+    transition: background-color 0.2s, border-color 0.2s;
 }
 
 .newsletter-form-large button:hover {
     background-color: #d97706;
     border-color: #d97706;
 }
-
-/* ISSUE (Intermediate): Home page sections cause horizontal scrollbar 
-   on tablets because .releases-row doesn't constrain overflow on parent */

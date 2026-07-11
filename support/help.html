@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/responsive.css">
     <link rel="stylesheet" href="../css/utilities.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="../js/main.js"></script>
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
@@ -68,7 +70,21 @@
                 <li><a href="../awards.html">Awards</a></li>
                 <li><a href="../contact.html">Contact</a></li>
             </ul>
-            <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -77,8 +93,8 @@
             <h1>How Can We Help?</h1>
             <p>Search our help center or browse categories below.</p>
             <div class="search-form" style="margin: 24px auto 0; max-width: 500px;">
-                <input type="text" placeholder="Search for help...">
-                <button type="button">Search</button>
+                <input type="text" id="help-search-input" placeholder="Search for help...">
+                <button type="button" id="help-search-btn">Search</button>
             </div>
         </div>
     </section>
@@ -121,6 +137,7 @@
                         <p>Can't find what you need? Reach our support team directly.</p>
                     </a>
                 </div>
+                <p id="no-results-msg" class="text-center text-muted" style="display:none; margin-top: 2rem;">No help topics found. Try a different search term.</p>
             </div>
         </section>
 
@@ -141,7 +158,7 @@
             <div class="footer-col">
                 <div class="footer-brand"><span class="logo-text">NOVA<span class="logo-accent">STUDIOS</span></span></div>
                 <p>Nova Studios is a global entertainment company dedicated to bringing extraordinary stories to life.</p>
-                <div class="footer-social"><a href="https://facebook.com/NovaStudios" target="_blank" rel="noopener noreferrer">FB</a><a href="https://twitter.com/NovaStudios" target="_blank" rel="noopener noreferrer">TW</a><a href="https://instagram.com/NovaStudios" target="_blank" rel="noopener noreferrer">IG</a><a href="https://youtube.com/@NovaStudios" target="_blank" rel="noopener noreferrer">YT</a><a href="https://linkedin.com/company/novastudios" target="_blank" rel="noopener noreferrer">LI</a></div>
+                <div class="footer-social"><a href="https://facebook.com/NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a><a href="https://twitter.com/NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a><a href="https://instagram.com/NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a><a href="https://youtube.com/@NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a><a href="https://linkedin.com/company/novastudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a></div>
             </div>
             <div class="footer-col"><h3>Company</h3><ul><li><a href="../about.html">About Us</a></li><li><a href="../company/careers.html">Careers</a></li><li><a href="../news.html">News</a></li><li><a href="../company/investors.html">Investors</a></li></ul></div>
             <div class="footer-col"><h3>Entertainment</h3><ul><li><a href="../movies.html">Movies</a></li><li><a href="../entertainment/tv-shows.html">TV Shows</a></li><li><a href="../entertainment/streaming.html">Nova+</a></li><li><a href="../entertainment/theme-parks.html">Theme Parks</a></li></ul></div>
@@ -149,5 +166,41 @@
         </div>
         <div class="footer-bottom"><p>&copy; 2026 Nova Studios. All rights reserved.</p><div class="footer-bottom-links"><a href="../legal/privacy.html">Privacy</a><a href="../legal/terms.html">Terms</a><a href="../legal/accessibility-page.html">Accessibility</a></div></div>
     </footer>
+<script src="../js/nav.js"></script>
+<script>
+(function () {
+    const searchInput = document.getElementById('help-search-input');
+    const searchBtn = document.getElementById('help-search-btn');
+    const cards = document.querySelectorAll('.card-grid .feature-card');
+    const noResults = document.getElementById('no-results-msg');
+
+    function filterCards() {
+        const query = searchInput.value.trim().toLowerCase();
+        let matchCount = 0;
+
+        cards.forEach(function (card) {
+            const title = (card.querySelector('h3') ? card.querySelector('h3').textContent : '').toLowerCase();
+            const desc = (card.querySelector('p') ? card.querySelector('p').textContent : '').toLowerCase();
+
+            if (query === '' || title.includes(query) || desc.includes(query)) {
+                card.style.display = '';
+                matchCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        noResults.style.display = (matchCount === 0 && query !== '') ? 'block' : 'none';
+    }
+
+    searchBtn.addEventListener('click', filterCards);
+    searchInput.addEventListener('keyup', function (e) {
+        if (e.key === 'Enter') {
+            filterCards();
+        }
+    });
+})();
+</script>
 </body>
 </html>
+

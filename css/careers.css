@@ -5,31 +5,32 @@
 /* Job listings */
 .job-listing {
     padding: 24px;
-    background-color: #ffffff;
+    background-color: var(--card-bg);
     border-radius: 8px;
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--card-border);
     margin-bottom: 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: box-shadow 0.2s;
+    transition: box-shadow 0.2s, background-color 0.2s, border-color 0.2s;
 }
 
 .job-listing:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    box-shadow: var(--card-shadow-hover);
 }
 
 .job-listing .job-info h3 {
     font-size: 1.1rem;
     margin-bottom: 4px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-primary);
 }
 
 .job-listing .job-info .job-meta {
     display: flex;
     gap: 16px;
     font-size: 0.85rem;
-    color: #6b7280;
+    color: var(--text-muted);
 }
 
 .job-listing .job-info .job-meta span {
@@ -48,17 +49,18 @@
 .benefit-item {
     text-align: center;
     padding: 24px 16px;
-    background-color: #ffffff;
+    background-color: var(--card-bg);
     border-radius: 8px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--card-border);
 }
 
 .benefit-item .benefit-icon {
-    /* ISSUE (Beginner): uses 40px here but about.css uses 56px — inconsistent icon sizes */
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     border-radius: 8px;
-    background-color: #dbeafe;
+    background-color: var(--bg-tertiary);
+    color: var(--link-color);
     margin: 0 auto 12px;
     display: flex;
     align-items: center;
@@ -69,11 +71,12 @@
 .benefit-item h4 {
     font-size: 1rem;
     margin-bottom: 6px;
+    color: var(--text-primary);
 }
 
 .benefit-item p {
     font-size: 0.85rem;
-    color: #6b7280;
+    color: var(--text-secondary);
     line-height: 1.4;
 }
 
@@ -86,9 +89,10 @@
 
 .dept-card {
     padding: 32px 24px;
-    background-color: #ffffff;
+    background-color: var(--card-bg);
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--card-border);
     border-top: 4px solid #f59e0b;
 }
 
@@ -96,18 +100,19 @@
     font-size: 1.1rem;
     margin-bottom: 8px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-primary);
 }
 
 .dept-card p {
     font-size: 0.9rem;
-    color: #6b7280;
+    color: var(--text-secondary);
     line-height: 1.5;
     margin-bottom: 16px;
 }
 
 .dept-card .dept-count {
     font-size: 0.8rem;
-    color: #9ca3af;
+    color: var(--text-muted);
 }
 
 /* Career steps */
@@ -133,7 +138,7 @@
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background-color: #0a1628;
+    background-color: var(--bg-primary-dark-override);
     color: #ffffff;
     font-weight: 700;
     font-size: 1.2rem;
@@ -143,11 +148,12 @@
 .career-step h4 {
     font-size: 1rem;
     margin-bottom: 6px;
+    color: var(--text-primary);
 }
 
 .career-step p {
     font-size: 0.85rem;
-    color: #6b7280;
+    color: var(--text-secondary);
 }
 
 /* Testimonial section — employee quotes */

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,9 +11,79 @@
     <link rel="stylesheet" href="css/buttons.css">
     <link rel="stylesheet" href="css/cards.css">
     <link rel="stylesheet" href="css/blog.css">
+    <style>
+        /* ── Pagination End-of-Content Modal ── */
+        #blog-pagination-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(10, 22, 40, 0.55);
+            backdrop-filter: blur(3px);
+            align-items: center;
+            justify-content: center;
+        }
+        #blog-pagination-modal.show {
+            display: flex;
+        }
+        .bpm-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(10, 22, 40, 0.18);
+            width: 100%;
+            max-width: 420px;
+            margin: 16px;
+            padding: 36px 32px 28px;
+            position: relative;
+            text-align: center;
+            animation: bpmSlideIn 0.25s ease;
+        }
+        @keyframes bpmSlideIn {
+            from { opacity: 0; transform: translateY(-18px) scale(0.97); }
+            to   { opacity: 1; transform: translateY(0)   scale(1);    }
+        }
+        .bpm-close {
+            position: absolute;
+            top: 12px;
+            right: 14px;
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            color: #6b7280;
+            cursor: pointer;
+            line-height: 1;
+            padding: 4px 8px;
+            border-radius: 6px;
+            transition: background 0.15s, color 0.15s;
+        }
+        .bpm-close:hover { background: #f3f4f6; color: #111827; }
+        .bpm-icon {
+            font-size: 3rem;
+            color: #6b7280;
+            margin-bottom: 16px;
+        }
+        .bpm-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+        .bpm-sub {
+            font-size: 0.92rem;
+            color: #6b7280;
+            margin-bottom: 6px;
+        }
+        .bpm-coming {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            font-style: italic;
+        }
+    </style>
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/utilities.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="js/main.js"></script>
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
@@ -68,7 +138,21 @@
                 <li><a href="awards.html">Awards</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -85,7 +169,7 @@
             <div class="container">
                 <!-- Featured Blog Post -->
                 <div class="blog-featured">
-                    <div class="featured-img placeholder-img dark" style="min-height: 300px;">Featured: Stellar Horizon BTS</div>
+                    <img src="media/stellar-horizon-bts.png" alt="Behind the Scenes of Stellar Horizon" class="featured-img" style="min-height: 300px; width: 100%; object-fit: cover;">
                     <div class="featured-content">
                         <span class="badge badge-accent">Featured</span>
                         <h2 style="margin-top: 12px;">Behind the Scenes of Stellar Horizon</h2>
@@ -98,15 +182,17 @@
                 <!-- Blog Grid with Sidebar -->
                 <div class="blog-layout">
                     <div class="blog-main">
+                        <a href="blog/posts/blog-post-2.html" style="color: inherit; text-decoration: none;">
                         <div class="blog-card">
                             <div class="placeholder-img purple card-img" style="height: 180px;">Future of Animation</div>
                             <div class="card-body">
                                 <div class="card-category">Animation</div>
-                                <h3 class="card-title"><a href="blog/posts/blog-post-2.html" style="color: inherit; text-decoration: none;">The Future of Animation: Where Technology Meets Heart</a></h3>
+                                <h3 class="card-title">The Future of Animation: Where Technology Meets Heart</h3>
                                 <p class="card-text">How Nova Animation Studios is using AI and machine learning to enhance — not replace — the art of animation.</p>
                                 <div class="card-meta"><span>November 15, 2024</span><span>8 min read</span></div>
                             </div>
                         </div>
+                        </a>
                         <div class="blog-card">
                             <div class="placeholder-img green card-img" style="height: 180px;">Ocean Depths Documentary</div>
                             <div class="card-body">
@@ -135,13 +221,27 @@
                             </div>
                         </div>
 
+                        <!-- Empty state -->
+                        <p class="no-posts-message" style="display: none; text-align: center; padding: 40px 0; color: #6b7280;">No posts found in this category.</p>
+
                         <!-- Pagination -->
                         <div class="pagination">
                             <span class="disabled">&laquo;</span>
                             <span class="active">1</span>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#">&raquo;</a>
+                            <button class="pagination-more" type="button">2</button>
+                            <button class="pagination-more" type="button">3</button>
+                            <button class="pagination-more" type="button">&raquo;</button>
+                        </div>
+
+                        <!-- End-of-content modal -->
+                        <div id="blog-pagination-modal" role="dialog" aria-modal="true" aria-labelledby="bpm-title">
+                            <div class="bpm-card">
+                                <button class="bpm-close" id="bpm-close-btn" aria-label="Close">&times;</button>
+                                <div class="bpm-icon"><i class="far fa-file-alt"></i></div>
+                                <div class="bpm-title" id="bpm-title">You&rsquo;ve caught up!</div>
+                                <p class="bpm-sub">You&rsquo;ve seen all the blog posts available right now.</p>
+                                <p class="bpm-coming">More content coming soon.</p>
+                            </div>
                         </div>
                     </div>
 
@@ -150,12 +250,13 @@
                         <div class="sidebar-widget">
                             <h3>Categories</h3>
                             <ul>
-                                <li><a href="#">Film Production (12)</a></li>
-                                <li><a href="#">Animation (8)</a></li>
-                                <li><a href="#">Technology (6)</a></li>
-                                <li><a href="#">Theme Parks (5)</a></li>
-                                <li><a href="#">Streaming (4)</a></li>
-                                <li><a href="#">Documentary (3)</a></li>
+                                <li><a href="#" data-category="all" class="active">All</a></li>
+                                <li><a href="#" data-category="film production">Film Production (12)</a></li>
+                                <li><a href="#" data-category="animation">Animation (8)</a></li>
+                                <li><a href="#" data-category="technology">Technology (6)</a></li>
+                                <li><a href="#" data-category="theme parks">Theme Parks (5)</a></li>
+                                <li><a href="#" data-category="streaming">Streaming (4)</a></li>
+                                <li><a href="#" data-category="documentary">Documentary (3)</a></li>
                             </ul>
                         </div>
                         <div class="sidebar-widget">
@@ -177,7 +278,7 @@
                             <p style="font-size: 0.9rem; color: #6b7280; margin-bottom: 12px;">Get the latest blog posts delivered to your inbox.</p>
                             <!-- ISSUE (Intermediate): No label for sidebar newsletter input -->
                             <input type="email" class="form-control" placeholder="Your email" style="margin-bottom: 8px;">
-                            <button class="btn btn-primary btn-sm w-100">Subscribe</button>
+                            <button class="btn btn-primary btn-sm w-100" onclick="this.previousElementSibling.value=''">Subscribe</button>
                         </div>
                     </aside>
                 </div>
@@ -185,12 +286,95 @@
         </section>
     </main>
 
+    <script>
+    (function() {
+        // ── Category filter ──
+        var categories = document.querySelectorAll('.sidebar-widget ul li a[data-category]');
+        var cards = document.querySelectorAll('.blog-main .blog-card');
+        var emptyMsg = document.querySelector('.no-posts-message');
+
+        function updateCounts() {
+            var counts = {};
+            cards.forEach(function(card) {
+                var cat = card.querySelector('.card-category');
+                if (cat) {
+                    var name = cat.textContent.trim().toLowerCase();
+                    counts[name] = (counts[name] || 0) + 1;
+                }
+            });
+
+            categories.forEach(function(link) {
+                var cat = link.getAttribute('data-category');
+                if (cat === 'all') {
+                    link.textContent = 'All (' + cards.length + ')';
+                } else {
+                    var count = counts[cat] || 0;
+                    var name = cat.replace(/\b\w/g, function(c) { return c.toUpperCase(); });
+                    link.textContent = name + ' (' + count + ')';
+                }
+            });
+        }
+
+        function filter(category) {
+            categories.forEach(function(link) {
+                link.classList.toggle('active', link.getAttribute('data-category') === category);
+            });
+
+            var visibleCount = 0;
+            cards.forEach(function(card) {
+                var cardCat = card.querySelector('.card-category');
+                var match = category === 'all' || (cardCat && cardCat.textContent.trim().toLowerCase() === category);
+                card.style.display = match ? '' : 'none';
+                if (match) visibleCount++;
+            });
+
+            emptyMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
+        categories.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                filter(this.getAttribute('data-category'));
+            });
+        });
+
+        updateCounts();
+        filter('all');
+
+        // ── Pagination end-of-content modal ──
+        var modal   = document.getElementById('blog-pagination-modal');
+        var closeBtn = document.getElementById('bpm-close-btn');
+
+        function openModal() { modal.classList.add('show'); }
+        function closeModal() { modal.classList.remove('show'); }
+
+        document.querySelectorAll('.pagination-more').forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                openModal();
+            });
+        });
+
+        closeBtn.addEventListener('click', closeModal);
+
+        // Close on backdrop click
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) closeModal();
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeModal();
+        });
+    })();
+    </script>
+
     <footer class="site-footer">
         <div class="footer-grid">
             <div class="footer-col">
                 <div class="footer-brand"><span class="logo-text">NOVA<span class="logo-accent">STUDIOS</span></span></div>
                 <p>Nova Studios is a global entertainment company dedicated to bringing extraordinary stories to life.</p>
-                <div class="footer-social"><a href="https://facebook.com/NovaStudios" target="_blank" rel="noopener noreferrer">FB</a><a href="https://twitter.com/NovaStudios" target="_blank" rel="noopener noreferrer">TW</a><a href="https://instagram.com/NovaStudios" target="_blank" rel="noopener noreferrer">IG</a><a href="https://youtube.com/@NovaStudios" target="_blank" rel="noopener noreferrer">YT</a><a href="https://linkedin.com/company/novastudios" target="_blank" rel="noopener noreferrer">LI</a></div>
+                <div class="footer-social"><a href="https://facebook.com/NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a><a href="https://twitter.com/NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a><a href="https://instagram.com/NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a><a href="https://youtube.com/@NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a><a href="https://linkedin.com/company/novastudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a></div>
             </div>
             <div class="footer-col"><h3>Company</h3><ul><li><a href="about.html">About Us</a></li><li><a href="company/careers.html">Careers</a></li><li><a href="news.html">News</a></li><li><a href="company/investors.html">Investors</a></li></ul></div>
             <div class="footer-col"><h3>Entertainment</h3><ul><li><a href="movies.html">Movies</a></li><li><a href="entertainment/tv-shows.html">TV Shows</a></li><li><a href="entertainment/streaming.html">Nova+</a></li><li><a href="entertainment/theme-parks.html">Theme Parks</a></li></ul></div>
@@ -198,5 +382,6 @@
         </div>
         <div class="footer-bottom"><p>&copy; 2026 Nova Studios. All rights reserved.</p><div class="footer-bottom-links"><a href="legal/privacy.html">Privacy</a><a href="legal/terms.html">Terms</a><a href="legal/accessibility-page.html">Accessibility</a></div></div>
     </footer>
-</body>
+<script src="js/nav.js"></script></body>
 </html>
+

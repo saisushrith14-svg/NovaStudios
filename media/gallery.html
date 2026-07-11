@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/responsive.css">
     <link rel="stylesheet" href="../css/utilities.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="../js/main.js"></script>
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
@@ -68,7 +70,21 @@
                 <li><a href="../awards.html">Awards</a></li>
                 <li><a href="../contact.html">Contact</a></li>
             </ul>
-            <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -94,55 +110,134 @@
 
                 <!-- ISSUE (Intermediate): Gallery doesn't go to single column on small mobile — stays at 2 columns -->
                 <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <div class="placeholder-img dark" style="height: 250px;">Stellar Horizon — Space Walk Scene</div>
-                        <div class="gallery-overlay"><h4>Space Walk</h4><p>Stellar Horizon</p></div>
-                    </div>
-                    <div class="gallery-item">
-                        <!-- ISSUE (Intermediate): Missing alt text on gallery images — not accessible -->
-                        <div class="placeholder-img accent" style="height: 180px;">Stardust Kingdom — Entrance</div>
-                        <div class="gallery-overlay"><h4>Grand Entrance</h4><p>Stardust Kingdom</p></div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="placeholder-img purple" style="height: 300px;">Echoes of Tomorrow — Lab Set</div>
-                        <div class="gallery-overlay"><h4>The Lab</h4><p>Echoes of Tomorrow</p></div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="placeholder-img green" style="height: 200px;">The Garden — Concept Art</div>
-                        <div class="gallery-overlay"><h4>Concept Art</h4><p>The Garden</p></div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="placeholder-img blue" style="height: 280px;">Ocean Depths — Underwater Filming</div>
-                        <div class="gallery-overlay"><h4>Underwater Rig</h4><p>Ocean Depths</p></div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="placeholder-img dark" style="height: 160px;">NovaFan Con 2024 — Crowd</div>
-                        <div class="gallery-overlay"><h4>Fan Convention</h4><p>NovaFan Con 2024</p></div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="placeholder-img red" style="height: 220px;">Luminara — Original Animation Cel</div>
-                        <div class="gallery-overlay"><h4>Animation Cel</h4><p>Luminara (1998)</p></div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="placeholder-img accent" style="height: 240px;">Ashenmoor — Castle Set</div>
-                        <div class="gallery-overlay"><h4>Castle Set Build</h4><p>Chronicles of Ashenmoor</p></div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="placeholder-img blue" style="height: 180px;">LED Volume Stage</div>
-                        <div class="gallery-overlay"><h4>LED Volume</h4><p>Nova Studios Technology</p></div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="placeholder-img green" style="height: 260px;">Dreamscape Shanghai — Night View</div>
-                        <div class="gallery-overlay"><h4>Night Lights</h4><p>Dreamscape Shanghai</p></div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="placeholder-img purple" style="height: 200px;">Skyward — Character Designs</div>
-                        <div class="gallery-overlay"><h4>Character Design</h4><p>Skyward</p></div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="placeholder-img dark" style="height: 190px;">Stellar Horizon — Premiere</div>
-                        <div class="gallery-overlay"><h4>World Premiere</h4><p>Stellar Horizon</p></div>
-                    </div>
+
+    <div class="gallery-item">
+        <img
+            src="../images/gallery/stellar-horizon.jpg"
+            alt="Stellar Horizon"
+            class="gallery-image"
+            style="height:250px;"
+        >
+        <div class="gallery-overlay">
+            <h4>Space Walk</h4>
+            <p>Stellar Horizon</p>
+        </div>
+    </div>
+
+    <div class="gallery-item">
+        <img
+            src="../images/gallery/castle.jpg"
+            alt="The Last Kingdom"
+            class="gallery-image"
+            style="height:250px;"
+>
+        
+        <div class="gallery-overlay">
+            <h4>Grand Entrance</h4>
+            <p>Stardust Kingdom</p>
+        </div>
+    </div>
+
+    <div class="gallery-item">
+     <img
+    src="../images/gallery/echoes-of-tomorrow.jpg"
+    alt="Echoes of Tomorrow"
+    class="gallery-image"
+    style="height:300px;"
+>   
+        <div class="gallery-overlay"><h4>The Lab</h4><p>Echoes of Tomorrow</p></div>
+    </div>
+
+    <div class="gallery-item">
+    <img
+    src="../images/gallery/the-garden.jpg"
+    alt="The Garden"
+    class="gallery-image"
+    style="height:200px;"
+>
+        <div class="gallery-overlay"><h4>Concept Art</h4><p>The Garden</p></div>
+    </div>
+
+    <div class="gallery-item">
+     <img
+    src="../images/gallery/ocean-depths.jpg"
+    alt="Ocean Depths"
+    class="gallery-image"
+    style="height:280px;"
+>   
+        <div class="gallery-overlay"><h4>Underwater Rig</h4><p>Ocean Depths</p></div>
+    </div>
+
+    <div class="gallery-item">
+     <img
+    src="../images/gallery/novafan.jpg"
+    alt="NovaFan Con 2024"
+    class="gallery-image"
+    style="height:160px;"
+>   
+        <div class="gallery-overlay"><h4>Fan Convention</h4><p>NovaFan Con 2024</p></div>
+    </div>
+
+    <div class="gallery-item">
+     <img
+    src="../images/gallery/luminara.jpg"
+    alt="Luminara"
+    class="gallery-image"
+    style="height:220px;"
+>   
+        <div class="gallery-overlay"><h4>Animation Cel</h4><p>Luminara (1998)</p></div>
+    </div>
+
+    <div class="gallery-item">
+      <img
+    src="../images/gallery/ashenmoor.jpg"
+    alt="Chronicles of Ashenmoor"
+    class="gallery-image"
+    style="height:240px;"
+>  
+        <div class="gallery-overlay"><h4>Castle Set Build</h4><p>Chronicles of Ashenmoor</p></div>
+    </div>
+
+    <div class="gallery-item">
+     <img
+    src="../images/gallery/led-volume-stage.jpg"
+    alt="LED Volume Stage"
+    class="gallery-image"
+    style="height:180px;"
+>   
+        <div class="gallery-overlay"><h4>LED Volume</h4><p>Nova Studios Technology</p></div>
+    </div>
+
+    <div class="gallery-item">
+     <img
+    src="../images/gallery/dreamscape-shanghai.jpg"
+    alt="Dreamscape Shanghai"
+    class="gallery-image"
+    style="height:260px;"
+>  
+        <div class="gallery-overlay"><h4>Night Lights</h4><p>Dreamscape Shanghai</p></div>
+    </div>
+
+    <div class="gallery-item">
+      <img
+    src="../images/gallery/skyward.jpg"
+    alt="Skyward Character Design"
+    class="gallery-image"
+    style="height:200px;"
+>  
+        <div class="gallery-overlay"><h4>Character Design</h4><p>Skyward</p></div>
+    </div>
+
+    <div class="gallery-item">
+     <img
+    src="../images/gallery/stellar-horizon-premiere.jpg"
+    alt="Stellar Horizon World Premiere"
+    class="gallery-image"
+    style="height:190px;"
+>   
+        <div class="gallery-overlay"><h4>World Premiere</h4><p>Stellar Horizon</p></div>
+    </div>
+                    
                 </div>
             </div>
         </section>
@@ -153,7 +248,7 @@
             <div class="footer-col">
                 <div class="footer-brand"><span class="logo-text">NOVA<span class="logo-accent">STUDIOS</span></span></div>
                 <p>Nova Studios is a global entertainment company dedicated to bringing extraordinary stories to life.</p>
-                <div class="footer-social"><a href="https://facebook.com/NovaStudios" target="_blank" rel="noopener noreferrer">FB</a><a href="https://twitter.com/NovaStudios" target="_blank" rel="noopener noreferrer">TW</a><a href="https://instagram.com/NovaStudios" target="_blank" rel="noopener noreferrer">IG</a><a href="https://youtube.com/@NovaStudios" target="_blank" rel="noopener noreferrer">YT</a><a href="https://linkedin.com/company/novastudios" target="_blank" rel="noopener noreferrer">LI</a></div>
+                <div class="footer-social"><a href="https://facebook.com/NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a><a href="https://twitter.com/NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a><a href="https://instagram.com/NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a><a href="https://youtube.com/@NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a><a href="https://linkedin.com/company/novastudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a></div>
             </div>
             <div class="footer-col"><h3>Company</h3><ul><li><a href="../about.html">About Us</a></li><li><a href="../company/careers.html">Careers</a></li><li><a href="../news.html">News</a></li><li><a href="../company/investors.html">Investors</a></li></ul></div>
             <div class="footer-col"><h3>Entertainment</h3><ul><li><a href="../movies.html">Movies</a></li><li><a href="../entertainment/tv-shows.html">TV Shows</a></li><li><a href="../entertainment/streaming.html">Nova+</a></li><li><a href="../entertainment/theme-parks.html">Theme Parks</a></li></ul></div>
@@ -161,5 +256,6 @@
         </div>
         <div class="footer-bottom"><p>&copy; 2026 Nova Studios. All rights reserved.</p><div class="footer-bottom-links"><a href="../legal/privacy.html">Privacy</a><a href="../legal/terms.html">Terms</a><a href="../legal/accessibility-page.html">Accessibility</a></div></div>
     </footer>
-</body>
+<script src="../js/nav.js"></script></body>
 </html>
+

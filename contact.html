@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/utilities.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="js/main.js"></script>
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
@@ -68,7 +70,21 @@
                 <li><a href="awards.html">Awards</a></li>
                 <li><a href="contact.html" class="active">Contact</a></li>
             </ul>
-            <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -89,25 +105,24 @@
                         <h2>Send Us a Message</h2>
                         <p class="text-muted mb-3">Fill out the form below and our team will get back to you within 2 business days.</p>
 
-                        <!-- ISSUE (Intermediate): Some form inputs missing <label> elements — accessibility -->
-                        <form action="#" method="post">
+                        <form id="contact-form" method="post">
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="first-name">First Name</label>
-                                    <input type="text" id="first-name" class="form-control" placeholder="John">
+                                    <input type="text" id="first-name" name="first-name" class="form-control" placeholder="John" autocomplete="given-name" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="last-name">Last Name</label>
-                                    <input type="text" id="last-name" class="form-control" placeholder="Doe">
+                                    <input type="text" id="last-name" name="last-name" class="form-control" placeholder="Doe" autocomplete="family-name" required>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <!-- ISSUE (Intermediate): No label for email input — accessibility -->
-                                <input type="email" class="form-control" placeholder="Email Address">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" class="form-control" placeholder="Email Address" autocomplete="email" required>
                             </div>
                             <div class="form-group">
                                 <label for="subject">Subject</label>
-                                <select id="subject" class="form-control">
+                                <select id="subject" name="subject" class="form-control" required>
                                     <option value="">Select a topic...</option>
                                     <option value="press">Press Inquiry</option>
                                     <option value="partnership">Partnership</option>
@@ -119,16 +134,18 @@
                             </div>
                             <div class="form-group">
                                 <label for="message">Message</label>
-                                <textarea id="message" class="form-control" placeholder="Tell us how we can help..."></textarea>
+                                <textarea id="message" name="message" class="form-control" placeholder="Tell us how we can help..." required></textarea>
                             </div>
                             <div class="form-group">
-                                <!-- ISSUE (Intermediate): Checkbox input without proper label association -->
                                 <div class="form-check">
-                                    <input type="checkbox" id="consent">
-                                    <label>I agree to the Privacy Policy and Terms of Service</label>
+                                    <input type="checkbox" id="consent" name="consent" required>
+                                    <label for="consent">I agree to the Privacy Policy and Terms of Service</label>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Send Message</button>
+                            <p id="contact-form-status" class="form-success" role="status" aria-live="polite" hidden>
+                                Thank you. Your message has been received and the form has been cleared.
+                            </p>
                         </form>
                     </div>
 
@@ -167,7 +184,7 @@
             <div class="footer-col">
                 <div class="footer-brand"><span class="logo-text">NOVA<span class="logo-accent">STUDIOS</span></span></div>
                 <p>Nova Studios is a global entertainment company dedicated to bringing extraordinary stories to life.</p>
-                <div class="footer-social"><a href="https://facebook.com/NovaStudios" target="_blank" rel="noopener noreferrer">FB</a><a href="https://twitter.com/NovaStudios" target="_blank" rel="noopener noreferrer">TW</a><a href="https://instagram.com/NovaStudios" target="_blank" rel="noopener noreferrer">IG</a><a href="https://youtube.com/@NovaStudios" target="_blank" rel="noopener noreferrer">YT</a><a href="https://linkedin.com/company/novastudios" target="_blank" rel="noopener noreferrer">LI</a></div>
+                <div class="footer-social"><a href="https://facebook.com/NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a><a href="https://twitter.com/NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a><a href="https://instagram.com/NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a><a href="https://youtube.com/@NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a><a href="https://linkedin.com/company/novastudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a></div>
             </div>
             <div class="footer-col"><h3>Company</h3><ul><li><a href="about.html">About Us</a></li><li><a href="company/careers.html">Careers</a></li><li><a href="news.html">News</a></li><li><a href="company/investors.html">Investors</a></li></ul></div>
             <div class="footer-col"><h3>Entertainment</h3><ul><li><a href="movies.html">Movies</a></li><li><a href="entertainment/tv-shows.html">TV Shows</a></li><li><a href="entertainment/streaming.html">Nova+</a></li><li><a href="entertainment/theme-parks.html">Theme Parks</a></li></ul></div>
@@ -175,5 +192,28 @@
         </div>
         <div class="footer-bottom"><p>&copy; 2026 Nova Studios. All rights reserved.</p><div class="footer-bottom-links"><a href="legal/privacy.html">Privacy</a><a href="legal/terms.html">Terms</a><a href="legal/accessibility-page.html">Accessibility</a></div></div>
     </footer>
+<script src="js/nav.js"></script></body>
+    <script>
+        const contactForm = document.getElementById('contact-form');
+        const contactFormStatus = document.getElementById('contact-form-status');
+
+        contactForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
+                contactFormStatus.hidden = true;
+                return;
+            }
+
+            contactForm.reset();
+            contactFormStatus.hidden = false;
+        });
+
+        contactForm.addEventListener('input', () => {
+            contactFormStatus.hidden = true;
+        });
+    </script>
 </body>
 </html>
+

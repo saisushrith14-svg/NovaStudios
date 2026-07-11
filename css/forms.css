@@ -10,30 +10,30 @@
     display: block;
     font-size: 0.9rem;
     font-weight: 600;
-    color: #374151;
+    color: var(--text-secondary);
     margin-bottom: 6px;
 }
 
 .form-control {
     width: 100%;
     padding: 10px 14px;
-    border: 1px solid #d1d5db;
+    border: 1px solid var(--input-border);
     border-radius: 6px;
     font-size: 0.95rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #1a1a2e;
-    background-color: #ffffff;
-    transition: border-color 0.2s;
+    color: var(--input-text);
+    background-color: var(--input-bg);
+    transition: border-color 0.2s, background-color 0.2s, color 0.2s;
     outline: none;
 }
 
 .form-control:focus {
-    border-color: #3b82f6;
+    border-color: var(--link-color);
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
 }
 
 .form-control::placeholder {
-    color: #9ca3af;
+    color: var(--input-placeholder);
 }
 
 textarea.form-control {
@@ -64,7 +64,7 @@ select.form-control {
 
 .form-check label {
     font-size: 0.9rem;
-    color: #374151;
+    color: var(--text-secondary);
     margin-bottom: 0;
     font-weight: 400;
 }
@@ -88,46 +88,58 @@ select.form-control {
 .search-form input {
     flex: 1;
     padding: 10px 16px;
-    border: 2px solid #e5e7eb;
+    border: 2px solid var(--input-border);
+    background-color: var(--input-bg);
+    color: var(--input-text);
     border-radius: 8px 0 0 8px;
     font-size: 0.95rem;
     outline: none;
 }
 
 .search-form input:focus {
-    border-color: #3b82f6;
+    border-color: var(--link-color);
 }
 
 .search-form button {
     padding: 10px 20px;
-    background-color: #2563eb;
+    background-color: var(--link-color);
     color: #ffffff;
-    border: 2px solid #2563eb;
+    border: 2px solid var(--link-color);
     border-radius: 0 8px 8px 0;
     font-weight: 600;
     cursor: pointer;
     font-size: 0.95rem;
+    transition: background-color 0.2s, border-color 0.2s;
 }
 
 .search-form button:hover {
-    background-color: #1d4ed8;
+    background-color: var(--link-hover-color);
+    border-color: var(--link-hover-color);
 }
 
-/* ISSUE (Intermediate): Search form input and button heights don't match 
-   because input uses content-box equivalent with different border widths */
+
 
 /* Form error state */
 .form-control.error {
-    border-color: #ef4444;
+    border-color: var(--danger);
 }
 
 .form-error {
-    color: #ef4444;
+    color: var(--danger);
     font-size: 0.8rem;
     margin-top: 4px;
 }
 
-/* ISSUE (Intermediate): Form has no fieldset or legend grouping — accessibility */
+.form-success {
+    margin-top: 14px;
+    padding: 12px 14px;
+    border: 1px solid #bbf7d0;
+    border-radius: 6px;
+    color: #166534;
+    background-color: #f0fdf4;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
 
 /* Inline form */
 .form-inline {

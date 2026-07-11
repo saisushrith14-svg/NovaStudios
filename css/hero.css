@@ -5,9 +5,11 @@
 .hero {
     position: relative;
     padding: 80px 0;
-    background-color: #0a1628;
+    background-color: var(--bg-primary-dark-override);
     color: #ffffff;
     overflow: hidden;
+    --text-primary: #ffffff;
+    --text-secondary: #cbd5e1;
 }
 
 .hero .container {
@@ -16,14 +18,14 @@
 }
 
 .hero h1 {
-    color: #ffffff;
+    color: var(--text-primary);
     font-size: 3rem;
     margin-bottom: 16px;
 }
 
 .hero p {
     font-size: 1.2rem;
-    color: #d1d5db;
+    color: var(--text-secondary);
     max-width: 600px;
     margin-bottom: 24px;
 }
@@ -36,7 +38,11 @@
 .hero-large {
     padding: 120px 0;
     text-align: center;
-    background: linear-gradient(135deg, #0a1628 0%, #1e293b 50%, #0f172a 100%);
+    background: linear-gradient(135deg, var(--navbar-bg) 0%, var(--bg-secondary) 50%, var(--bg-primary-dark-override) 100%);
+}
+
+[data-theme="dark"] .hero-large {
+    background: linear-gradient(135deg, var(--navbar-bg) 0%, var(--bg-primary) 100%);
 }
 
 .hero-large h1 {
@@ -60,7 +66,7 @@
     min-height: 400px;
     display: flex;
     align-items: center;
-    background-color: #1e293b;
+    background-color: var(--bg-secondary);
     position: relative;
 }
 
@@ -80,10 +86,9 @@
     z-index: 2;
 }
 
-/* ISSUE (Beginner): hero-about is oversized — 500px min-height is too tall for a subpage */
 .hero-about {
-    min-height: 500px;
-    padding: 100px 0;
+    min-height: 350px;
+    padding: 60px 0;
     display: flex;
     align-items: center;
 }
@@ -93,11 +98,23 @@
     display: flex;
     align-items: center;
     padding: 0;
+    background-color: var(--bg-secondary);
 }
 
 .hero-split .hero-content {
     flex: 1;
     padding: 80px 60px;
+    --text-primary: var(--text-primary);
+    --text-secondary: var(--text-secondary);
+    color: var(--text-primary);
+}
+
+.hero-split .hero-content h1 {
+    color: var(--text-primary);
+}
+
+.hero-split .hero-content p {
+    color: var(--text-secondary);
 }
 
 .hero-split .hero-image {
@@ -107,7 +124,7 @@
 
 /* Hero gradient variants */
 .hero-gradient-blue {
-    background: linear-gradient(135deg, #1e3a5f 0%, #0a1628 100%);
+    background: linear-gradient(135deg, #1e3a5f 0%, var(--bg-primary-dark-override) 100%);
 }
 
 .hero-gradient-warm {
@@ -115,13 +132,12 @@
 }
 
 .hero-gradient-dark {
-    background: linear-gradient(180deg, #0a1628 0%, #0f172a 100%);
+    background: linear-gradient(180deg, var(--navbar-bg) 0%, var(--bg-primary-dark-override) 100%);
 }
 
-/* ISSUE (Advanced): !important used unnecessarily */
 .hero-compact {
-    padding: 50px 0 !important;
-    min-height: auto !important;
+    padding: 50px 0;
+    min-height: auto;
 }
 
 .hero-compact h1 {

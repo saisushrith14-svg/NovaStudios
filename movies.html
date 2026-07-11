@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,6 +14,15 @@
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .card-grid-4 > a:focus-visible {
+            outline: 2px solid #3b82f6;
+            outline-offset: 4px;
+            border-radius: 12px;
+        }
+    </style>
+    <script src="js/main.js"></script>
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
@@ -68,7 +77,21 @@
                 <li><a href="awards.html">Awards</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -99,7 +122,7 @@
                 <div class="card-grid-4">
                     <a href="entertainment/details/movie-stellar-horizon.html" style="text-decoration: none; color: inherit;">
                         <div class="movie-card">
-                            <div class="placeholder-img dark card-img" style="height: 280px;">Stellar Horizon</div>
+                            <div class="placeholder-img dark card-img" style="height: 280px;" role="img" aria-label="Stellar Horizon poster">Stellar Horizon</div>
                             <div class="card-body">
                                 <h3 class="card-title">Stellar Horizon</h3>
                                 <p class="card-text" style="font-size: 0.85rem; color: #6b7280;">A commander's journey across the cosmos to save humanity's last hope.</p>
@@ -112,7 +135,7 @@
                     </a>
                     <a href="entertainment/details/movie-echoes-of-tomorrow.html" style="text-decoration: none; color: inherit;">
                         <div class="movie-card">
-                            <div class="placeholder-img purple card-img" style="height: 280px;">Echoes of Tomorrow</div>
+                            <div class="placeholder-img purple card-img" style="height: 280px;" role="img" aria-label="Echoes of Tomorrow poster">Echoes of Tomorrow</div>
                             <div class="card-body">
                                 <h3 class="card-title">Echoes of Tomorrow</h3>
                                 <p class="card-text" style="font-size: 0.85rem; color: #6b7280;">A time-bending drama about choices, consequences, and second chances.</p>
@@ -123,117 +146,136 @@
                             </div>
                         </div>
                     </a>
-                    <div class="movie-card">
-                        <div class="placeholder-img blue card-img" style="height: 280px;">Ocean Depths</div>
-                        <div class="card-body">
-                            <h3 class="card-title">Ocean Depths</h3>
-                            <p class="card-text" style="font-size: 0.85rem; color: #6b7280;">A breathtaking journey into the deepest, most unexplored corners of our oceans.</p>
-                            <div class="card-meta">
-                                <span class="rating">★ 8.4</span>
-                                <span class="genre">Documentary</span>
+                    <a href="entertainment/details/movie-ocean-depths.html" style="text-decoration: none; color: inherit;">
+                        <div class="movie-card">
+                            <div class="placeholder-img blue card-img" style="height: 280px;" role="img" aria-label="Ocean Depths poster">Ocean Depths</div>
+                            <div class="card-body">
+                                <h3 class="card-title">Ocean Depths</h3>
+                                <p class="card-text" style="font-size: 0.85rem; color: #6b7280;">A breathtaking journey into the deepest, most unexplored corners of our oceans.</p>
+                                <div class="card-meta">
+                                    <span class="rating">★ 8.4</span>
+                                    <span class="genre">Documentary</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="movie-card">
-                        <div class="placeholder-img accent card-img" style="height: 280px;">The Last Kingdom</div>
-                        <div class="card-body">
-                            <h3 class="card-title">The Last Kingdom</h3>
-                            <p class="card-text" style="font-size: 0.85rem; color: #6b7280;">An epic fantasy saga about an ancient kingdom's fight for survival.</p>
-                            <div class="card-meta">
-                                <span class="rating">★ 8.9</span>
-                                <span class="genre">Fantasy</span>
+                    </a>
+                    <a href="entertainment/details/movie-the-last-kingdom.html" style="text-decoration: none; color: inherit;">
+                        <div class="movie-card">
+                            <div class="placeholder-img accent card-img" style="height: 280px;" role="img" aria-label="The Last Kingdom poster">The Last Kingdom</div>
+                            <div class="card-body">
+                                <h3 class="card-title">The Last Kingdom</h3>
+                                <p class="card-text" style="font-size: 0.85rem; color: #6b7280;">An epic fantasy saga about an ancient kingdom's fight for survival.</p>
+                                <div class="card-meta">
+                                    <span class="rating">★ 8.9</span>
+                                    <span class="genre">Fantasy</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="movie-card">
-                        <div class="placeholder-img green card-img" style="height: 280px;">Wild Frontier</div>
-                        <div class="card-body">
-                            <h3 class="card-title">Wild Frontier</h3>
-                            <p class="card-text" style="font-size: 0.85rem; color: #6b7280;">Two siblings embark on a dangerous trek through uncharted wilderness.</p>
-                            <div class="card-meta">
-                                <span class="rating">★ 7.8</span>
-                                <span class="genre">Adventure</span>
+                    </a>
+                    <a href="entertainment/details/movie-wild-frontier.html" style="text-decoration: none; color: inherit;">
+                        <div class="movie-card">
+                            <div class="placeholder-img green card-img" style="height: 280px;" role="img" aria-label="Wild Frontier poster">Wild Frontier</div>
+                            <div class="card-body">
+                                <h3 class="card-title">Wild Frontier</h3>
+                                <p class="card-text" style="font-size: 0.85rem; color: #6b7280;">Two siblings embark on a dangerous trek through uncharted wilderness.</p>
+                                <div class="card-meta">
+                                    <span class="rating">★ 7.8</span>
+                                    <span class="genre">Adventure</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="movie-card">
-                        <!-- ISSUE (Intermediate): This image missing alt text / no accessible description -->
-                        <div class="placeholder-img red card-img" style="height: 280px;">Luminara</div>
-                        <div class="card-body">
-                            <h3 class="card-title">Luminara</h3>
-                            <p class="card-text" style="font-size: 0.85rem; color: #6b7280;">Our first animated feature — the story that started it all in 1998.</p>
-                            <div class="card-meta">
-                                <span class="rating">★ 9.0</span>
-                                <span class="genre">Animation</span>
+                    </a>
+                    <a href="entertainment/details/movie-luminara.html" style="text-decoration: none; color: inherit;">
+                        <div class="movie-card">
+                            <div class="placeholder-img red card-img" style="height: 280px;" role="img" aria-label="Luminara poster">Luminara</div>
+                            <div class="card-body">
+                                <h3 class="card-title">Luminara</h3>
+                                <p class="card-text" style="font-size: 0.85rem; color: #6b7280;">Our first animated feature — the story that started it all in 1998.</p>
+                                <div class="card-meta">
+                                    <span class="rating">★ 9.0</span>
+                                    <span class="genre">Animation</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="movie-card">
-                        <div class="placeholder-img dark card-img" style="height: 280px;">The Cartographer</div>
-                        <div class="card-body">
-                            <h3 class="card-title">The Cartographer</h3>
-                            <p class="card-text" style="font-size: 0.85rem; color: #6b7280;">A mapmaker discovers a hidden world that could change human history forever.</p>
-                            <div class="card-meta">
-                                <span class="rating">★ 8.1</span>
-                                <span class="genre">Adventure</span>
+                    </a>
+                    <a href="entertainment/details/movie-the-cartographer.html" style="text-decoration: none; color: inherit;">
+                        <div class="movie-card">
+                            <div class="placeholder-img dark card-img" style="height: 280px;" role="img" aria-label="The Cartographer poster">The Cartographer</div>
+                            <div class="card-body">
+                                <h3 class="card-title">The Cartographer</h3>
+                                <p class="card-text" style="font-size: 0.85rem; color: #6b7280;">A mapmaker discovers a hidden world that could change human history forever.</p>
+                                <div class="card-meta">
+                                    <span class="rating">★ 8.1</span>
+                                    <span class="genre">Adventure</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="movie-card">
-                        <div class="placeholder-img blue card-img" style="height: 280px;">Midnight Signal</div>
-                        <div class="card-body">
-                            <h3 class="card-title">Midnight Signal</h3>
-                            <p class="card-text" style="font-size: 0.85rem; color: #6b7280;">A radio operator intercepts a transmission from the future in this sci-fi thriller.</p>
-                            <div class="card-meta">
-                                <span class="rating">★ 8.3</span>
-                                <span class="genre">Sci-Fi</span>
+                    </a>
+                    <a href="entertainment/details/movie-midnight-signal.html" style="text-decoration: none; color: inherit;">
+                        <div class="movie-card">
+                            <div class="placeholder-img blue card-img" style="height: 280px;" role="img" aria-label="Midnight Signal poster">Midnight Signal</div>
+                            <div class="card-body">
+                                <h3 class="card-title">Midnight Signal</h3>
+                                <p class="card-text" style="font-size: 0.85rem; color: #6b7280;">A radio operator intercepts a transmission from the future in this sci-fi thriller.</p>
+                                <div class="card-meta">
+                                    <span class="rating">★ 8.3</span>
+                                    <span class="genre">Sci-Fi</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="movie-card">
-                        <div class="placeholder-img accent card-img" style="height: 280px;">Sunstone</div>
-                        <div class="card-body">
-                            <h3 class="card-title">Sunstone</h3>
-                            <p class="card-text" style="font-size: 0.85rem; color: #6b7280;">A young archaeologist uncovers an artifact that holds the key to an ancient civilization.</p>
-                            <div class="card-meta">
-                                <span class="rating">★ 7.5</span>
-                                <span class="genre">Adventure</span>
+                    </a>
+                    <a href="entertainment/details/movie-sunstone.html" style="text-decoration: none; color: inherit;">
+                        <div class="movie-card">
+                            <div class="placeholder-img accent card-img" style="height: 280px;" role="img" aria-label="Sunstone poster">Sunstone</div>
+                            <div class="card-body">
+                                <h3 class="card-title">Sunstone</h3>
+                                <p class="card-text" style="font-size: 0.85rem; color: #6b7280;">A young archaeologist uncovers an artifact that holds the key to an ancient civilization.</p>
+                                <div class="card-meta">
+                                    <span class="rating">★ 7.5</span>
+                                    <span class="genre">Adventure</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="movie-card">
-                        <div class="placeholder-img green card-img" style="height: 280px;">The Garden</div>
-                        <div class="card-body">
-                            <h3 class="card-title">The Garden</h3>
-                            <p class="card-text" style="font-size: 0.85rem; color: #6b7280;">A touching animated film about a lonely gardener who discovers magic in nature.</p>
-                            <div class="card-meta">
-                                <span class="rating">★ 8.6</span>
-                                <span class="genre">Animation</span>
+                    </a>
+                    <a href="entertainment/details/movie-the-garden.html" style="text-decoration: none; color: inherit;">
+                        <div class="movie-card">
+                            <div class="placeholder-img green card-img" style="height: 280px;" role="img" aria-label="The Garden poster">The Garden</div>
+                            <div class="card-body">
+                                <h3 class="card-title">The Garden</h3>
+                                <p class="card-text" style="font-size: 0.85rem; color: #6b7280;">A touching animated film about a lonely gardener who discovers magic in nature.</p>
+                                <div class="card-meta">
+                                    <span class="rating">★ 8.6</span>
+                                    <span class="genre">Animation</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="movie-card">
-                        <div class="placeholder-img purple card-img" style="height: 280px;">Nightfall Protocol</div>
-                        <div class="card-body">
-                            <h3 class="card-title">Nightfall Protocol</h3>
-                            <p class="card-text" style="font-size: 0.85rem; color: #6b7280;">When the world's power grid fails, a team of engineers race against time.</p>
-                            <div class="card-meta">
-                                <span class="rating">★ 7.9</span>
-                                <span class="genre">Sci-Fi</span>
+                    </a>
+                    <a href="entertainment/details/movie-nightfall-protocol.html" style="text-decoration: none; color: inherit;">
+                        <div class="movie-card">
+                            <div class="placeholder-img purple card-img" style="height: 280px;" role="img" aria-label="Nightfall Protocol poster">Nightfall Protocol</div>
+                            <div class="card-body">
+                                <h3 class="card-title">Nightfall Protocol</h3>
+                                <p class="card-text" style="font-size: 0.85rem; color: #6b7280;">When the world's power grid fails, a team of engineers race against time.</p>
+                                <div class="card-meta">
+                                    <span class="rating">★ 7.9</span>
+                                    <span class="genre">Sci-Fi</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="movie-card">
-                        <div class="placeholder-img red card-img" style="height: 280px;">Finding Home</div>
-                        <div class="card-body">
-                            <h3 class="card-title">Finding Home</h3>
-                            <p class="card-text" style="font-size: 0.85rem; color: #6b7280;">A heartwarming comedy about a family's chaotic cross-country move.</p>
-                            <div class="card-meta">
-                                <span class="rating">★ 7.2</span>
-                                <span class="genre">Comedy</span>
+                    </a>
+                    <a href="entertainment/details/movie-finding-home.html" style="text-decoration: none; color: inherit;">
+                        <div class="movie-card">
+                            <div class="placeholder-img red card-img" style="height: 280px;" role="img" aria-label="Finding Home poster">Finding Home</div>
+                            <div class="card-body">
+                                <h3 class="card-title">Finding Home</h3>
+                                <p class="card-text" style="font-size: 0.85rem; color: #6b7280;">A heartwarming comedy about a family's chaotic cross-country move.</p>
+                                <div class="card-meta">
+                                    <span class="rating">★ 7.2</span>
+                                    <span class="genre">Comedy</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -244,7 +286,7 @@
             <div class="footer-col">
                 <div class="footer-brand"><span class="logo-text">NOVA<span class="logo-accent">STUDIOS</span></span></div>
                 <p>Nova Studios is a global entertainment company dedicated to bringing extraordinary stories to life.</p>
-                <div class="footer-social"><a href="https://facebook.com/NovaStudios" target="_blank" rel="noopener noreferrer">FB</a><a href="https://twitter.com/NovaStudios" target="_blank" rel="noopener noreferrer">TW</a><a href="https://instagram.com/NovaStudios" target="_blank" rel="noopener noreferrer">IG</a><a href="https://youtube.com/@NovaStudios" target="_blank" rel="noopener noreferrer">YT</a><a href="https://linkedin.com/company/novastudios" target="_blank" rel="noopener noreferrer">LI</a></div>
+                <div class="footer-social"><a href="https://facebook.com/NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a><a href="https://twitter.com/NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a><a href="https://instagram.com/NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a><a href="https://youtube.com/@NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a><a href="https://linkedin.com/company/novastudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a></div>
             </div>
             <div class="footer-col"><h3>Company</h3><ul><li><a href="about.html">About Us</a></li><li><a href="company/careers.html">Careers</a></li><li><a href="news.html">News</a></li><li><a href="company/investors.html">Investors</a></li></ul></div>
             <div class="footer-col"><h3>Entertainment</h3><ul><li><a href="movies.html">Movies</a></li><li><a href="entertainment/tv-shows.html">TV Shows</a></li><li><a href="entertainment/streaming.html">Nova+</a></li><li><a href="entertainment/theme-parks.html">Theme Parks</a></li></ul></div>
@@ -252,5 +294,8 @@
         </div>
         <div class="footer-bottom"><p>&copy; 2026 Nova Studios. All rights reserved.</p><div class="footer-bottom-links"><a href="legal/privacy.html">Privacy</a><a href="legal/terms.html">Terms</a><a href="legal/accessibility-page.html">Accessibility</a></div></div>
     </footer>
+<script src="js/nav.js"></script></body>
+    <script src="js/filter.js"></script>
 </body>
 </html>
+

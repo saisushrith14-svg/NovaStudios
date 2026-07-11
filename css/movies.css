@@ -13,21 +13,21 @@
 
 .filter-btn {
     padding: 8px 20px;
-    border: 1px solid #d1d5db;
-    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    background-color: var(--card-bg);
     border-radius: 20px;
     font-size: 0.85rem;
     cursor: pointer;
-    color: #374151;
+    color: var(--text-secondary);
     transition: all 0.2s;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .filter-btn:hover,
 .filter-btn.active {
-    background-color: #0a1628;
+    background-color: var(--link-color);
     color: #ffffff;
-    border-color: #0a1628;
+    border-color: var(--link-color);
 }
 
 /* Movie detail page */
@@ -45,8 +45,9 @@
 }
 
 .movie-poster .placeholder-img {
-    /* ISSUE (Beginner): fixed height causes stretched look on different screen sizes */
-    height: 450px;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
 }
 
 .movie-info h1 {
@@ -58,7 +59,7 @@
     gap: 16px;
     margin-bottom: 16px;
     font-size: 0.9rem;
-    color: #6b7280;
+    color: var(--text-muted);
     flex-wrap: wrap;
 }
 
@@ -81,7 +82,7 @@
 .movie-description {
     font-size: 1.05rem;
     line-height: 1.7;
-    color: #374151;
+    color: var(--text-secondary);
     margin-bottom: 24px;
 }
 
@@ -106,18 +107,18 @@
 .cast-member .cast-name {
     font-size: 0.85rem;
     font-weight: 600;
-    color: #0a1628;
+    color: var(--text-primary);
 }
 
 .cast-member .cast-role {
     font-size: 0.8rem;
-    color: #6b7280;
+    color: var(--text-muted);
 }
 
-/* Movie tabs — static visual only */
+/* Movie tabs */
 .movie-tabs {
     display: flex;
-    border-bottom: 2px solid #e5e7eb;
+    border-bottom: 2px solid var(--border-color);
     margin-bottom: 32px;
     gap: 0;
 }
@@ -126,7 +127,7 @@
     padding: 12px 24px;
     font-size: 0.95rem;
     font-weight: 600;
-    color: #6b7280;
+    color: var(--text-muted);
     border-bottom: 2px solid transparent;
     margin-bottom: -2px;
     cursor: pointer;
@@ -137,22 +138,31 @@
 }
 
 .movie-tab.active {
-    color: #0a1628;
+    color: var(--text-primary);
     border-bottom-color: #f59e0b;
 }
 
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
 /* TV show cards — slightly different from movie cards */
-/* ISSUE (Advanced): Duplicates .movie-card styles with minor differences */
 .tv-card {
-    background-color: #ffffff;
+    background-color: var(--card-bg);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--card-border);
     transition: transform 0.3s;
 }
 
 .tv-card:hover {
     transform: translateY(-6px);
+    box-shadow: var(--card-shadow-hover);
 }
 
 .tv-card .card-img {
@@ -168,18 +178,18 @@
 .tv-card .card-title {
     font-size: 1.05rem;
     margin-bottom: 4px;
-    color: #0a1628;
+    color: var(--text-primary);
 }
 
 .tv-card .show-meta {
     font-size: 0.8rem;
-    color: #6b7280;
+    color: var(--text-muted);
     margin-bottom: 8px;
 }
 
 .tv-card .card-text {
     font-size: 0.85rem;
-    color: #6b7280;
+    color: var(--text-secondary);
     line-height: 1.4;
 }
 
@@ -193,14 +203,14 @@
     display: flex;
     gap: 20px;
     padding: 16px 0;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid var(--border-color);
     align-items: center;
 }
 
 .episode-number {
     font-size: 1.2rem;
     font-weight: 700;
-    color: #d1d5db;
+    color: var(--text-muted);
     min-width: 36px;
     text-align: center;
 }
@@ -221,16 +231,17 @@
     font-size: 1rem;
     margin-bottom: 4px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-primary);
 }
 
 .episode-info p {
     font-size: 0.85rem;
-    color: #6b7280;
+    color: var(--text-secondary);
     margin-bottom: 0;
 }
 
 .episode-duration {
     font-size: 0.8rem;
-    color: #9ca3af;
+    color: var(--text-muted);
     white-space: nowrap;
 }

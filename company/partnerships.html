@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/responsive.css">
     <link rel="stylesheet" href="../css/utilities.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="../js/main.js"></script>
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
@@ -67,7 +69,21 @@
                 <li><a href="../awards.html">Awards</a></li>
                 <li><a href="../contact.html">Contact</a></li>
             </ul>
-            <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+            <div class="navbar-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+                    </svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </nav>
 
@@ -88,42 +104,80 @@
                 </div>
                 <div class="card-grid">
                     <div class="card">
-                        <div class="placeholder-img" style="height: 120px; background-color: #f3f4f6;">TechVision Corp Logo</div>
+                        <div class="partner-logo" style="height: 120px; display: flex; align-items: center; justify-content: center; background-color: #f8f9fa; border-radius: 8px;">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                            </svg>
+                        </div>
                         <div class="card-body">
                             <h3 class="card-title">TechVision Corp</h3>
                             <p class="card-text">Our technology partner for developing next-generation streaming infrastructure and immersive AR/VR experiences across our theme parks.</p>
                         </div>
                     </div>
                     <div class="card">
-                        <div class="placeholder-img" style="height: 120px; background-color: #f3f4f6;">Global Reach Media Logo</div>
+                        <div class="partner-logo" style="height: 120px; display: flex; align-items: center; justify-content: center; background-color: #f8f9fa; border-radius: 8px;">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#db2777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                            </svg>
+                        </div>
                         <div class="card-body">
                             <h3 class="card-title">Global Reach Media</h3>
                             <p class="card-text">International distribution partner ensuring Nova content reaches audiences in over 190 countries through localized marketing and distribution.</p>
                         </div>
                     </div>
                     <div class="card">
-                        <div class="placeholder-img" style="height: 120px; background-color: #f3f4f6;">UNESCO Logo</div>
+                        <div class="partner-logo" style="height: 120px; display: flex; align-items: center; justify-content: center; background-color: #f8f9fa; border-radius: 8px;">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 22h20"></path>
+                                <path d="M2 18h20"></path>
+                                <path d="M12 2L2 10h20L12 2z"></path>
+                                <path d="M5 10v8"></path>
+                                <path d="M9 10v8"></path>
+                                <path d="M15 10v8"></path>
+                                <path d="M19 10v8"></path>
+                            </svg>
+                        </div>
                         <div class="card-body">
                             <h3 class="card-title">UNESCO</h3>
                             <p class="card-text">Cultural heritage initiative partner. We work together to preserve and celebrate world cultural heritage through storytelling and education.</p>
                         </div>
                     </div>
                     <div class="card">
-                        <div class="placeholder-img" style="height: 120px; background-color: #f3f4f6;">Ocean Alliance Logo</div>
+                        <div class="partner-logo" style="height: 120px; display: flex; align-items: center; justify-content: center; background-color: #f8f9fa; border-radius: 8px;">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#0891b2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 12c2 0 4-4 6-4s4 4 6 4 4-4 6-4 4 4 6 4"></path>
+                                <path d="M2 18c2 0 4-4 6-4s4 4 6 4 4-4 6-4 4 4 6 4"></path>
+                                <path d="M12 2v6"></path>
+                            </svg>
+                        </div>
                         <div class="card-body">
                             <h3 class="card-title">Ocean Alliance</h3>
                             <p class="card-text">Marine conservation partner inspired by our "Ocean Depths" documentary. Together we protect coral reefs and combat ocean pollution.</p>
                         </div>
                     </div>
                     <div class="card">
-                        <div class="placeholder-img" style="height: 120px; background-color: #f3f4f6;">Creative Academy Logo</div>
+                        <div class="partner-logo" style="height: 120px; display: flex; align-items: center; justify-content: center; background-color: #f8f9fa; border-radius: 8px;">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                            </svg>
+                        </div>
                         <div class="card-body">
                             <h3 class="card-title">Creative Academy</h3>
                             <p class="card-text">Education partner providing scholarships, mentorship, and training programs for the next generation of filmmakers and animators.</p>
                         </div>
                     </div>
                     <div class="card">
-                        <div class="placeholder-img" style="height: 120px; background-color: #f3f4f6;">GreenFuture Foundation Logo</div>
+                        <div class="partner-logo" style="height: 120px; display: flex; align-items: center; justify-content: center; background-color: #f8f9fa; border-radius: 8px;">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22v-6"></path>
+                                <path d="M7 11.5c0-2.5 2.2-4.5 5-4.5s5 2 5 4.5c0 1-.3 1.9-.9 2.5-.6.6-1.5 1-2.6 1h-3c-1.1 0-2-.4-2.6-1-.6-.6-.9-1.5-.9-2.5z"></path>
+                            </svg>
+                        </div>
                         <div class="card-body">
                             <h3 class="card-title">GreenFuture Foundation</h3>
                             <p class="card-text">Sustainability partner helping us achieve carbon-neutral operations and develop industry standards for green production practices.</p>
@@ -147,7 +201,7 @@
             <div class="footer-col">
                 <div class="footer-brand"><span class="logo-text">NOVA<span class="logo-accent">STUDIOS</span></span></div>
                 <p>Nova Studios is a global entertainment company dedicated to bringing extraordinary stories to life.</p>
-                <div class="footer-social"><a href="https://facebook.com/NovaStudios" target="_blank" rel="noopener noreferrer">FB</a><a href="https://twitter.com/NovaStudios" target="_blank" rel="noopener noreferrer">TW</a><a href="https://instagram.com/NovaStudios" target="_blank" rel="noopener noreferrer">IG</a><a href="https://youtube.com/@NovaStudios" target="_blank" rel="noopener noreferrer">YT</a><a href="https://linkedin.com/company/novastudios" target="_blank" rel="noopener noreferrer">LI</a></div>
+                <div class="footer-social"><a href="https://facebook.com/NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a><a href="https://twitter.com/NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a><a href="https://instagram.com/NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a><a href="https://youtube.com/@NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a><a href="https://linkedin.com/company/novastudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a></div>
             </div>
             <div class="footer-col"><h3>Company</h3><ul><li><a href="../about.html">About Us</a></li><li><a href="careers.html">Careers</a></li><li><a href="../news.html">News</a></li><li><a href="investors.html">Investors</a></li></ul></div>
             <div class="footer-col"><h3>Entertainment</h3><ul><li><a href="../movies.html">Movies</a></li><li><a href="../entertainment/tv-shows.html">TV Shows</a></li><li><a href="../entertainment/streaming.html">Nova+</a></li><li><a href="../entertainment/theme-parks.html">Theme Parks</a></li></ul></div>
@@ -155,5 +209,6 @@
         </div>
         <div class="footer-bottom"><p>&copy; 2026 Nova Studios. All rights reserved.</p><div class="footer-bottom-links"><a href="../legal/privacy.html">Privacy</a><a href="../legal/terms.html">Terms</a><a href="../legal/accessibility-page.html">Accessibility</a></div></div>
     </footer>
-</body>
+<script src="../js/nav.js"></script></body>
 </html>
+
