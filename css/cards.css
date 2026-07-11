@@ -67,6 +67,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
+    align-items: stretch;
 }
 
 .card-grid-2 {
@@ -210,10 +211,13 @@
 
 /* Product Card */
 .product-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     background-color: #ffffff;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .product-card .card-img {
@@ -222,6 +226,9 @@
 }
 
 .product-card .card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
     padding: 16px;
 }
 
@@ -239,12 +246,8 @@
     margin-bottom: 8px;
 }
 
-.product-card .product-price .original-price {
-    text-decoration: line-through;
-    color: #9ca3af;
-    font-weight: 400;
-    font-size: 0.9rem;
-    margin-left: 8px;
+.product-card .btn {
+    margin-top: auto;
 }
 
 /* Character Card */

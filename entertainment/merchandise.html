@@ -9,16 +9,30 @@
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/hero.css">
     <link rel="stylesheet" href="../css/buttons.css">
+    <link rel="stylesheet" href="../css/movies.css">
     <link rel="stylesheet" href="../css/cards.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/responsive.css">
     <link rel="stylesheet" href="../css/utilities.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .cart-status {
+            min-height: 24px;
+            margin: 16px 0;
+            color: #15803d;
+            font-weight: 600;
+        }
+    </style>
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
+
     <nav class="navbar">
         <div class="container">
-            <a href="../index.html" class="navbar-brand"><span class="logo-text">NOVA<span class="logo-accent">STUDIOS</span></span></a>
+            <a href="../index.html" class="navbar-brand">
+                <span class="logo-text">NOVA<span class="logo-accent">STUDIOS</span></span>
+            </a>
+
             <ul class="nav-links">
                 <li>
                     <a href="../about.html">About</a>
@@ -67,13 +81,18 @@
                 <li><a href="../awards.html">Awards</a></li>
                 <li><a href="../contact.html">Contact</a></li>
             </ul>
-            <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 
     <section class="hero hero-compact hero-gradient-warm" id="main">
         <div class="container">
-            <div class="breadcrumbs"><a href="../index.html">Home</a> <span>&gt;</span> Merchandise</div>
+            <div class="breadcrumbs">
+                <a href="../index.html">Home</a> <span>&gt;</span> Merchandise
+            </div>
             <h1>Nova Studios Shop</h1>
             <p>Bring the magic home with official merchandise, collectibles, and exclusive products.</p>
         </div>
@@ -91,72 +110,78 @@
                     <button class="filter-btn">Accessories</button>
                 </div>
 
-                <!-- ISSUE (Intermediate): Flexbox wrapping issues — product cards don't wrap evenly on medium screens -->
+                <p id="cart-status" class="cart-status" role="status" aria-live="polite"></p>
+
                 <div class="card-grid-4">
-                    <div class="product-card">
-                        <!-- ISSUE (Beginner): product-card .card-img missing object-fit — image stretches -->
+                    <div class="product-card" data-category="Apparel">
                         <div class="placeholder-img accent card-img" style="height: 220px;">Stellar Horizon Jacket</div>
                         <div class="card-body">
                             <div class="product-name">Stellar Horizon Flight Jacket</div>
                             <div class="product-price">$89.99</div>
-                            <a href="#" class="btn btn-primary btn-sm w-100">Add to Cart</a>
+                            <button type="button" class="btn btn-primary btn-sm w-100 add-to-cart">Add to Cart</button>
                         </div>
                     </div>
-                    <div class="product-card">
+
+                    <div class="product-card" data-category="Toys">
                         <div class="placeholder-img blue card-img" style="height: 220px;">Flicker Plush</div>
                         <div class="card-body">
                             <div class="product-name">Flicker Collectible Plush</div>
                             <div class="product-price">$24.99</div>
-                            <a href="#" class="btn btn-primary btn-sm w-100">Add to Cart</a>
+                            <button type="button" class="btn btn-primary btn-sm w-100 add-to-cart">Add to Cart</button>
                         </div>
                     </div>
-                    <div class="product-card">
+
+                    <div class="product-card" data-category="Collectibles">
                         <div class="placeholder-img dark card-img" style="height: 220px;">Ashenmoor Map Poster</div>
                         <div class="card-body">
                             <div class="product-name">Ashenmoor Kingdom Map — Limited Print</div>
-                            <div class="product-price">$34.99 <span class="original-price">$44.99</span></div>
-                            <a href="#" class="btn btn-primary btn-sm w-100">Add to Cart</a>
+                            <div class="product-price">$34.99 <span style="margin-left: 8px; color: #9ca3af; font-size: 0.9rem; font-weight: 400; text-decoration: line-through;">$44.99</span></div>
+                            <button type="button" class="btn btn-primary btn-sm w-100 add-to-cart">Add to Cart</button>
                         </div>
                     </div>
-                    <div class="product-card">
+
+                    <div class="product-card" data-category="Home & Living">
                         <div class="placeholder-img green card-img" style="height: 220px;">Nova Studios Mug</div>
                         <div class="card-body">
                             <div class="product-name">Nova Studios Classic Mug</div>
                             <div class="product-price">$14.99</div>
-                            <a href="#" class="btn btn-primary btn-sm w-100">Add to Cart</a>
+                            <button type="button" class="btn btn-primary btn-sm w-100 add-to-cart">Add to Cart</button>
                         </div>
                     </div>
-                    <div class="product-card">
+
+                    <div class="product-card" data-category="Toys">
                         <div class="placeholder-img purple card-img" style="height: 220px;">Captain Orbit Figure</div>
                         <div class="card-body">
                             <div class="product-name">Captain Orbit Action Figure</div>
                             <div class="product-price">$19.99</div>
-                            <a href="#" class="btn btn-primary btn-sm w-100">Add to Cart</a>
+                            <button type="button" class="btn btn-primary btn-sm w-100 add-to-cart">Add to Cart</button>
                         </div>
                     </div>
-                    <div class="product-card">
+
+                    <div class="product-card" data-category="Collectibles">
                         <div class="placeholder-img red card-img" style="height: 220px;">Luminara Art Book</div>
                         <div class="card-body">
                             <div class="product-name">The Art of Luminara — Deluxe Edition</div>
                             <div class="product-price">$49.99</div>
-                            <a href="#" class="btn btn-primary btn-sm w-100">Add to Cart</a>
+                            <button type="button" class="btn btn-primary btn-sm w-100 add-to-cart">Add to Cart</button>
                         </div>
                     </div>
-                    <div class="product-card">
+
+                    <div class="product-card" data-category="Apparel">
                         <div class="placeholder-img accent card-img" style="height: 220px;">Nova+ T-Shirt</div>
                         <div class="card-body">
                             <div class="product-name">Nova+ Logo T-Shirt</div>
                             <div class="product-price">$29.99</div>
-                            <a href="#" class="btn btn-primary btn-sm w-100">Add to Cart</a>
+                            <button type="button" class="btn btn-primary btn-sm w-100 add-to-cart">Add to Cart</button>
                         </div>
                     </div>
-                    <div class="product-card">
+
+                    <div class="product-card" data-category="Collectibles">
                         <div class="placeholder-img blue card-img" style="height: 220px;">Stardust Snowglobe</div>
                         <div class="card-body">
-                            <!-- ISSUE (Beginner): Text overflows card on narrow screens -->
                             <div class="product-name">Stardust Kingdom Collector's Snow Globe — Limited Edition 2024</div>
                             <div class="product-price">$59.99</div>
-                            <a href="#" class="btn btn-primary btn-sm w-100">Add to Cart</a>
+                            <button type="button" class="btn btn-primary btn-sm w-100 add-to-cart">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -167,15 +192,139 @@
     <footer class="site-footer">
         <div class="footer-grid">
             <div class="footer-col">
-                <div class="footer-brand"><span class="logo-text">NOVA<span class="logo-accent">STUDIOS</span></span></div>
+                <div class="footer-brand">
+                    <span class="logo-text">NOVA<span class="logo-accent">STUDIOS</span></span>
+                </div>
                 <p>Nova Studios is a global entertainment company dedicated to bringing extraordinary stories to life.</p>
-                <div class="footer-social"><a href="https://facebook.com/NovaStudios" target="_blank" rel="noopener noreferrer">FB</a><a href="https://twitter.com/NovaStudios" target="_blank" rel="noopener noreferrer">TW</a><a href="https://instagram.com/NovaStudios" target="_blank" rel="noopener noreferrer">IG</a><a href="https://youtube.com/@NovaStudios" target="_blank" rel="noopener noreferrer">YT</a><a href="https://linkedin.com/company/novastudios" target="_blank" rel="noopener noreferrer">LI</a></div>
+                <div class="footer-social">
+                    <a href="https://facebook.com/NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com/NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com/NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/@NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                    <a href="https://linkedin.com/company/novastudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                </div>
             </div>
-            <div class="footer-col"><h3>Company</h3><ul><li><a href="../about.html">About Us</a></li><li><a href="../company/careers.html">Careers</a></li><li><a href="../news.html">News</a></li><li><a href="../company/investors.html">Investors</a></li></ul></div>
-            <div class="footer-col"><h3>Entertainment</h3><ul><li><a href="../movies.html">Movies</a></li><li><a href="tv-shows.html">TV Shows</a></li><li><a href="streaming.html">Nova+</a></li><li><a href="theme-parks.html">Theme Parks</a></li></ul></div>
-            <div class="footer-col"><h3>Support</h3><ul><li><a href="../support/help.html">Help Center</a></li><li><a href="../contact.html">Contact Us</a></li><li><a href="../support/faq.html">FAQ</a></li><li><a href="../legal/privacy.html">Privacy</a></li></ul></div>
+
+            <div class="footer-col">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="../about.html">About Us</a></li>
+                    <li><a href="../company/careers.html">Careers</a></li>
+                    <li><a href="../news.html">News</a></li>
+                    <li><a href="../company/investors.html">Investors</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Entertainment</h3>
+                <ul>
+                    <li><a href="../movies.html">Movies</a></li>
+                    <li><a href="tv-shows.html">TV Shows</a></li>
+                    <li><a href="streaming.html">Nova+</a></li>
+                    <li><a href="theme-parks.html">Theme Parks</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="../support/help.html">Help Center</a></li>
+                    <li><a href="../contact.html">Contact Us</a></li>
+                    <li><a href="../support/faq.html">FAQ</a></li>
+                    <li><a href="../legal/privacy.html">Privacy</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="footer-bottom"><p>&copy; 2026 Nova Studios. All rights reserved.</p><div class="footer-bottom-links"><a href="../legal/privacy.html">Privacy</a><a href="../legal/terms.html">Terms</a><a href="../legal/accessibility-page.html">Accessibility</a></div></div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Nova Studios. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="../legal/privacy.html">Privacy</a>
+                <a href="../legal/terms.html">Terms</a>
+                <a href="../legal/accessibility-page.html">Accessibility</a>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const products = document.querySelectorAll('.product-card');
+
+            filterBtns.forEach((button) => {
+                button.addEventListener('click', () => {
+                    filterBtns.forEach((item) => item.classList.remove('active'));
+                    button.classList.add('active');
+
+                    const category = button.textContent.trim();
+
+                    products.forEach((product) => {
+                        const shouldShow =
+                            category === 'All Products' ||
+                            product.dataset.category === category;
+
+                        product.style.display = shouldShow ? 'block' : 'none';
+                    });
+                });
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartKey = 'nova-studios-cart';
+            const cartStatus = document.getElementById('cart-status');
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+            function getCart() {
+                try {
+                    const savedCart = JSON.parse(localStorage.getItem(cartKey));
+                    return Array.isArray(savedCart) ? savedCart : [];
+                } catch {
+                    return [];
+                }
+            }
+
+            function saveCart(cart) {
+                localStorage.setItem(cartKey, JSON.stringify(cart));
+            }
+
+            addToCartButtons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    const card = button.closest('.product-card');
+                    const name = card.querySelector('.product-name').textContent.trim();
+                    const priceText = card.querySelector('.product-price').textContent;
+                    const price = Number(priceText.match(/\$([\d.]+)/)?.[1]);
+
+                    const cart = getCart();
+                    const item = cart.find((product) => product.name === name);
+
+                    if (item) {
+                        item.quantity += 1;
+                    } else {
+                        cart.push({ name, price, quantity: 1 });
+                    }
+
+                    saveCart(cart);
+
+                    const totalItems = cart.reduce(
+                        (total, product) => total + product.quantity,
+                        0
+                    );
+
+                    cartStatus.textContent =
+                        `${name} added to cart. Cart has ${totalItems} item${totalItems === 1 ? '' : 's'}.`;
+
+                    button.textContent = 'Added!';
+
+                    setTimeout(() => {
+                        button.textContent = 'Add to Cart';
+                    }, 1500);
+                });
+            });
+        });
+    </script>
+
+    <script src="../js/nav.js"></script>
 </body>
 </html>
