@@ -219,6 +219,7 @@
     box-shadow: var(--card-shadow);
     border: 1px solid var(--card-border);
 }
+
 .product-card .card-img {
     height: 220px;
     object-fit: cover;
@@ -483,4 +484,10 @@
 .testimonial-card .author-title {
     font-size: 0.8rem;
     color: var(--text-muted);
+}
+
+a.movie-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }

@@ -323,25 +323,24 @@ ul, ol {
     background-color: #fee2e2;
     color: #991b1b;
 }
+
 /* Skip to content — minimal */
 .skip-link {
     position: fixed;
-    top: -100px;
+    top: 6px; /* Adjusted to 6px for better visibility */
     left: 16px;
     background: #0a1628;
     color: #fff;
-    padding: 10px 20px;
-    z-index: 100000;
-    transition: top 0.2s ease-in-out;
-    border-radius: 4px;
-    font-weight: 600;
-    text-decoration: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 10px 18px;
+    border-radius: 6px;
+    z-index: 10001;
+    transition: opacity .2s ease; /* Smooth transition for visibility changes */
 }
-/* ISSUE (Intermediate): skip link never becomes visible on focus */
-.skip-link:focus {
-    top: 16px;
-    outline: 2px solid #f59e0b;
+
+.skip-link.hidden {
+    opacity: 0;
+    visibility: hidden; /* Hide the skip link when not needed */
+    pointer-events: none;
 }
 /* Page wrapper */
 .page-wrapper {
