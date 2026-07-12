@@ -65,6 +65,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
+    align-items: stretch;
 }
 
 .card-grid-2 {
@@ -228,7 +229,7 @@
 .product-card .card-body {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
+    flex: 1 1 auto;
     padding: 16px;
 }
 

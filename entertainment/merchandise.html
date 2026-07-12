@@ -14,6 +14,15 @@
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/responsive.css">
     <link rel="stylesheet" href="../css/utilities.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .cart-status {
+            min-height: 24px;
+            margin: 16px 0;
+            color: #15803d;
+            font-weight: 600;
+        }
+    </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="../js/main.js"></script>
 
@@ -108,72 +117,72 @@
                     <button class="filter-btn" data-i18n="entertainment_merchandise.accessories">Accessories</button>
                 </div>
 
-                <!-- ISSUE (Intermediate): Flexbox wrapping issues — product cards don't wrap evenly on medium screens -->
+                <p id="cart-status" class="cart-status" role="status" aria-live="polite"></p>
+
                 <div class="card-grid-4">
                     <div class="product-card" data-category="Apparel">
                         <!-- ISSUE (Beginner): product-card .card-img missing object-fit — image stretches -->
                         <div class="placeholder-img accent card-img" style="height: 220px;" data-i18n="entertainment_merchandise.stellar_horizon_jacket">Stellar Horizon Jacket</div>
                         <div class="card-body">
-                            <div class="product-name" data-i18n="entertainment_merchandise.stellar_horizon_flight_jacket">Stellar Horizon Flight Jacket</div>
-                            <div class="product-price" data-i18n="entertainment_merchandise.89_99">$89.99</div>
-                            <a href="#" class="btn btn-primary btn-sm w-100" data-i18n="entertainment_merchandise.add_to_cart">Add to Cart</a>
+                            <div class="product-name">Stellar Horizon Flight Jacket</div>
+                            <div class="product-price">$89.99</div>
+                            <button type="button" class="btn btn-primary btn-sm w-100 add-to-cart">Add to Cart</button>
                         </div>
                     </div>
                     <div class="product-card" data-category="Toys">
                         <div class="placeholder-img blue card-img" style="height: 220px;" data-i18n="entertainment_merchandise.flicker_plush">Flicker Plush</div>
                         <div class="card-body">
-                            <div class="product-name" data-i18n="entertainment_merchandise.flicker_collectible_plush">Flicker Collectible Plush</div>
-                            <div class="product-price" data-i18n="entertainment_merchandise.24_99">$24.99</div>
-                            <a href="#" class="btn btn-primary btn-sm w-100" data-i18n="entertainment_merchandise.add_to_cart">Add to Cart</a>
+                            <div class="product-name">Flicker Collectible Plush</div>
+                            <div class="product-price">$24.99</div>
+                            <button type="button" class="btn btn-primary btn-sm w-100 add-to-cart">Add to Cart</button>
                         </div>
                     </div>
                     <div class="product-card" data-category="Collectibles">
                         <div class="placeholder-img dark card-img" style="height: 220px;" data-i18n="entertainment_merchandise.ashenmoor_map_poster">Ashenmoor Map Poster</div>
                         <div class="card-body">
-                            <div class="product-name" data-i18n="entertainment_merchandise.ashenmoor_kingdom_map_limited_print">Ashenmoor Kingdom Map — Limited Print</div>
-                            <div class="product-price" data-i18n-html="entertainment_merchandise.34_99_44_99">$34.99 <span class="original-price" data-i18n="entertainment_merchandise.44_99">$44.99</span></div>
-                            <a href="#" class="btn btn-primary btn-sm w-100" data-i18n="entertainment_merchandise.add_to_cart">Add to Cart</a>
+                            <div class="product-name">Ashenmoor Kingdom Map — Limited Print</div>
+                            <div class="product-price">$34.99 <span style="margin-left: 8px; color: #9ca3af; font-size: 0.9rem; font-weight: 400; text-decoration: line-through;">$44.99</span></div>
+                            <button type="button" class="btn btn-primary btn-sm w-100 add-to-cart">Add to Cart</button>
                         </div>
                     </div>
                     <div class="product-card" data-category="Home &amp; Living">
                         <div class="placeholder-img green card-img" style="height: 220px;" data-i18n="entertainment_merchandise.nova_studios_mug">Nova Studios Mug</div>
                         <div class="card-body">
-                            <div class="product-name" data-i18n="entertainment_merchandise.nova_studios_classic_mug">Nova Studios Classic Mug</div>
-                            <div class="product-price" data-i18n="entertainment_merchandise.14_99">$14.99</div>
-                            <a href="#" class="btn btn-primary btn-sm w-100" data-i18n="entertainment_merchandise.add_to_cart">Add to Cart</a>
+                            <div class="product-name">Nova Studios Classic Mug</div>
+                            <div class="product-price">$14.99</div>
+                            <button type="button" class="btn btn-primary btn-sm w-100 add-to-cart">Add to Cart</button>
                         </div>
                     </div>
                     <div class="product-card" data-category="Toys">
                         <div class="placeholder-img purple card-img" style="height: 220px;" data-i18n="entertainment_merchandise.captain_orbit_figure">Captain Orbit Figure</div>
                         <div class="card-body">
-                            <div class="product-name" data-i18n="entertainment_merchandise.captain_orbit_action_figure">Captain Orbit Action Figure</div>
-                            <div class="product-price" data-i18n="entertainment_merchandise.19_99">$19.99</div>
-                            <a href="#" class="btn btn-primary btn-sm w-100" data-i18n="entertainment_merchandise.add_to_cart">Add to Cart</a>
+                            <div class="product-name">Captain Orbit Action Figure</div>
+                            <div class="product-price">$19.99</div>
+                            <button type="button" class="btn btn-primary btn-sm w-100 add-to-cart">Add to Cart</button>
                         </div>
                     </div>
                     <div class="product-card" data-category="Collectibles">
                         <div class="placeholder-img red card-img" style="height: 220px;" data-i18n="entertainment_merchandise.luminara_art_book">Luminara Art Book</div>
                         <div class="card-body">
-                            <div class="product-name" data-i18n="entertainment_merchandise.the_art_of_luminara_deluxe_edition">The Art of Luminara — Deluxe Edition</div>
-                            <div class="product-price" data-i18n="entertainment_merchandise.49_99">$49.99</div>
-                            <a href="#" class="btn btn-primary btn-sm w-100" data-i18n="entertainment_merchandise.add_to_cart">Add to Cart</a>
+                            <div class="product-name">The Art of Luminara — Deluxe Edition</div>
+                            <div class="product-price">$49.99</div>
+                            <button type="button" class="btn btn-primary btn-sm w-100 add-to-cart">Add to Cart</button>
                         </div>
                     </div>
                     <div class="product-card" data-category="Apparel">
                         <div class="placeholder-img accent card-img" style="height: 220px;" data-i18n="entertainment_merchandise.nova_t_shirt">Nova+ T-Shirt</div>
                         <div class="card-body">
-                            <div class="product-name" data-i18n="entertainment_merchandise.nova_logo_t_shirt">Nova+ Logo T-Shirt</div>
-                            <div class="product-price" data-i18n="entertainment_merchandise.29_99">$29.99</div>
-                            <a href="#" class="btn btn-primary btn-sm w-100" data-i18n="entertainment_merchandise.add_to_cart">Add to Cart</a>
+                            <div class="product-name">Nova+ Logo T-Shirt</div>
+                            <div class="product-price">$29.99</div>
+                            <button type="button" class="btn btn-primary btn-sm w-100 add-to-cart">Add to Cart</button>
                         </div>
                     </div>
                     <div class="product-card" data-category="Collectibles">
                         <div class="placeholder-img blue card-img" style="height: 220px;" data-i18n="entertainment_merchandise.stardust_snowglobe">Stardust Snowglobe</div>
                         <div class="card-body">
-                            <!-- ISSUE (Beginner): Text overflows card on narrow screens -->
-                            <div class="product-name" data-i18n="entertainment_merchandise.stardust_kingdom_collector_s_snow_g">Stardust Kingdom Collector's Snow Globe — Limited Edition 2024</div>
-                            <div class="product-price" data-i18n="entertainment_merchandise.59_99">$59.99</div>
-                            <a href="#" class="btn btn-primary btn-sm w-100" data-i18n="entertainment_merchandise.add_to_cart">Add to Cart</a>
+                            <div class="product-name">Stardust Kingdom Collector's Snow Globe — Limited Edition 2024</div>
+                            <div class="product-price">$59.99</div>
+                            <button type="button" class="btn btn-primary btn-sm w-100 add-to-cart">Add to Cart</button>
                         </div>
                     </div>
                 </div>
@@ -184,57 +193,138 @@
     <footer class="site-footer">
         <div class="footer-grid">
             <div class="footer-col">
-                <div class="footer-brand" data-i18n-html="footer.novastudios"><span class="logo-text" data-i18n-html="footer.novastudios_1">NOVA<span class="logo-accent" data-i18n="footer.studios">STUDIOS</span></span></div>
-                <p data-i18n="footer.nova_studios_is_a_global_entertainm">Nova Studios is a global entertainment company dedicated to bringing extraordinary stories to life.</p>
-                <div class="footer-social"><a href="https://facebook.com/NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a><a href="https://twitter.com/NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a><a href="https://instagram.com/NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a><a href="https://youtube.com/@NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a><a href="https://linkedin.com/company/novastudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a></div>
+                <div class="footer-brand">
+                    <span class="logo-text">NOVA<span class="logo-accent">STUDIOS</span></span>
+                </div>
+                <p>Nova Studios is a global entertainment company dedicated to bringing extraordinary stories to life.</p>
+                <div class="footer-social">
+                    <a href="https://facebook.com/NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com/NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com/NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/@NovaStudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                    <a href="https://linkedin.com/company/novastudios" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                </div>
             </div>
-            <div class="footer-col"><h3 data-i18n="footer.company">Company</h3><ul><li data-i18n-html="footer.about_us_2"><a href="../about.html" data-i18n="footer.about_us_1">About Us</a></li><li data-i18n-html="footer.careers_2"><a href="../company/careers.html" data-i18n="footer.careers_1">Careers</a></li><li data-i18n-html="footer.news_2"><a href="../news.html" data-i18n="footer.news_1">News</a></li><li data-i18n-html="footer.investors_2"><a href="../company/investors.html" data-i18n="footer.investors_1">Investors</a></li></ul></div>
-            <div class="footer-col"><h3 data-i18n="footer.entertainment">Entertainment</h3><ul><li data-i18n-html="footer.movies_2"><a href="../movies.html" data-i18n="footer.movies_1">Movies</a></li><li data-i18n-html="footer.tv_shows_5"><a href="tv-shows.html" data-i18n="footer.tv_shows_1">TV Shows</a></li><li data-i18n-html="footer.nova_5"><a href="streaming.html" data-i18n="footer.nova_1">Nova+</a></li><li data-i18n-html="footer.theme_parks_5"><a href="theme-parks.html" data-i18n="footer.theme_parks_1">Theme Parks</a></li></ul></div>
-            <div class="footer-col"><h3 data-i18n="footer.support">Support</h3><ul><li data-i18n-html="footer.help_center_2"><a href="../support/help.html" data-i18n="footer.help_center_1">Help Center</a></li><li data-i18n-html="footer.contact_us_2"><a href="../contact.html" data-i18n="footer.contact_us_1">Contact Us</a></li><li data-i18n-html="footer.faq_2"><a href="../support/faq.html" data-i18n="footer.faq_1">FAQ</a></li><li data-i18n-html="footer.privacy_1"><a href="../legal/privacy.html" data-i18n="footer.privacy">Privacy</a></li></ul></div>
+
+            <div class="footer-col">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="../about.html">About Us</a></li>
+                    <li><a href="../company/careers.html">Careers</a></li>
+                    <li><a href="../news.html">News</a></li>
+                    <li><a href="../company/investors.html">Investors</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Entertainment</h3>
+                <ul>
+                    <li><a href="../movies.html">Movies</a></li>
+                    <li><a href="tv-shows.html">TV Shows</a></li>
+                    <li><a href="streaming.html">Nova+</a></li>
+                    <li><a href="theme-parks.html">Theme Parks</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="../support/help.html">Help Center</a></li>
+                    <li><a href="../contact.html">Contact Us</a></li>
+                    <li><a href="../support/faq.html">FAQ</a></li>
+                    <li><a href="../legal/privacy.html">Privacy</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="footer-bottom"><p data-i18n="footer.2026_nova_studios_all_rights_reserv">© 2026 Nova Studios. All rights reserved.</p><div class="footer-bottom-links" data-i18n-html="footer.privacytermsaccessibility"><a href="../legal/privacy.html" data-i18n="footer.privacy">Privacy</a><a href="../legal/terms.html" data-i18n="footer.terms">Terms</a><a href="../legal/accessibility-page.html" data-i18n="footer.accessibility">Accessibility</a></div></div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Nova Studios. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="../legal/privacy.html">Privacy</a>
+                <a href="../legal/terms.html">Terms</a>
+                <a href="../legal/accessibility-page.html">Accessibility</a>
+            </div>
+        </div>
     </footer>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const filterBtns = document.querySelectorAll('.filter-btn');
             const products = document.querySelectorAll('.product-card');
 
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // Remove active class from all buttons
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    // Add active class to clicked button
-                    btn.classList.add('active');
+            filterBtns.forEach((button) => {
+                button.addEventListener('click', () => {
+                    filterBtns.forEach((item) => item.classList.remove('active'));
+                    button.classList.add('active');
 
-                    const i18nKey = btn.getAttribute('data-i18n') || '';
-                    let category = btn.textContent.trim();
+                    const category = button.textContent.trim();
 
-                    if (i18nKey) {
-                        const parts = i18nKey.split('.');
-                        let val = window.translations && window.translations.en;
-                        for (let k = 0; k < parts.length; k++) {
-                            if (val) val = val[parts[k]];
-                        }
-                        if (val) {
-                            category = val;
-                        }
-                    }
+                    products.forEach((product) => {
+                        const shouldShow =
+                            category === 'All Products' ||
+                            product.dataset.category === category;
 
-                    const isAll = i18nKey.endsWith('.all_products') || category === 'All Products';
-
-                    products.forEach(product => {
-                        if (isAll || product.dataset.category === category) {
-                            product.style.display = 'block';
-                        } else {
-                            product.style.display = 'none';
-                        }
+                        product.hidden = !shouldShow;
                     });
                 });
             });
         });
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartKey = 'nova-studios-cart';
+            const cartStatus = document.getElementById('cart-status');
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+            function getCart() {
+                try {
+                    const savedCart = JSON.parse(localStorage.getItem(cartKey));
+                    return Array.isArray(savedCart) ? savedCart : [];
+                } catch {
+                    return [];
+                }
+            }
+
+            function saveCart(cart) {
+                localStorage.setItem(cartKey, JSON.stringify(cart));
+            }
+
+            addToCartButtons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    const card = button.closest('.product-card');
+                    const name = card.querySelector('.product-name').textContent.trim();
+                    const priceText = card.querySelector('.product-price').textContent;
+                    const price = Number(priceText.match(/\$([\d.]+)/)?.[1]);
+
+                    const cart = getCart();
+                    const item = cart.find((product) => product.name === name);
+
+                    if (item) {
+                        item.quantity += 1;
+                    } else {
+                        cart.push({ name, price, quantity: 1 });
+                    }
+
+                    saveCart(cart);
+
+                    const totalItems = cart.reduce(
+                        (total, product) => total + product.quantity,
+                        0
+                    );
+
+                    cartStatus.textContent =
+                        `${name} added to cart. Cart has ${totalItems} item${totalItems === 1 ? '' : 's'}.`;
+
+                    button.textContent = 'Added!';
+
+                    setTimeout(() => {
+                        button.textContent = 'Add to Cart';
+                    }, 1500);
+                });
+            });
+        });
+    </script>
+
     <script src="../js/nav.js"></script>
-
-
-
-</body></html>
+</body>
+</html>
