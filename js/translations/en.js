@@ -2728,6 +2728,20 @@ window.translations.en = {
         "yes_offline_downloads_are_available": "Yes, offline downloads are available on Standard and Premium plans. You can download up to 25 titles at a time on iOS and Android devices. Downloads expire after 30 days or 48 hours after you start watching, whichever comes first.",
         "yes_we_offer_several_annual_pass_op": "Yes, we offer several annual pass options:",
         "yes_we_ship_to_over_50_countries_wo": "Yes, we ship to over 50 countries worldwide. International shipping rates and delivery times vary by destination. Orders over $100 qualify for free standard shipping in the US and Canada.",
+
+        "billing": "Billing",
+        "what_payment_methods_do_you_accept": "What payment methods do you accept? <span>+</span>",
+        "we_accept_major_credit_and_debit_cards": "We accept major credit and debit cards, including Visa, Mastercard, and American Express. Available payment methods may vary depending on your region.",
+
+        "when_will_i_be_charged_for_my_purchase": "When will I be charged for my purchase? <span>+</span>",
+        "payments_are_processed_immediately_after": "Payments are processed immediately after your order is successfully placed. Once payment is confirmed, you will receive a confirmation email with your purchase details.",
+
+        "what_should_i_do_if_my_payment_fails": "What should I do if my payment fails? <span>+</span>",
+        "verify_that_your_payment_details_are_correct": "Verify that your payment details are correct and ensure your payment method has sufficient funds. If the issue persists, try another payment method or contact your financial institution for assistance.",
+
+        "can_i_request_a_refund": "Can I request a refund? <span>+</span>",
+        "refund_eligibility_depends_on_the_product": "Refund eligibility depends on the product or service purchased and the applicable refund policy. Please review the terms at the time of purchase or contact our support team for assistance.",
+
         "you_can_cancel_your_nova_subscripti": "You can cancel your Nova+ subscription at any time through your account settings. Your access will continue until the end of your current billing period. No cancellation fees apply."
     },
     "support_help": {

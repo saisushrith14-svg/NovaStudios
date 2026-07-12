@@ -2728,7 +2728,19 @@ window.translations.es = {
         "yes_offline_downloads_are_available": "Sí, las descargas sin conexión están disponibles en los planes Estándar y Premium. Puedes descargar hasta 25 títulos a la vez en dispositivos iOS y Android. Las descargas caducan después de 30 días o 48 horas después de comenzar a mirar, lo que ocurra primero.",
         "yes_we_offer_several_annual_pass_op": "Sí, ofrecemos varias opciones de pases anuales:",
         "yes_we_ship_to_over_50_countries_wo": "Sí, enviamos a más de 50 países en todo el mundo. Las tarifas de envío internacional y los tiempos de entrega varían según el destino. Los pedidos superiores a $100 califican para envío estándar gratuito en EE. UU. y Canadá.",
-        "you_can_cancel_your_nova_subscripti": "Puede cancelar su suscripción a Nova+ en cualquier momento a través de la configuración de su cuenta. Su acceso continuará hasta el final de su período de facturación actual. No se aplican gastos de cancelación."
+        "you_can_cancel_your_nova_subscripti": "Puede cancelar su suscripción a Nova+ en cualquier momento a través de la configuración de su cuenta. Su acceso continuará hasta el final de su período de facturación actual. No se aplican gastos de cancelación.",
+        "billing": "Facturación",
+        "what_payment_methods_do_you_accept": "¿Qué métodos de pago aceptan? <span>+</span>",
+        "we_accept_major_credit_and_debit_cards": "Aceptamos las principales tarjetas de crédito y débito, incluidas Visa, Mastercard y American Express. Los métodos de pago disponibles pueden variar según tu región.",
+
+        "when_will_i_be_charged_for_my_purchase": "¿Cuándo se realizará el cargo por mi compra? <span>+</span>",
+        "payments_are_processed_immediately_after": "Los pagos se procesan inmediatamente después de que tu compra se realiza correctamente. Una vez confirmado el pago, recibirás un correo electrónico con los detalles de tu compra.",
+
+        "what_should_i_do_if_my_payment_fails": "¿Qué debo hacer si mi pago falla? <span>+</span>",
+        "verify_that_your_payment_details_are_correct": "Verifica que los datos de tu pago sean correctos y que tu método de pago tenga fondos suficientes. Si el problema persiste, prueba con otro método de pago o ponte en contacto con tu entidad financiera.",
+
+        "can_i_request_a_refund": "¿Puedo solicitar un reembolso? <span>+</span>",
+        "refund_eligibility_depends_on_the_product": "La elegibilidad para un reembolso depende del producto o servicio adquirido y de la política de reembolso correspondiente. Consulta los términos en el momento de la compra o ponte en contacto con nuestro equipo de soporte para obtener ayuda."
     },
     "support_help": {
         "account_security": "Cuenta y seguridad",
