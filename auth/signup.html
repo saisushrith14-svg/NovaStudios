@@ -78,6 +78,31 @@
                 position: static;
             }
         }
+        .password-wrapper{
+            position:relative;
+        }
+
+        .password-wrapper input{
+            padding-right:40px;
+        }
+
+        .password-toggle{
+            position:absolute;
+            right:12px;
+            top:50%;
+            transform:translateY(-50%);
+            border:none;
+            background:none;
+            cursor:pointer;
+            color:#6b7280;
+            padding:4px;
+            display:flex;
+            align-items:center;
+        }
+
+        .password-toggle:hover{
+            color:#111827;
+        }
     </style>
     <script src="../js/main.js"></script>
 
@@ -185,17 +210,25 @@
                                 <input type="email" id="email" name="email" class="form-control" placeholder="you@example.com" autocomplete="email" required="" data-i18n-placeholder="auth_signup.you_example_com_placeholder">
                             </div>
 
-                            <div class="form-row">
-                                <div class="form-group" data-i18n-html="auth_signup.password">
-                                    <label for="password" data-i18n="auth_signup.password_1">Password</label>
-                                    <input type="password" id="password" name="password" class="form-control" autocomplete="new-password" minlength="8" required="">
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <div class="password-wrapper">
+                                    <input type="password" id="password" name="password" class="form-control" autocomplete="new-password" minlength="8" required>
+                                    <button type="button" id="toggle-password" class="password-toggle" aria-label="Toggle password visibility">
+                                        <svg id="eye-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M1.5 12s4-7.5 10.5-7.5S22.5 12 22.5 12s-4 7.5-10.5 7.5S1.5 12 1.5 12z"/>
+                                            <circle cx="12" cy="12" r="3"/>
+                                        </svg>
+                                    </button>
                                 </div>
-                                <div class="form-group" data-i18n-html="auth_signup.plan_basic_7_99_month_standard_12_9">
-                                    <label for="plan" data-i18n="auth_signup.plan">Plan</label>
-                                    <select id="plan" name="plan" class="form-control" required="">
-                                        <option value="basic" data-i18n="auth_signup.basic_7_99_month">Basic - $7.99/month</option>
-                                        <option value="standard" data-i18n="auth_signup.standard_12_99_month">Standard - $12.99/month</option>
-                                        <option value="premium" data-i18n="auth_signup.premium_19_99_month">Premium - $19.99/month</option>
+                            </div>
+                                <div class="form-group">
+                                    <label for="plan">Plan</label>
+                                    <select id="plan" name="plan" class="form-control" required>
+                                        <option value="basic">Basic - $7.99/month</option>
+                                        <option value="standard">Standard - $12.99/month</option>
+                                        <option value="premium">Premium - $19.99/month</option>
                                     </select>
                                 </div>
                             </div>
@@ -311,6 +344,10 @@
                 planSelect.value = initialPlan && plans[initialPlan] ? initialPlan : 'standard';
                 updateSummary(planSelect.value);
             });
+            document.getElementById("toggle-password").onclick = function () {
+                const p = document.getElementById("password");
+                p.type = p.type === "password" ? "text" : "password";
+            };
         })();
     </script>
 
