@@ -95,6 +95,50 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Skip-link visibility and keyboard support
+    const skipLink = document.querySelector('.skip-link');
+    if (skipLink) {
+        const showSkipLink = () => {
+            skipLink.classList.remove('hidden');
+            skipLink.classList.add('show');
+            document.body.classList.add('skip-active');
+        };
+
+        const hideSkipLink = () => {
+            skipLink.classList.add('hidden');
+            skipLink.classList.remove('show');
+            document.body.classList.remove('skip-active');
+        };
+
+        window.addEventListener('scroll', hideSkipLink);
+        document.addEventListener('pointerdown', (event) => {
+            if (!skipLink.contains(event.target)) {
+                hideSkipLink();
+            }
+        });
+        document.addEventListener('touchstart', (event) => {
+            if (!skipLink.contains(event.target)) {
+                hideSkipLink();
+            }
+        });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Tab' || event.keyCode === 9) {
+                showSkipLink();
+            } else if (skipLink.classList.contains('show')) {
+                hideSkipLink();
+            }
+        });
+
+        skipLink.addEventListener('focus', showSkipLink);
+        skipLink.addEventListener('blur', () => {
+            if (window.scrollY > 0) {
+                hideSkipLink();
+            }
+        });
+
+        showSkipLink();
+    }
+
     // Enable transition animations only after initial rendering is done
     // This stops components from animating from light to dark on page load.
     setTimeout(() => {

@@ -5,15 +5,30 @@ if (skipLink) {
     function updateSkipLink() {
         if (window.scrollY > 0) {
             skipLink.classList.add('hidden');
+            skipLink.classList.remove('show');
         } else {
             skipLink.classList.remove('hidden');
+            skipLink.classList.add('show');
         }
     }
-// Add event listener for scroll events to update the skip link visibility
+
     window.addEventListener('scroll', updateSkipLink);
-// Add event listener for click events on the skip link to hide it when clicked
+
+    skipLink.addEventListener('focus', function () {
+        skipLink.classList.remove('hidden');
+        skipLink.classList.add('show');
+    });
+
+    skipLink.addEventListener('blur', function () {
+        if (window.scrollY > 0) {
+            skipLink.classList.add('hidden');
+            skipLink.classList.remove('show');
+        }
+    });
+
     skipLink.addEventListener('click', function () {
         skipLink.classList.add('hidden');
+        skipLink.classList.remove('show');
     });
 
     updateSkipLink();
